@@ -1,4 +1,10 @@
 \section{Własność izotopii odbijającej}
+
+\begin{df}
+  Homotopią na przestrzeni $X$ nazwiemy dowolne odwzorowanie ciągłe $f: X \times [0,1] \rightarrow X$. Będziemy posługiwać się też zapisem $(f_t)_{0 \leq t \leq 1}$ na oznaczenie homotopii, gdzie $f_t: X \ni x \rightarrow f(x,t) \in X$
+\end{df}
+
+
 \begin{df}
   Izotopią (izotopią odwracalną) na przestrzeni topologicznej $X$ nazwiemy homotopię $f: X \times [a, b] \rightarrow X$ taką, że $\cl{f}$ jest homeomorfizmem, gdzie:
   $$\cl{f}: X \times [a,b] \ni (x, t) \rightarrow (f(x, t), t) \in X \times [a,b]$$
@@ -19,7 +25,7 @@
     oraz
     $$h_1(y,y') = (f \times f) g_1(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y'), f^{-1}(y)) = (y', y)$$
     Co więcej naszą izotopię możemy zapisać jako:
-    $$\cl{h} = (f \times f \times id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times id_{[0,1]})$$
+    $$\cl{h} = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times \id_{[0,1]})$$
     zatem $\cl{h}$ jest homeomorfizmem na $Y \times Y \times [0,1]$, jako złożenie homeomorfizmów.
   \end{proof}
 \end{ex}
@@ -29,6 +35,12 @@
   $$(a+ib) \cdot (z, z') = (az - bz', bz + az')$$
   Zdefiniujemy następującą izotopię na $X \times X$:
   $$g_t(x,x') := e^{\frac{i \pi t}{2}} (x, x')$$
+  Istotnie, łatwo zauważyć, że:
+  $$\cl{g}((x,x'), t) = (e^{\frac{i\pi t}{2}}(x,x'), t)$$
+  jest odwzorowaniem ciągłym, a:
+  $$((x,x'),t) \rightarrow (e^{\frac{-i\pi t}{2}}(x,x'),t)$$
+  jest ciągłym odwzorowaniem odwrotnym.
+  
   Izotopia ta, ma następujące własności:
   $$g_0(x,x') = (x,x') \mbox{ oraz } g_1(x,x') = (x', -x)$$
   Zatem jest bardzo bliska izotopii odbijąjącej na $X$, jednak drugiej współrzędnej zmienia znak na przeciwny.
@@ -44,10 +56,14 @@
   $$k_0(x,x') = g_0(h_0(x), x') = (x, x')$$
   oraz
   $$k_1(x,x') = g_1(h_1(x), x') = (x', -h_1(x)) = (x', x)$$
+  
+  Aby spostrzec izotopijność tego odwzorowania wystarczy zapisać je jako złożenie homeomorfizmów:
+  $$k = \cl{g} \circ v \circ (\cl{h} \times \id_X) \circ v^{-1}$$
+  gdzie $v: X \times [0,1] \times X \ni (x, t, x) \rightarrow (x, x, t) \in X \times X \times [0,1]$
 \end{ex}
 
 \begin{ex} \label{rip-product}
-  Niech $X_i$ będzie przestrzenią z własnością izotopii odbijającej. Wówczas $X := \Pi_{i=1}^\infty X_i$ ma również własność izotopii odbijającej.
+  Niech $X_i$ będzie przestrzenią z własnością izotopii odbijającej. Wówczas $X := \prod_{i=1}^\infty X_i$ ma również własność izotopii odbijającej.
   \begin{proof}
     Niech $g_t^{(i)}: X_i \times X_i \rightarrow X_i \times X_i$ jest izotopią odbijającą.
     Wówczas:
@@ -60,7 +76,7 @@
 \end{ex}
 
 \begin{ex}
-  W szczególności z poprzednich przykładów wynika, że każda przestrzeń liniowo-metryczna $Y = \Pi_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\Pi_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mającej - na mocy \ref{rip-space} - własność izotopii odbijającej.
+  W szczególności z poprzednich przykładów wynika, że każda przestrzeń liniowo-topologiczna $Y = \prod_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\prod_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mających - na mocy \ref{rip-space} - własność izotopii odbijającej.
 \end{ex}
 
 
