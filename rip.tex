@@ -1,0 +1,66 @@
+\section{Własność izotopii odbijającej}
+\begin{df}
+  Izotopią (izotopią odwracalną) na przestrzeni topologicznej $X$ nazwiemy homotopię $f: X \times [a, b] \rightarrow X$ taką, że $\cl{f}$ jest homeomorfizmem, gdzie:
+  $$\cl{f}: X \times [a,b] \ni (x, t) \rightarrow (f(x, t), t) \in X \times [a,b]$$
+\end{df}
+
+\begin{df}
+  Powiemy, że przestrzeń topologiczna $X$ ma własność izotopii odbijającej (reflective isotopy property), krótko RIP, jeśli istnieje izotopia $(g_t)_{0 \leq t \leq 1}$ na $X \times X$ taka, że
+  $$g_0(x, x') = (x, x') \mbox{ oraz } g_1(x, x') = (x', x) \mbox{ dla każdego } (x, x') \in X \times X$$
+\end{df}
+
+\begin{ex}
+  Niech $X = Y$ poprzez homeomorfizm $f: X \rightarrow Y$. Wówczas $X$ ma RIP wtedy i tylko wtedy gdy $Y$ ma RIP.
+  \begin{proof}
+    Niech $(g_t)_{0 \leq t \leq 1}$ jest izotopią odbijającą na $X$. Wówczas:
+    $$h_t(y, y') := (f \times f) g_t(f^{-1}(y), f^{-1}(y'))$$
+    jest izotopią odbijającą na $Y$. Istotnie:
+    $$h_0(y,y') = (f \times f) g_0(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y), f^{-1}(y')) = (y, y')$$
+    oraz
+    $$h_1(y,y') = (f \times f) g_1(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y'), f^{-1}(y)) = (y', y)$$
+    Co więcej naszą izotopię możemy zapisać jako:
+    $$\cl{h} = (f \times f \times id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times id_{[0,1]})$$
+    zatem $\cl{h}$ jest homeomorfizmem na $Y \times Y \times [0,1]$, jako złożenie homeomorfizmów.
+  \end{proof}
+\end{ex}
+
+\begin{ex} \label{rip-space}
+  Niech $X$ i $Z$ są przestrzeniami liniowo-topologicznymi, takimi że $X = Z \times Z$. Weźmy homeomorfizm $f: X \rightarrow Z \times Z$, taki że $f(0) = (0,0)$. Na przestrzeni $Z \times Z$ wprowadźmy pomocniczą operację mnożenia przez skalary zespolone następującym wzorem:
+  $$(a+ib) \cdot (z, z') = (az - bz', bz + az')$$
+  Zdefiniujemy następującą izotopię na $X \times X$:
+  $$g_t(x,x') := e^{\frac{i \pi t}{2}} (x, x')$$
+  Izotopia ta, ma następujące własności:
+  $$g_0(x,x') = (x,x') \mbox{ oraz } g_1(x,x') = (x', -x)$$
+  Zatem jest bardzo bliska izotopii odbijąjącej na $X$, jednak drugiej współrzędnej zmienia znak na przeciwny.
+  
+  Aby temu zaradzić zdefiniujmy izotopię na $Z \times Z$:
+  $$h_t(z,z') := e^{i \pi t}(z, z')$$
+  która spełnia własności:
+  $$h_0(z,z') = (z,z') \mbox{ oraz } h_1(z,z') = (-z,-z')$$
+  
+  Dzięki tej pomocniczej izotopii możemy wprowadzić odwzorowanie:
+  $$k_t: X \times X \ni (x, x') \rightarrow g_t(h_t(x), x') \in X \times X$$ 
+  które staje się poprawną izotopią odwracającą na $X$, ponieważ:
+  $$k_0(x,x') = g_0(h_0(x), x') = (x, x')$$
+  oraz
+  $$k_1(x,x') = g_1(h_1(x), x') = (x', -h_1(x)) = (x', x)$$
+\end{ex}
+
+\begin{ex} \label{rip-product}
+  Niech $X_i$ będzie przestrzenią z własnością izotopii odbijającej. Wówczas $X := \Pi_{i=1}^\infty X_i$ ma również własność izotopii odbijającej.
+  \begin{proof}
+    Niech $g_t^{(i)}: X_i \times X_i \rightarrow X_i \times X_i$ jest izotopią odbijającą.
+    Wówczas:
+    $$g_t((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) := ((p_1 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty)$$
+    gdzie $p_1, p_2: X \times X \rightarrow X$ są odpowiednio projekcjami na pierwszą i drugą współrzędną, jest izotopią odbijającą, ponieważ
+    $$((p_1 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i, x_i'))_{i=1}^\infty, (p_2 (x_i, x_i'))_{i=1}^\infty) = ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)$$
+    oraz 
+    $$((p_1 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i', x_i))_{i=1}^\infty, (p_2 (x_i', x_i))_{i=1}^\infty) = ((x_i')_{i=1}^\infty, (x_i)_{i=1}^\infty)$$
+  \end{proof}
+\end{ex}
+
+\begin{ex}
+  W szczególności z poprzednich przykładów wynika, że każda przestrzeń liniowo-metryczna $Y = \Pi_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\Pi_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mającej - na mocy \ref{rip-space} - własność izotopii odbijającej.
+\end{ex}
+
+
