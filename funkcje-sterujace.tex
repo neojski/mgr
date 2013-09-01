@@ -1,0 +1,182 @@
+
+
+
+
+
+\section{Funkcje sterujące}
+\begin{df}
+Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y$, który da się zapisać jako $A = B \times \Pi_{i=n}^\infty X_i$ dla pewnego $n$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
+\end{df}
+
+
+\begin{note}[Własności zbiorów bazowych]
+\begin{itemize}
+  \item Zbiór $n$-bazowy jest jednocześnie $m$-bazowy dla $n \leq m$
+  \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\partial A = \partial B \times Y$.
+  \begin{proof}
+    $$\partial A = \partial(B \times Y) = \cl{B \times Y} \cap \cl{Y \setminus (B \times Y)} = \cl{B \times Y} \cap \cl{(Y \setminus B) \times Y} = \cl{B} \times Y \cap \cl{Y \setminus B} \times Y = \partial{B} \times Y$$
+  \end{proof}
+\end{itemize}
+
+\end{note}
+
+
+\begin{df}
+Funkcją sterującą nazwiemy odwzorowanie ciągłe $\lambda: Y \rightarrow [1,\infty]$ takie, że:
+$$\lambda(x) < n+1 \mbox{ i } s_n(x) = s_n(y) \Rightarrow \lambda(x) = \lambda(y)$$
+\end{df}
+
+\begin{note}
+Przykłady funkcji sterujących:
+  \begin{itemize}
+    \item dowolna funkcja stała, $\lambda(x) := \mbox{const}$
+    \item jeśli $\lambda_1$ i $\lambda_2$ są funkcjami sterującymi, to $\lambda(y) := \max(\lambda_1(y), \lambda_2(y))$ jest też funkcją sterującą
+  \begin{proof}
+    Niech $\lambda(y) \leq n+1$ i $s_n(x) = s_n(y)$. Wówczas $\lambda_1(y) \leq n+1$ oraz $\lambda_2(y) \leq n+1$, więc $\lambda(x) = \max(\lambda_1(x), \lambda_2(x)) = \max(\lambda_1(y), \lambda_2(y)) = \lambda(y)$.
+  \end{proof}
+  \end{itemize}
+\end{note}
+
+
+\begin{thm}[O poprawianiu funkcji sterujących]
+Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
+\begin{itemize}
+  \item $\rho|A = \lambda|A$
+  \item $\rho(y) < \infty\ \forall y \in Y \setminus A$
+\end{itemize}
+
+\begin{proof}
+  
+  Na początku zdefiniujmy następujące zbiory:
+  
+  $$U_n := \{y \in Y\ |\ d_n(s_n y, s_n A) \geq \frac{1}{n}\} \cup \{y \in Y\ |\ \lambda(y) \leq n+1\}$$
+  
+  Zauważmy, że $U_n$ są zbiorami $n$-bazowymi. Istotnie, niech $s_n(y) = s_n(x)$:
+  \begin{itemize}
+    \item jeśli $d_n(s_n y, s_n A) \geq \frac{1}{n}$, to $d_n(s_n x, s_n A) \geq \frac{1}{n}$
+    \item jeśli $\lambda(y) \leq n+1$, to z własności sterowania mamy również $\lambda(x) \leq n+1$
+  \end{itemize}
+  Zatem jeśli tylko $y \in U_n$ i $s_n(y) = s_n(x)$ to również $x \in U_n$, co oznacza $n$-bazowość zbioru $U_n$.
+  
+  Określamy również zbiory:
+  $$A_n := \cl{s_n({\{y \in A\ |\ \lambda(y) \leq n+1\}})}$$
+  
+  
+  
+  Zapiszmy więc $U_n$ w postaci: $U_n := V_n \times Y$, gdzie $V_n \subset \Pi_{i=1}^n$.
+  
+  Skonstruujemy indukcyjnie rodzinę funkcji:
+  $$\rho_n: U_n \rightarrow [1, n+1]$$
+  spełniających następujące warunki:
+  \begin{enumerate}[(a)]
+    \item \label{induction-1} $\rho_n(s_n y, z) = \lambda(y)$ o ile $s_n(y) \subset A_n$
+    \item \label{induction-2} $\rho_n \supset \rho_{n-1}$
+    \item \label{induction-3} $\rho_n y \geq n$ dla $y \in U_n \setminus U_{n-1}$
+    \item \label{induction-4} $\rho_n y = n+1$ dla $y \in \partial U_n$
+  \end{enumerate}
+  
+  Skorzystamy także z pomocniczych funkcji
+  $$\sigma: V_n \rightarrow [1,n+1]$$
+  
+  Określając później $\rho_n$ jako przedłużenie $\sigma_n$ w sposób produktowy:
+  $$\rho_n(y) := \sigma_n(s_n(y))$$
+  
+  Co jest warunkiem koniecznym, aby funkcja $\rho_n$ mogła zostać funkcją sterującą.
+
+  Konstrukcja:
+  $$\sigma_1: V_1 \rightarrow [1,2]$$
+  
+  Określamy $\sigma_1$ następującymi wzorami:
+  
+  $$
+  \sigma_1(x) := 
+    \begin{cases}
+      2,&\mbox{dla }x \in \partial V_1 \\
+      \lambda(x, \star_2),& \mbox{dla }x \in A_1 
+    \end{cases}
+  $$
+  
+  Zauważmy, że obie te definicje są ze sobą zgodne. Istotnie, weźmy $x \in \partial V_1 \cap x \in A_1$. Wówczas $(x, \star_2) \in \partial V_1 \times Y = \partial U_1$. Ale wówczas zachodzi jeden z warunków:
+  
+  \begin{itemize}
+    \item $d_1(s_1 (x, \star_2), s_1 A) = 1$
+    \item $\lambda(x, \star_2) = 2$
+  \end{itemize}
+
+  Warunek pierwszy z pewnością nie zachodzi, gdyż nie może być jednocześnie $d_1(x, s_1 A) = 1$ i $x \in A_1$.
+  Warunek drugi oznacza natomiast zgodność obu wzorów.
+  
+  Funkcję $\sigma_1$ określoną na zbiorze domkniętym $\partial V_1 \cup A_1$ przedłużamy z twierdzenia Titzego na zbiór $V_1$ z zachowaniem ciągłości.
+  
+  Zgodnie z zapowiedzią definiujemy więc:
+  $$\rho_1(y) := \sigma_1(s_1(y))\ \forall y \in U_1$$
+  
+  Funkcja ta w sposób jasny spełnia wszystkie stawiane warunki.
+  
+  Załóżmy teraz, indukcyjnie, że mamy już określoną funkcję $\rho_{n-1}$. Zdefiniujemy:
+  
+  $$\sigma_n: \cl{V_n \setminus (V_{n-1} \times X)} \rightarrow [1,n+1]$$
+  
+  Określamy:
+  $$
+  \sigma_n(x) := 
+    \begin{cases}
+      n,&\mbox{dla }x \in \partial V_{n-1} \times X \\
+      n+1,&\mbox{dla }x \in \partial V_n \\
+      \lambda(x, \star_{n+1}),\mbox{dla }x \in A_n
+    \end{cases}
+  $$
+
+  Sprawdźmy, że funkcja ta jest poprawnie określona, tj. na ewentualnych przecięciach wypisanych zbiorów domkniętych zdefiniowana jest tymi samymi wzorami.
+  
+  Zauważmy, że:
+  $$\partial V_n\ \cap\ (\partial V_{n-1} \times X) = \emptyset$$
+  ponieważ:
+  $$\partial V_n \times Y\ \cap\ \partial V_{n-1} \times Y = \partial U_n \cap \partial U_{n-1} = \emptyset$$
+  bo $U_{n-1} \subset \mbox{int} U_n$.
+  
+  Zachodzi również zgodność pozostałych wzorów. Niech $x \in \partial V_{n-1}$. Wówczas $(x, \star_n) \in \partial U_{n-1}$ a więc, jak poprzednio, $\lambda(x, \star_n) = n$ - co daje zgodność wzorów lub $d_{n-1}(x, s_{n-1} A) \geq \frac{1}{n-1}$ - co wyklucza należenie do $A_n$, ponieważ $(x, z) \in A_n$ wymusza $d_{n-1}(x, s_{n-1} A) = 0$.
+  
+  Podobnie pokazujemy zgodność $\partial V_n$ z $A_n$.
+  
+  Ostatecznie do $\sigma_n$ doklejamy jeszcze zgodną z nią funkcję $\sigma_{n-1}$ określoną na zbiorze $V_{n-1} \times X$ wzdłuż $\partial V_{n-1} \times X$. Z twierdzenia Titzego znów przedłużamy $\sigma_n$ otrzymując funkcję $\sigma_n$ określoną na $V_{n-1} \times X$.
+  
+  Funkcję $\rho_n$ definiujemy jak poprzednio:
+  
+  $$\rho_n y := \sigma_n (y_1, \ldots, y_n)$$
+  
+  To kończy nasze postępowanie indukcyjne.
+
+  Spójrzmy teraz na jakim zbiorze pozostaje nam określić funkcję: $Y \setminus \bigcup_{i=1}^\infty U_i$. Oczywiście $\bigcup_{i=1}^\infty \{y\ |\ \lambda(y) \leq n+1\} = \{y\ |\ \lambda(y) < \infty\}$. Przyjrzyjmy się uważniej drugiej części, tj.: $\bigcup_{i=1}^\infty \{y\ |\ d_n(s_n y, s_n A) \geq \frac{1}{n}\}$. Twierdzimy, że jest ona równa $Y \setminus A$.
+  
+  Istotnie. Niech $d_n(s_n y, s_n A) < \frac{1}{n}\ \forall n$.
+  
+  Istnieje wówczas ciąg $(a_k)_{k=0}^\infty \in A^\mathbb{N}$, taki że:
+  
+  $$d_n(s_n y, s_n a_n) < \frac{1}{n}\ \forall n \in \mathbb{N}_1$$
+  
+  Niech $\varepsilon > 0$, niech $n_0$ będzie tak duże, by $\Sigma_{i=n_0}^\infty < \frac{\varepsilon}{3}$. Ustalmy $k$ tak, aby  Wówczas dla dowolnego $n \geq n_0$:
+  
+  $$d(y, a_n) \leq d(y, (s_n y, \star_{n+1})) + d((s_n y, \star_{n+1}), (s_n a_n, \star_{n+1})) + d((s_n a_n, \star_{n+1}), a_n) \leq \frac{\varepsilon}{3} + d_n(s_n y, s_n a_n) + \frac{\varepsilon}{3} \leq \varepsilon$$
+  
+  Co oznacza, że $a_n \rightarrow y$ i tym samym $y \in A$.
+  
+  Zatem jedynym miejscem poza $\bigcup_{i=1}^\infty$ jest $\{y \in A\ |\ \lambda(y) = \infty\}$.
+  
+  Określamy więc pożądaną funkcję sterującą $\rho$ jako:
+  
+  $$\rho(x) := 
+    \begin{cases}
+      \rho_n(x),&\mbox{dla } x \in U_n \\
+      \infty,&\mbox{ w przeciwnym razie}
+    \end{cases}
+  $$
+  
+  Wykażemy teraz, że funkcja $\rho$ ma postulowane własności.
+  
+  Poprawna określoność wynika z własności \ref{induction-2} a ciągłość bezpośrednio z własności \ref{induction-3}. Widzimy również, że funkcja $\rho$ poza $A$ jest wszędzie skończona z własności \ref{induction-1} wynika natomiast zgodność z $\lambda$ na $A$.
+  
+  Pozostaje sprawdzić, że $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) \leq n+1$ i $s_n(y) = s_n(x)$. Wówczas $y \in U_n$. 
+\end{proof}
+\end{thm}
+
