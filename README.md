@@ -1,0 +1,4 @@
+mgr
+===
+
+praca magisterska
