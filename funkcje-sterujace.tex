@@ -1,15 +1,12 @@
-
-
-
-
-
 \section{Funkcje sterujące}
+
+
 \begin{df}
-Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y$, który da się zapisać jako $A = B \times \prod_{i=n}^\infty X_i$ dla pewnego $n$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
+Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y$, który da się zapisać jako $A = B \times \prod_{i=n+1}^\infty X_i$ dla pewnego $n$ i pewnego $B \subset \prod_{i=1}^n X_i$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
 \end{df}
 
 
-\begin{note}[Własności zbiorów bazowych]
+\begin{note}[Własności zbiorów bazowych] \mbox{} % break line here
 \begin{itemize}
   \item Zbiór $n$-bazowy jest jednocześnie $m$-bazowy dla $n \leq m$
   \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\partial A = \partial B \times Y$.
@@ -18,7 +15,6 @@ Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y$, który da się zapisać j
   \end{proof}
   \item Domknięcie zbioru $n$-bazowego jest zbiorem $n$-bazowym
 \end{itemize}
-
 \end{note}
 
 
@@ -75,7 +71,7 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
   $$\rho_n: \cl{U_n} \rightarrow [1, n+1]$$
   spełniających następujące warunki:
   \begin{enumerate}[(a)]
-    \item \label{induction-1} $\rho_n(s_n y, z) = \lambda(y)$ o ile $s_n(y) \in A_n$
+    \item \label{induction-1} $\rho_n(s_n y, z) = \lambda(y)$ o ile $s_n(y) \in A_n$, $z \in Y$
     \item \label{induction-2} $\rho_n \supset \rho_{n-1}$
     \item \label{induction-3} $\rho_n y \geq n$ dla $y \in \cl{U_n \setminus U_{n-1}}$
     \item \label{induction-4} $\rho_n y = n+1$ dla $y \in \partial U_n$
@@ -100,7 +96,7 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
     \end{cases}
   $$
   
-  Zauważmy, że obie te definicje są ze sobą zgodne. Istotnie, weźmy $x \in \partial V_1 \cap x \in A_1$. Wówczas $(x, \star_2) \in \partial V_1 \times Y = \partial U_1$. Ale wówczas zachodzi jeden z warunków:
+  Zauważmy, że obie te definicje są ze sobą zgodne. Istotnie, weźmy $x \in \partial V_1 \cap A_1$. Wówczas $(x, \star_2) \in \partial V_1 \times Y = \partial U_1$. Ale wówczas zachodzi jeden z warunków:
   
   \begin{itemize}
     \item $d_1(s_1 (x, \star_2), s_1 A) = 1$
@@ -155,15 +151,15 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
   
   Istotnie. Niech $d_n(s_n y, s_n A) \leq \frac{1}{n}\ \forall n$.
   
-  Istnieje wówczas ciąg $(a_k)_{k=0}^\infty \in A^\mathbb{N}$, taki że:
+  Istnieje wówczas ciąg $(a_n)_{n=0}^\infty \in A^\mathbb{N}$, taki że:
   
   $$d_n(s_n y, s_n a_n) < \frac{2}{n}\ \forall n \in \mathbb{N}_1$$
   
-  Niech $\varepsilon > 0$, niech $n_0$ będzie tak duże, by $\sum_{i=n_0}^\infty \frac{1}{2^n}< \frac{\varepsilon}{3}$ oraz $\frac{2}{n_0} < \frac{\varepsilon}{3}$. Wówczas dla dowolnego $n \geq n_0$:
+  Niech $\varepsilon > 0$, niech $n_0$ będzie tak duże, by $\sum_{i=n_0}^\infty \frac{1}{2^i}< \frac{\varepsilon}{3}$ oraz $\frac{2}{n_0} < \frac{\varepsilon}{3}$. Wówczas dla dowolnego $n \geq n_0$:
   
   $$d(y, a_n) \leq d(y, (s_n y, \star_{n+1})) + d((s_n y, \star_{n+1}), (s_n a_n, \star_{n+1})) + d((s_n a_n, \star_{n+1}), a_n) \leq \frac{\varepsilon}{3} + d_n(s_n y, s_n a_n) + \frac{\varepsilon}{3} \leq \varepsilon$$
   
-  Co oznacza, że $a_n \rightarrow y$ i tym samym $y \in A$.
+  Co oznacza, że $a_n \rightarrow y$ i tym samym $y \in \cl{A} = A$.
   
   Zatem jedynym miejscem poza $\bigcup_{i=1}^\infty U_i$ jest $\{y \in A\ |\ \lambda(y) = \infty\}$.
   
