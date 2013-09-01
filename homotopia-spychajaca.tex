@@ -1,0 +1,37 @@
+\section{Homotopia spychająca}
+\begin{df}
+  Homotopię $f: Y \times X \times [1,\infty] \rightarrow Y$ nazwiemy spychającą jeśli spełnione są następujące warunki:
+  \begin{enumerate}
+    \item \label{displacement-proj} $s_n f_t(y,x) = s_n(y)$, dla $n \leq t$
+    \item \label{displacement-infty} $f_\infty(y,x) = y$, dla $(y,x) \in Y \times X$
+    \item \label{displacement-homeo} $F(y,x,t) := (f_t(y,x), t)$ jest homeomorfizmem między $Y \times X \times [1,\infty)$ a $Y \times [1,\infty)$
+  \end{enumerate}
+\end{df}
+
+
+\begin{thm}[O istnieniu homotopii spychającej]
+  Jeśli $X$ ma RIP, to na $Y$ można skonstruować homotopię spychającą.
+  \begin{proof}
+    Niech $(g_t)_{0 \leq t \leq 1}$ będzie izotopią odbijającą na $X$. Dla $n \in \mathbb{N}_1$ i $t \in [0,1]$ definiujemy:
+    $$f_{n+t}(y,x) := (y_1, \ldots, y_n, g_t(x, y_{n+1}), y_{n+2}, \ldots)$$
+    Dalej definiujemy, zgodnie z wzorem \ref{displacement-infty}:
+    $$f_\infty(y,x) = y$$
+    
+    Funkcja ta jest w jasny sposób poprawnie określona na zbiorze $Y \times X \times ([1, \infty) \setminus \mathbb{N}_1)$. W punktach $Y \times X \times \mathbb{N}_1$ obowiązują natomiast dwa wzory:
+    $$f_{(n+1) + 0}(y,x) = (y_1, \ldots, y_n, y_{n+1}, g_0(x, y_{n+2}), y_{n+3}, \ldots)$$
+    oraz
+    $$f_{(n+0) + 1}(y,x) = (y_1, \ldots, y_n, g_1(x, y_{n+1}), y_{n+2}, y_{n+3}, \ldots)$$
+    które jednak ze względu na własności izotopii odbijającej:
+    $$g_0(x, y_{n+2}) = (x, y_{n+2}) \mbox{ i } g_1(x, y_{n+1}) = (y_{n+1}, x)$$
+    zadają funkcję w ten sam sposób. Z powyższego wzoru widzimy, że warunek \ref{displacement-proj} jest spełniony.
+    
+    Pozostaje więc zaobserwować ciągłość w punktach $Y \times X \times \{\infty\}$. Istotnie, weźmy $(u_n, (y_n, x_n)) \rightarrow (\infty, (y,x))$, $n \rightarrow \infty$. Niech $m \in \mathbb{N}_1$ oraz $n_0$ takie, że $u_n \geq m$ dla $n \geq n_0$. Wówczas:
+    $$s_m f_{u_n}(y_n, x_n) = s_m(y_n) \rightarrow s_m(y) = s_m f_\infty (y,x)$$
+    
+    Co daje ciągłość funkcji $f$.
+    
+    Spełniony jest również warunek \ref{displacement-homeo}. Istotnie, łatwo sprawdzić, że funkcja:
+    $$(z, n+t) \rightarrow ((z_1, \ldots, z_n, p_2 \circ \cl{g}^{-1} ((z_{n+1}, z_{n+2}), t), z_{n+3}, \ldots), p_1 \circ \cl{g}^{-1}((z_{n+1}, z_{n+2}), t), n+t)$$
+    gdzie $p_1, p_2:  X \times X \rightarrow X$ są projekcjami na odpowiednio pierwszą i drugą współrzędną, jest ciągłą funkcją odwrotną do $F$.
+  \end{proof}
+\end{thm}
