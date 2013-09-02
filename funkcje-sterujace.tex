@@ -36,6 +36,7 @@ Przykłady funkcji sterujących:
 
 
 \begin{thm}[O poprawianiu funkcji sterujących]
+\label{thm:steering-function}
 Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
 \begin{itemize}
   \item $\rho|A = \lambda|A$
@@ -179,4 +180,14 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
   Pozostaje sprawdzić, że $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) < n+1$ i $s_n(y) = s_n(x)$. Wówczas $y \in U_n$. Ale $\rho(y) = \rho_n(y) = \sigma_n(s_n y) = \sigma_n(s_n x) = \rho_n(x) = \rho(x)$
 \end{proof}
 \end{thm}
+
+
+\begin{cor}
+  Niech $A$ będzie domkniętym podzbiorem $X$. Wówczas istnieje funkcja sterująca $\lambda$ taka, że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$.
+  
+  \begin{proof}
+    Niech $\mu: Y \ni y \rightarrow \infty \in [1, \infty]$ będzie funkcją sterującą. Z poprzedniego twierdzenia poprawiamy funkcję $\mu$ na $A$, otrzymując $\lambda$ o żądanych własnościach: $\lambda|A = \mu|A = \infty$ oraz $\lambda(y) < \infty$ dla $y \in Y \setminus A$.
+  \end{proof}
+\end{cor}
+
 
