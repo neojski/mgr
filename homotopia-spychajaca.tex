@@ -35,3 +35,21 @@
     gdzie $p_1, p_2:  X \times X \rightarrow X$ są projekcjami na odpowiednio pierwszą i drugą współrzędną, jest ciągłą funkcją odwrotną do $F$.
   \end{proof}
 \end{thm}
+
+
+\begin{prop}
+  Homotopia spychająca spełnia następujący warunek:
+  $$\mbox{Jeśli }	(z_n, t_n) \rightarrow (z, \infty), \mbox{ to } p_Y f_{t_n}^{-1}(z_n) \rightarrow z$$
+  \begin{proof}
+    Niech $z_n \rightarrow z$ i $t_n \rightarrow \infty$. Oznaczmy:
+    $$(y_n, x_n) := f_{t_n}^{-1}(z_n)$$
+    A więc
+    $$f_{t_n}(y_n, x_n) = z_n$$
+    Ustalmy $k \in \mathbb{N}_1$ oraz $n_0$ tak duże, że dla $n \geq n_0$ zachodzi $t_n \geq k$. Wówczas z własności \ref{displacement-proj} mamy:
+    $$s_k y_n = s_k f_{t_n}(y_n, x_n)$$
+    Skąd:
+    $$s_k p_Y f_{t_n}^{-1}(z_n) = s_k y_n = s_k z_n \rightarrow s_k z$$
+    Z dowolności $k$ otrzymujemy tezę.
+  \end{proof}
+\end{prop}
+
