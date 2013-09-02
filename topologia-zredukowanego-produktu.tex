@@ -28,15 +28,15 @@
   \end{enumerate}
 
   
-  Co więcej, $f_0$ reprezentuje funkcję ciągłą $f$ wtedy i tylko wtedy gdy $\forall (m_i, n_i)_{i=1}^\infty \in (M \times N)^{\mathbb{N}_1}:$
+  Co więcej, $f$ reprezentuje funkcję ciągłą $f_0$ wtedy i tylko wtedy gdy $\forall (m_i, n_i)_{i=1}^\infty \in (M \times N)^{\mathbb{N}_1}:$
   $$m_i \rightarrow a \in A \mbox{ pociąga } f(m_i, n_i) \rightarrow f(a, n_1)$$
   
   \begin{proof}
     Niech $(m_i, n_i)_{i=1}^\infty \in (M \times N)^{\mathbb{N}_1}$ i $m_i \rightarrow a \in A$.
     
-    Wówczas z definicji topologii na $(M \times N)_A$ zachodzi $(m_i, n_i) \rightarrow a$, ponieważ otoczenia $a$ są postaci $p^{-1}(U)$ dla $U$ otoczenie $a$. A więc wobec ciągłości $f_0$ otrzymujemy: $f(m_i, n_i) = f_0 p(m_i, n_i) = f_0(m_i, n_i) \rightarrow f_0(a) = f(a, x_1)$.
+    Wówczas z definicji topologii na $(M \times N)_A$ zachodzi $p(m_i, n_i) \rightarrow a$, ponieważ otoczenia $a$ są postaci $p^{-1}(U)$ dla $U$ otoczenie $a$. A więc wobec ciągłości $f_0$ otrzymujemy: $f(m_i, n_i) = f_0 p(m_i, n_i) \rightarrow f_0(a) = f(a, x_1)$.
     
-    Z drugiej strony, wykażemy ciągłość $f_0$. Wystarczy sprawdzić przypadek $(m_i, n_i) \rightarrow a \in A$. Ale wówczas z definicji topologii zredukowanego produktu $m_i \rightarrow a \in A$, co z założenia daje $f_0(m_i, n_i) = f(m_i, n_i) \rightarrow f(a, x_1) = f_0(a)$, czyli ciągłość $f_0$.
+    Z drugiej strony, wykażemy ciągłość $f_0$. Wystarczy sprawdzić przypadek ciągu $p(m_i, n_i) \rightarrow a \in A$. Ale wówczas z definicji topologii zredukowanego produktu $m_i \rightarrow a \in A$, co z założenia daje $f_0 p(m_i, n_i) = f(m_i, n_i) \rightarrow f(a, x_1) = f_0(a)$, czyli ciągłość $f_0$.
   \end{proof}
 \end{prop}
 
