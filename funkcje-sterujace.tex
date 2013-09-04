@@ -38,10 +38,12 @@ Przykłady funkcji sterujących:
 \begin{thm}[O poprawianiu funkcji sterujących]
 \label{thm:steering-function}
 Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
-\begin{itemize}
-  \item $\rho|A = \lambda|A$
-  \item $\rho(y) < \infty\ \forall y \in Y \setminus A$
-\end{itemize}
+
+\begin{gather}
+ \rho|A = \lambda|A \\
+ \rho(y) < \infty\ \forall y \in Y \setminus A \\
+ 2^{\rho(y)} \geq \frac{4}{d(y,A)}\ \forall y \in Y \setminus A
+\end{gather}
 
 \begin{proof}
   

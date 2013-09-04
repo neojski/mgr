@@ -1,0 +1,30 @@
+\section{Twierdzenie Andersona-Schoriego o spłaszczaniu rozmaitości}
+
+\begin{lem}
+  Niech $X$ będzie przestrzenią metryczną z RIP, a $Y = X^{\mathbb{N}_1}$. Niech $V$ będzie zbiorem otwartym w $Y$ i $A, B \subset V$ takie, że $B = \cl{B}$ oraz $A = \cl{A} \cap V$. Oznaczmy przez $p$ projekcję z definicji zredukowanego produktu $(V \times X)_A$. Wówczas istnieje zbiór $C$: $B \subset C = \cl{C} \subset V$ i homeomorfizm $h$ zbioru $(V \times X)_A$ na $(V \times X)_{A \cup B}$ o następującej własności:
+  
+  \begin{equation} \label{eq:as-lem-1}
+  h(z) = z \mbox{ dla } p(z) \in (V \setminus C) \cup A
+  \end{equation}
+  
+  \begin{proof}
+    Niech
+    $$L := \{y \in Y\ |\ d(y, Y \setminus V) \leq d(y, B)\}$$
+    Określamy funkcję sterującą $\lambda$ w ten sposób, że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in (Y \setminus V) \cup A \cup B$.
+    Definiujemy również funkcję sterującą $\rho$ jako funkcję sterującą $\lambda$ poprawioną na zbiorze $A \cup L$. Dzięki temu $\rho(y) = \infty$ wtedy i tylko wtedy, gdy $y \in Y \setminus (A \cup L)$ i $\lambda(y) = \infty$, czyli $(A \cup L) \cap ((Y \setminus V) \cup A \cup B) = (Y \setminus V) \cup A$.
+    
+    Podsumowując, określiliśmy funkcje sterujące o następujących własnościach:
+    $$\lambda(y) \Leftrightarrow y \in (Y \setminus V) \cup A \cup B$$
+    $$\rho(y) = \infty \Leftrightarrow (Y \setminus V) \cup A$$
+    $$\rho(y) = \lambda(y), \mbox{ dla } y \in A \cup B$$
+    
+    Z wniosku pierwszego twierdzenie o spłaszczaniu istnieje homeomorfizm $f: (Y \times X)_{(Y \setminus V) \cup A \cup B} \rightarrow Y$ generowany przez funkcję sterującą $\lambda$ oraz $g: (Y \times X)_{(Y \setminus V) \cup A} \rightarrow Y$ generowany przez funkcję sterującą $\rho$. Oba te homeomorfizmy nad $Y \setminus V$ są identycznościowe, więc $f|(V \times X)_{A \cup B}$ jest homeomorfizmem $(V \times X)_{A \cup B}$ na $V$, a $g|(V \times X)_{A}$ jest homeomorfizmem $(V \setminus X)_{A}$ na $V$. Oznaczmy te zawężenia odpowiednio przez $f$ i $g$.
+    
+    Definiujemy żądany homeomorfizm jako:
+    $$h := f^{-1} g: (Y \times X)_{A} \rightarrow (Y \times X)_{A \cup B}$$
+    
+    Należy jeszcze wykazać, że zachodzi warunek \eqref{eq:as-lem-1}. Istotnie, niech
+    $$C := \{y \in Y\ |\ d(y,B) \leq 4 d(y, Y \setminus V)\}$$
+  \end{proof}
+
+\end{lem}
