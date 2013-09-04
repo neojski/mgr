@@ -6,45 +6,45 @@
     Niech $\lambda$ będzie funkcją sterującą na $Y$, taką że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$.
     Niech $(f_t)_{0 \leq t \leq 1}$ będzie homotopią spychającą $Y \times X \rightarrow Y$
     Definiujemy:
-    $$h(y,x) := f_{\lambda(y)}(y,x)$$
+    \[h(y,x) := f_{\lambda(y)}(y,x)\]
     Wówczas dla $a \in A$, $x \in X$ mamy:
-    $$h(a,x) = f_{\lambda(a)}(a,x) = f_\infty(a,x) = a$$
+    \[h(a,x) = f_{\lambda(a)}(a,x) = f_\infty(a,x) = a\]
     Co więcej, weźmy $y_n \rightarrow a \in A$. Wtedy $\lambda(y_n) \rightarrow \lambda(a) = \infty$, a więc przy ustalonym $k \in \mathbb{N}_1$ i $n_0$ taki, aby $\lambda(y_n) \geq k$ dla $n \geq n_0$ mamy:
-    $$s_k h(y_n, x_n) = s_k f_{\lambda(y_n)}(y_n,x_n) = s_k y_n \rightarrow s_k a$$
+    \[s_k h(y_n, x_n) = s_k f_{\lambda(y_n)}(y_n,x_n) = s_k y_n \rightarrow s_k a\]
     Zatem $h(y_n,x_n) \rightarrow a = h(a, x_1)$, więc $h$ reprezentuje funkcję ciągłą $h_0: (Y \times X)_A \rightarrow Y$.
     
     Pokażemy, że $h_0$ jest szukanym homeomorfizmem, a funkcją do niego odwrotną jest $g$ zdefiniowane następująco:
     
-    $$g: Y \ni z \rightarrow
+    \[g: Y \ni z \rightarrow
     \begin{cases}
       z,& z\in A \\
       f^{-1}_{\lambda(z)}(z),& z \in Y \setminus A
-    \end{cases}$$
+    \end{cases}\]
     
     Istotnie, aby wykazać ciągłość funkcji $g$ wystarczy sprawdzić ciąg $Y \ni z_n \rightarrow a \in A$. Ale skoro $\lambda(a) = \infty$ mamy $\lambda(z_n) \rightarrow \infty$, co z własności funkcji sterujących daje $p_Y f_{\lambda(z_n)}^{-1}(z_n) \rightarrow a$, co z kolei - ze względu na topologię na $(Y \times X)_A$ oznacza, że:
-    $$f_{\lambda(z_n)}^{-1}(z_n) \rightarrow a \mbox{ w } (Y \times X)_A$$
+    \[f_{\lambda(z_n)}^{-1}(z_n) \rightarrow a \mbox{ w } (Y \times X)_A\]
 
     Należy się jeszcze upewnić, że $h$ i $g$ są funkcjami wzajemnie odwrotnymi.
     
     Najpierw wykażemy prostszą równość, mianowicie $gh_0(y,x) = (y,x)$. Jeśli $y \in A$ mamy wprost $gh_0(y,x) = gy = y$. Jeśli natomiast $y \in Y \setminus A$, to:
-    $$gh_0(y,x) = f^{-1}_{\lambda(y)} f_{\lambda(y)}(y,x) = (y,x)$$
+    \[gh_0(y,x) = f^{-1}_{\lambda(y)} f_{\lambda(y)}(y,x) = (y,x)\]
     
     Aby wykazać równość $h_0g(z) = z\ \forall z \in Y$, zauważmy następującą własność:
     
-    $$\lambda(p_Y f_{\lambda(z)}^{-1}(z)) = \lambda(z)\ \forall z \in Y \setminus A$$
+    \[\lambda(p_Y f_{\lambda(z)}^{-1}(z)) = \lambda(z)\ \forall z \in Y \setminus A\]
     
     Istotnie, niech
-    $$(y,x) := f_{\lambda(z)}^{-1}(z)$$
+    \[(y,x) := f_{\lambda(z)}^{-1}(z)\]
     Wówczas
-    $$z = f_{\lambda(z)}(y,x)$$
+    \[z = f_{\lambda(z)}(y,x)\]
     Ale $\lambda(z) < \infty$, więc $\exists n \in \mathbb{N}_1: \lambda(z) \in [n, n+1)$. Ale wtedy z własności homotopii spychającej dla $n \leq \lambda(z)$.
-    $$s_n z = s_n f_{\lambda(z)}(y,x) = s_n y$$
+    \[s_n z = s_n f_{\lambda(z)}(y,x) = s_n y\]
     Skoro $\lambda(z) < n+1$, to z własności funkcji sterującej $\lambda$ otrzymujemy:
-    $$\lambda z = \lambda y$$
+    \[\lambda z = \lambda y\]
     Co razem z równością $y = p_Y f_{\lambda(z)}^{-1}(z)$ daje wspomnianą własność.
     
     Teraz możemy wrócić do dowodu. Zauważmy, że dla $z \in A$ znów nie ma problemu: $h_0g(z) = h_0(z) = z$. Natomiast dla $z \in Y \setminus A$ mamy:
-    $$h_0g(z) = h_0(f_{\lambda(z)}^{-1}(z)) = f_{\lambda(p_Y f_{\lambda(z)}^{-1}(z))}(f_{\lambda(z)}^{-1}(z)) = f_{\lambda(z)}(f_{\lambda(z)}^{-1}(z)) = z$$
+    \[h_0g(z) = h_0(f_{\lambda(z)}^{-1}(z)) = f_{\lambda(p_Y f_{\lambda(z)}^{-1}(z))}(f_{\lambda(z)}^{-1}(z)) = f_{\lambda(z)}(f_{\lambda(z)}^{-1}(z)) = z\]
     
     Tym samym wykazaliśmy, że $h_0$ jest homeomorfizmem pomiędzy $(Y \times X)_A$ a $Y$ identycznościowym nad $A$.
   \end{proof}
@@ -56,11 +56,11 @@ Bezpośrednio z dowodu wynika następujący wniosek:
   Niech $X$ będzie przestrzenią metryczną z RIP, $Y = X^{\mathbb{N}_1}$, $\cl{A} = A \subset Y$.
   Wówczas dla dowolnej funkcji sterującej $\lambda$, takiej że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$ zachodzi:
   
-  $$h: Y \times X \ni (y,x) \rightarrow f_{\lambda(y)}(y,x) = 
+  \[h: Y \times X \ni (y,x) \rightarrow f_{\lambda(y)}(y,x) = 
     \begin{cases}
       f_{\lambda(y)}(y,x),&y \in Y \setminus A \\
       y,&y \in A
-    \end{cases}$$
+    \end{cases}\]
   
   reprezentuje homeomorfizm $h_0$ pomiędzy $(Y \times X)_A$ na $Y$. Co więcej, $h_0(a) = a$, dla $a \in A \subset (Y \times X)_A$.
 \end{cor}

@@ -7,58 +7,58 @@
 
 \begin{df}
   Izotopią (izotopią odwracalną) na przestrzeni topologicznej $X$ nazwiemy homotopię $f: X \times [a, b] \rightarrow X$ taką, że $\cl{f}$ jest homeomorfizmem, gdzie:
-  $$\cl{f}: X \times [a,b] \ni (x, t) \rightarrow (f(x, t), t) \in X \times [a,b]$$
+  \[\cl{f}: X \times [a,b] \ni (x, t) \rightarrow (f(x, t), t) \in X \times [a,b]\]
 \end{df}
 
 \begin{df}
   Powiemy, że przestrzeń topologiczna $X$ ma własność izotopii odbijającej (reflective isotopy property), krótko RIP, jeśli istnieje izotopia $(g_t)_{0 \leq t \leq 1}$ na $X \times X$ taka, że
-  $$g_0(x, x') = (x, x') \mbox{ oraz } g_1(x, x') = (x', x) \mbox{ dla każdego } (x, x') \in X \times X$$
+  \[g_0(x, x') = (x, x') \mbox{ oraz } g_1(x, x') = (x', x) \mbox{ dla każdego } (x, x') \in X \times X\]
 \end{df}
 
 \begin{ex}
   Niech $X = Y$ poprzez homeomorfizm $f: X \rightarrow Y$. Wówczas $X$ ma RIP wtedy i tylko wtedy gdy $Y$ ma RIP.
   \begin{proof}
     Niech $(g_t)_{0 \leq t \leq 1}$ jest izotopią odbijającą na $X$. Wówczas:
-    $$h_t(y, y') := (f \times f) g_t(f^{-1}(y), f^{-1}(y'))$$
+    \[h_t(y, y') := (f \times f) g_t(f^{-1}(y), f^{-1}(y'))\]
     jest izotopią odbijającą na $Y$. Istotnie:
-    $$h_0(y,y') = (f \times f) g_0(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y), f^{-1}(y')) = (y, y')$$
+    \[h_0(y,y') = (f \times f) g_0(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y), f^{-1}(y')) = (y, y')\]
     oraz
-    $$h_1(y,y') = (f \times f) g_1(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y'), f^{-1}(y)) = (y', y)$$
+    \[h_1(y,y') = (f \times f) g_1(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y'), f^{-1}(y)) = (y', y)\]
     Co więcej naszą izotopię możemy zapisać jako:
-    $$\cl{h} = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times \id_{[0,1]})$$
+    \[\cl{h} = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times \id_{[0,1]})\]
     zatem $\cl{h}$ jest homeomorfizmem na $Y \times Y \times [0,1]$, jako złożenie homeomorfizmów.
   \end{proof}
 \end{ex}
 
 \begin{ex} \label{rip-space}
   Niech $X$ i $Z$ są przestrzeniami liniowo-topologicznymi, takimi że $X = Z \times Z$. Weźmy homeomorfizm $f: X \rightarrow Z \times Z$, taki że $f(0) = (0,0)$. Na przestrzeni $Z \times Z$ wprowadźmy pomocniczą operację mnożenia przez skalary zespolone następującym wzorem:
-  $$(a+ib) \cdot (z, z') = (az - bz', bz + az')$$
+  \[(a+ib) \cdot (z, z') = (az - bz', bz + az')\]
   Zdefiniujemy następującą izotopię na $X \times X$:
-  $$g_t(x,x') := e^{\frac{i \pi t}{2}} (x, x')$$
+  \[g_t(x,x') := e^{\frac{i \pi t}{2}} (x, x')\]
   Istotnie, łatwo zauważyć, że:
-  $$\cl{g}((x,x'), t) = (e^{\frac{i\pi t}{2}}(x,x'), t)$$
+  \[\cl{g}((x,x'), t) = (e^{\frac{i\pi t}{2}}(x,x'), t)\]
   jest odwzorowaniem ciągłym, a:
-  $$((x,x'),t) \rightarrow (e^{\frac{-i\pi t}{2}}(x,x'),t)$$
+  \[((x,x'),t) \rightarrow (e^{\frac{-i\pi t}{2}}(x,x'),t)\]
   jest ciągłym odwzorowaniem odwrotnym.
   
   Izotopia ta, ma następujące własności:
-  $$g_0(x,x') = (x,x') \mbox{ oraz } g_1(x,x') = (x', -x)$$
+  \[g_0(x,x') = (x,x') \mbox{ oraz } g_1(x,x') = (x', -x)\]
   Zatem jest bardzo bliska izotopii odbijąjącej na $X$, jednak drugiej współrzędnej zmienia znak na przeciwny.
   
   Aby temu zaradzić zdefiniujmy izotopię na $Z \times Z$:
-  $$h_t(z,z') := e^{i \pi t}(z, z')$$
+  \[h_t(z,z') := e^{i \pi t}(z, z')\]
   która spełnia własności:
-  $$h_0(z,z') = (z,z') \mbox{ oraz } h_1(z,z') = (-z,-z')$$
+  \[h_0(z,z') = (z,z') \mbox{ oraz } h_1(z,z') = (-z,-z')\]
   
   Dzięki tej pomocniczej izotopii możemy wprowadzić odwzorowanie:
-  $$k_t: X \times X \ni (x, x') \rightarrow g_t(h_t(x), x') \in X \times X$$ 
+  \[k_t: X \times X \ni (x, x') \rightarrow g_t(h_t(x), x') \in X \times X\]
   które staje się poprawną izotopią odwracającą na $X$, ponieważ:
-  $$k_0(x,x') = g_0(h_0(x), x') = (x, x')$$
+  \[k_0(x,x') = g_0(h_0(x), x') = (x, x')\]
   oraz
-  $$k_1(x,x') = g_1(h_1(x), x') = (x', -h_1(x)) = (x', x)$$
+  \[k_1(x,x') = g_1(h_1(x), x') = (x', -h_1(x)) = (x', x)\]
   
   Aby spostrzec izotopijność tego odwzorowania wystarczy zapisać je jako złożenie homeomorfizmów:
-  $$k = \cl{g} \circ v \circ (\cl{h} \times \id_X) \circ v^{-1}$$
+  \[k = \cl{g} \circ v \circ (\cl{h} \times \id_X) \circ v^{-1}\]
   gdzie $v: X \times [0,1] \times X \ni (x, t, x) \rightarrow (x, x, t) \in X \times X \times [0,1]$
 \end{ex}
 
@@ -67,11 +67,11 @@
   \begin{proof}
     Niech $g_t^{(i)}: X_i \times X_i \rightarrow X_i \times X_i$ jest izotopią odbijającą.
     Wówczas:
-    $$g_t((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) := ((p_1 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty)$$
+    \[g_t((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) := ((p_1 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty)\]
     gdzie $p_1, p_2: X \times X \rightarrow X$ są odpowiednio projekcjami na pierwszą i drugą współrzędną, jest izotopią odbijającą, ponieważ
-    $$((p_1 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i, x_i'))_{i=1}^\infty, (p_2 (x_i, x_i'))_{i=1}^\infty) = ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)$$
+    \[((p_1 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i, x_i'))_{i=1}^\infty, (p_2 (x_i, x_i'))_{i=1}^\infty) = ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)\]
     oraz 
-    $$((p_1 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i', x_i))_{i=1}^\infty, (p_2 (x_i', x_i))_{i=1}^\infty) = ((x_i')_{i=1}^\infty, (x_i)_{i=1}^\infty)$$
+    \[((p_1 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i', x_i))_{i=1}^\infty, (p_2 (x_i', x_i))_{i=1}^\infty) = ((x_i')_{i=1}^\infty, (x_i)_{i=1}^\infty)\]
   \end{proof}
 \end{ex}
 
