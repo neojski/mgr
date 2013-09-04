@@ -41,8 +41,7 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
 
 \begin{gather}
  \rho|A = \lambda|A \\
- \rho(y) < \infty\ \forall y \in Y \setminus A \\
- 2^{\rho(y)} \geq \frac{4}{d(y,A)}\ \forall y \in Y \setminus A
+ \rho(y) < \infty\ \forall y \in Y \setminus A
 \end{gather}
 
 \begin{proof}
@@ -184,11 +183,45 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
 \end{thm}
 
 
-\begin{cor}
+\begin{cor} \label{cor:steering-finite}
   Niech $A$ będzie domkniętym podzbiorem $X$. Wówczas istnieje funkcja sterująca $\lambda$ taka, że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$.
   
   \begin{proof}
     Niech $\mu: Y \ni y \rightarrow \infty \in [1, \infty]$ będzie funkcją sterującą. Z poprzedniego twierdzenia poprawiamy funkcję $\mu$ na $A$, otrzymując $\lambda$ o żądanych własnościach: $\lambda|A = \mu|A = \infty$ oraz $\lambda(y) < \infty$ dla $y \in Y \setminus A$.
+  \end{proof}
+\end{cor}
+
+\begin{lem}
+  Dla każdej liczby naturalnej większej lub równej $1$ zachodzi elementarna nierówność:
+  \[4(n+1) \leq 2^{8n}\]
+  
+  \begin{proof}
+    Dla $n = 1$ nierówność przyjmuje postać: $4(1+1) = 8 \leq 256 = 2^8$.
+    Załóżmy, że nierówność jest prawdziwa dla $n \geq 1$. Wówczas:
+    
+    \[4(n+2) \leq 4(n+1) + 4 \leq 2^{8n} + 4 \leq 2^{8n} + 2^{8n} = 2^{8n + 1} \leq 2^{8(n+1)}\]
+    
+    Co kończy dowód indukcyjny.
+  \end{proof}
+\end{lem}
+
+\begin{cor}
+  Niech $A$ będzie domkniętym podzbiorem $X$. Wówczas istnieje funkcja sterująca $\mu$ taka że $\rho(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$ oraz:
+  
+  \[2^{\rho(y)} \geq \frac{4}{d(y,A)}\ \forall y \in Y \setminus A\]
+  
+  \begin{proof}
+    Niech $\lambda$ będzie funkcją sterującą z wniosku \eqref{cor:steering-finite}. Określamy: $\rho := 8 \cdot \lambda$.
+    Niech $y \in Y \setminus A$. Wówczas istnieje $n \in \mathbb{N}_1$ takie, że $y \in U_{n+1} \setminus U_n$. Ale skoro $\mu = \infty$, to $U_n = \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$, więc ze względu na $y \in U_{n+1}$:
+    
+    \[d(y, A) \geq d_{n+1}(s_{n+1}(y), s_{n+1} A) > \frac{1}{n+1}\]
+    
+    Z drugiej strony z warunku \eqref{induction-3} otrzymujemy $\lambda(y) \geq n$, czyli $\rho(y) \geq 8n$.
+    
+    Zatem:
+    \[\frac{4}{d(y,A)} \leq \frac{4}{\frac{1}{n+1}} = 4(n+1) \leq 2^{8n} \leq 2^{8 \rho(n)}\]
+    
+    Co należało pokazać.
   \end{proof}
 \end{cor}
 
