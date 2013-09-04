@@ -49,3 +49,18 @@
     Tym samym wykazaliśmy, że $h_0$ jest homeomorfizmem pomiędzy $(Y \times X)_A$ a $Y$ identycznościowym nad $A$.
   \end{proof}
 \end{thm}
+
+
+Bezpośrednio z dowodu wynika następujący wniosek:
+\begin{cor}
+  Niech $X$ będzie przestrzenią metryczną z RIP, $Y = X^{\mathbb{N}_1}$, $\cl{A} = A \subset Y$.
+  Wówczas dla dowolnej funkcji sterującej $\lambda$, takiej że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$ zachodzi:
+  
+  $$h: Y \times X \ni (y,x) \rightarrow f_{\lambda(y)}(y,x) = 
+    \begin{cases}
+      f_{\lambda(y)}(y,x),&y \in Y \setminus A \\
+      y,&y \in A
+    \end{cases}$$
+  
+  reprezentuje homeomorfizm $h_0$ pomiędzy $(Y \times X)_A$ na $Y$.
+\end{cor}
