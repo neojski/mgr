@@ -1,22 +1,72 @@
-\section{Własność izotopii odbijającej}
+\section{Izotopia odbijająca}
 
 \begin{df}
-  Homotopią na przestrzeni $X$ nazwiemy dowolne odwzorowanie ciągłe $f: X \times [0,1] \rightarrow X$. Będziemy posługiwać się też zapisem $(f_t)_{0 \leq t \leq 1}$ na oznaczenie homotopii, gdzie $f_t: X \ni x \rightarrow f(x,t) \in X$
+  Homotopią na przestrzeni topologicznej $X$ o wartościach w $Y$ wzdłuż przestrzeni topologicznej $T$ nazwiemy dowolne odwzorowanie ciągłe $f: X \times T \rightarrow Y$. Będziemy posługiwać się też zapisem $(f_t)_{t \in T}$ na oznaczenie homotopii, gdzie $f_t: X \ni x \rightarrow f(x,t) \in Y$. W szczególności będziemy rozważać homotpie wzdłuż przestrzeni $T = [0,1]$ oraz $T = [1, \infty]$.
 \end{df}
 
 
 \begin{df}
-  Izotopią (izotopią odwracalną) na przestrzeni topologicznej $X$ nazwiemy homotopię $f: X \times [a, b] \rightarrow X$ taką, że $\cl{f}$ jest homeomorfizmem, gdzie:
-  \[\cl{f}: X \times [a,b] \ni (x, t) \rightarrow (f(x, t), t) \in X \times [a,b]\]
+  Izotopią (właściwie: izotopią odwracalną) na przestrzeni topologicznej $X$ wzdłuż przestrzeni topologicznej $T$ nazwiemy homotopię $f: X \times T \rightarrow X$ taką, że $\cl{f}$ jest homeomorfizmem, gdzie:
+  \[\cl{f}: X \times T \ni (x, t) \rightarrow (f(x, t), t) \in X \times T\]
 \end{df}
+
+\begin{lem} \label{lem:inverse}
+  Jeśli $(f_t)_{t \in T}$ jest homotopią między przestrzeniami topologicznymi $X$ i $Y$ wzdłuż przestrzeni topologicznej $T$, to następujące warunki są równoważne:
+  \begin{enumerate}
+   \item[(i)] $\cl{f}: X \times T \ni (x, t) \rightarrow (f_t(x), t) \in Y \times T$ jest homeomorfizmem
+   \item[(ii)] $Y \times T \ni (y, t) \rightarrow f_t^{-1}(y) \in X$ istnieje i jest ciągła
+  \end{enumerate}
+  
+  \begin{proof}
+    $(i) \Rightarrow (ii)$:
+    
+    Niech:
+    \[g: Y \times T \ni (y, t) \rightarrow q(\cl{f}^{-1}(y, t)) \in Y\]
+    
+    Oczywiście $g$ jest funkcją ciągłą, jako złożenie funkcji ciągłych. Co więcej:
+    
+    \[(f_t(g(y,t)), t) = (f_t(q \cl{f}^{-1}(y,t)), t) = \cl{f}(q \cl{f}^{-1}(y,t), t) = \cl{f} \cl{f}^{-1}(y,t) = (y,t)\]
+    
+    A więc $f_t(g(y,t)) = y$.
+    
+    Z drugiej strony:
+    
+    \[g(f_t(x)) = q(\cl{f}^{-1}(f_t(x),t)) = q(\cl{f}^{-1} \cl{f}^{-1}(x,t)) = q(x,t) = x\]
+    
+    Zatem $f_t^{-1} = g$.
+    
+    $(ii) \Rightarrow (i)$:
+    
+    Niech:
+    \[g: Y \times T \ni (y, t) \rightarrow (f_t^{-1}(y), t) \in X \times T\]
+    
+    Wówczas:
+    \[g\cl{f}(x,t) = g(f_t(x), t) = (f_t^{-1}(f_t(x)), t) = (x,t)\]
+    
+    oraz
+    \[\cl{f}g(y,t) = \cl{f}(f_t^{-1}(y), t) = (f_t(f_t^{-1}(y)), t) = (y,t)\]
+    
+    Zatem $g$ jest odwrotną funkcją ciągłą do $\cl{f}$ a więc $\cl{f}$ jest homeomorfizmem.
+  \end{proof}
+\end{lem}
+
+
+\begin{cor} \label{cor:isotopy-inverse}
+  Jeśli $(f_t)_{0 \leq t \leq 1}$ jest izotopią na $X$, to $X \times [0,1] \ni (y, t) \rightarrow f_t^{-1}(y) \in X$ istnieje i jest ciągła.
+  \begin{proof}
+    Izotopia $(f_t)_{0 \leq t \leq 1}$ z definincji spełnia warunek $(i)$ lematu \ref{lem:inverse}, a warunek $(ii)$ jest dokładnie tezą.
+  \end{proof}
+\end{cor}
 
 \begin{df}
   Powiemy, że przestrzeń topologiczna $X$ ma własność izotopii odbijającej (reflective isotopy property), krótko RIP, jeśli istnieje izotopia $(g_t)_{0 \leq t \leq 1}$ na $X \times X$ taka, że
   \[g_0(x, x') = (x, x') \mbox{ oraz } g_1(x, x') = (x', x) \mbox{ dla każdego } (x, x') \in X \times X\]
+  
+  Izotopię $(g_t)_{0 \leq t \leq 1}$ będziemy nazywać izotopią odbijającą na $X$.
 \end{df}
 
 \begin{ex}
-  Niech $X = Y$ poprzez homeomorfizm $f: X \rightarrow Y$. Wówczas $X$ ma RIP wtedy i tylko wtedy gdy $Y$ ma RIP.
+  Niech $X$, $Y$ będą przestrzeniami topologicznymi homeomorficznymi poprzez $f: X \rightarrow Y$. Wówczas $X$ ma RIP wtedy i tylko wtedy gdy $Y$ ma RIP.
   \begin{proof}
     Niech $(g_t)_{0 \leq t \leq 1}$ jest izotopią odbijającą na $X$. Wówczas:
     \[h_t(y, y') := (f \times f) g_t(f^{-1}(y), f^{-1}(y'))\]
@@ -24,42 +74,111 @@
     \[h_0(y,y') = (f \times f) g_0(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y), f^{-1}(y')) = (y, y')\]
     oraz
     \[h_1(y,y') = (f \times f) g_1(f^{-1}(y), f^{-1}(y')) = (f \times f)(f^{-1}(y'), f^{-1}(y)) = (y', y)\]
-    Co więcej naszą izotopię możemy zapisać jako:
+    
+    Co więcej, $\cl{h}$ 
+    \begin{align*}
+      \cl{h}((y, y'), t) & = (h_t(y,y'), t) \\
+      & = ((f \times f)g_t(f^{-1}(y), f^{-1}(y')), t) \\
+      & = (f \times f \times \id_{[0,1]}) (g_t(f^{-1}(y), f^{-1}(y')), t) \\
+      & = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1}(y), f^{-1}(y'), t) \\
+      & = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times id_{[0,1]})(y, y', t) 
+    \end{align*}
+    
+    Zatem $\cl{h}$ zapisuje się jako złożenie homeomorfizmów:
     \[\cl{h} = (f \times f \times \id_{[0,1]}) \cl{g} (f^{-1} \times f^{-1} \times \id_{[0,1]})\]
-    zatem $\cl{h}$ jest homeomorfizmem na $Y \times Y \times [0,1]$, jako złożenie homeomorfizmów.
+    a więc i samo jest homeomorfizmem.
   \end{proof}
 \end{ex}
 
-\begin{ex} \label{rip-space}
-  Niech $X$ i $Z$ są przestrzeniami liniowo-topologicznymi, takimi że $X = Z \times Z$. Weźmy homeomorfizm $f: X \rightarrow Z \times Z$, taki że $f(0) = (0,0)$. Na przestrzeni $Z \times Z$ wprowadźmy pomocniczą operację mnożenia przez skalary zespolone następującym wzorem:
+\begin{df}
+  Niech będzie przestrzenią liniowo-topologiczną. Wprowadzamy operację mnożenia przez skalary zespolone wzorem:
   \[(a+ib) \cdot (z, z') = (az - bz', bz + az')\]
-  Zdefiniujemy następującą izotopię na $X \times X$:
+\end{df}
+
+
+\begin{lem} \label{lem:mult-cont}
+  Niech $Z$ będzie przestrzenią liniowo-topologiczną.
+  Jeśli $l: [0,1] \rightarrow \mathbb{C}$ jest funkcją ciągłą, to odwzorowanie
+  \[M_l: Z \times Z \times [0,1] \ni (z, z', t) \rightarrow l(t) \cdot (z, z') \in Z \times Z\]
+  jest ciągłe.
+  
+  \begin{proof}
+  Zauważmy, że:
+  \[M_l(z, z', t) = l(t) \cdot(z, z') = (\Re{l(t)} \cdot z - \Im{l(t)} \cdot z', \Im{l(t)} \cdot z + \Re{l(t)} \cdot z')\]
+  
+  Ze względu na ciągłość operacji dodawania i mnożenia przez skalar w przestrzeniach liniowo-topologicznych oraz ciągłość operacji $\mathbb{C} \ni z \rightarrow \Re z \in \mathbb{R}$ i $\mathbb{C} \ni z \rightarrow \Im z \in \mathbb{R}$ funkcja $M_l$ jest ciągła.
+  \end{proof}
+\end{lem}
+
+\begin{lem} \label{lem:mult-eq}
+  Niech $Z$ będzie przestrzenią liniowo-topologiczną. Wówczas mnożenie przez skalary zespolone na $Z \times Z$ spełnia następujący warunek:
+  \[((a + ib)(c + id)) \cdot (z, z') = (a + ib) \cdot ((c+id) \cdot (z, z'))\]
+  
+  \begin{proof}
+    \begin{align*}
+      ((a+ib)(c+id)) \cdot (z, z') &= ((ac - bd) + i(ad+bc)) \cdot (z, z') \\
+      &= ((ac-bd)z - (ad+bc) z', (ad+bc)z + (ac-bd)z') \\
+      &= (acz-adz' - bdz-bcz', bcz-bdz' + adz+acz') \\
+      &= (a+ib) \cdot (cz -dz', dz + cz') \\
+      &= (a+ib) \cdot ((c+id) \cdot (z,z'))
+    \end{align*}
+
+  \end{proof}
+\end{lem}
+
+\begin{lem} \label{lem:izotopy-generation}
+  Niech $l: [0,1] \ni z \rightarrow l(z) \in \mathbb{C}$ będzie funkcją taką, że $0 \not\in l([0,1])$. Wówczas $M_l$ jest izotopią na $Z \times Z$.
+  
+  \begin{proof}
+    Niech $m: [0,1] \ni z \rightarrow \frac{1}{l(z)} \in \mathbb{C}$. Z lematu \ref{lem:mult-cont} wiemy, że zarówno $M_l$ jak i $M_m$ są funkcjami ciągłymi. Co więcej, z lematu \ref{lem:mult-eq} otrzymujemy:
+    
+    \begin{align*}
+      \cl{M_m}(\cl{M_l}(z, z', t)) &= \cl{M_m}((l(t) \cdot (z, z'), t)) \\
+      &= (m(t) \cdot (l(t) \cdot (z,z')), t) \\
+      &= ((m(t) l(t)) \cdot (z,z'), t) = ((z,z'), t)
+    \end{align*}
+    
+    Z przemienności mnożenia w $\mathbb{C}$ wynika przemienność $M_m$ i $M_l$, zatem $\cl{M_m}$ i $\cl{M_l}$ są ciągłymi odwzorowaniami wzajemnie odwrotnymi.
+  \end{proof}
+\end{lem}
+
+
+\begin{ex} \label{rip-space}
+  Niech $X$ i $Z$ są przestrzeniami liniowo-topologicznymi, takimi że $X = Z \times Z$.
+  
+  Zdefiniujemy następującą funkcję na $X \times X$:
   \[g_t(x,x') := e^{\frac{i \pi t}{2}} (x, x')\]
-  Istotnie, łatwo zauważyć, że:
-  \[\cl{g}((x,x'), t) = (e^{\frac{i\pi t}{2}}(x,x'), t)\]
-  jest odwzorowaniem ciągłym, a:
-  \[((x,x'),t) \rightarrow (e^{\frac{-i\pi t}{2}}(x,x'),t)\]
-  jest ciągłym odwzorowaniem odwrotnym.
+  
+  Z lematu \ref{lem:izotopy-generation} wiemy, że funkcja $\cl{g}$ jest izotopią, gdyż jest postaci $M_l$, dla $l(t) := e^\frac{i \pi t}{2}$. Jest jasne, że $0 \not\in l([0,1])$.
   
   Izotopia ta, ma następujące własności:
   \[g_0(x,x') = (x,x') \mbox{ oraz } g_1(x,x') = (x', -x)\]
   Zatem jest bardzo bliska izotopii odbijąjącej na $X$, jednak drugiej współrzędnej zmienia znak na przeciwny.
   
-  Aby temu zaradzić zdefiniujmy izotopię na $Z \times Z$:
+  Aby temu zaradzić zdefiniujmy znowu używając lematu \ref{lem:izotopy-generation} i funkcji $l(t) := e^{i \pi t}$ izotopię na $Z \times Z$:
   \[h_t(z,z') := e^{i \pi t}(z, z')\]
   która spełnia własności:
   \[h_0(z,z') = (z,z') \mbox{ oraz } h_1(z,z') = (-z,-z')\]
   
   Dzięki tej pomocniczej izotopii możemy wprowadzić odwzorowanie:
   \[k_t: X \times X \ni (x, x') \rightarrow g_t(h_t(x), x') \in X \times X\]
-  które staje się poprawną izotopią odwracającą na $X$, ponieważ:
+  które staje się poprawną izotopią odbijającą na $X$, ponieważ:
   \[k_0(x,x') = g_0(h_0(x), x') = (x, x')\]
   oraz
   \[k_1(x,x') = g_1(h_1(x), x') = (x', -h_1(x)) = (x', x)\]
   
-  Aby spostrzec izotopijność tego odwzorowania wystarczy zapisać je jako złożenie homeomorfizmów:
-  \[k = \cl{g} \circ v \circ (\cl{h} \times \id_X) \circ v^{-1}\]
-  gdzie $v: X \times [0,1] \times X \ni (x, t, x) \rightarrow (x, x, t) \in X \times X \times [0,1]$
+  Aby spostrzec izotopijność tego odwzorowania wystarczy zapisać je jako:
+  \begin{align*}
+    \cl{k}(x,x',t) &= (g_t(h_t(x), x'), t) \\
+    &= \cl{g}(h_t(x), x', t) \\
+    &= (\cl{g} \circ v)(h_t(x), t, x') \\
+    &= (\cl{g} \circ v)(\cl{h}(x,t), x') \\
+    &= (\cl{g} \circ v \circ (\cl{h} \times id_X))(x,t,x') \\
+    &= (\cl{g} \circ v \circ (\cl{h} \times id_X) \circ v^{-1})(x,x',t)
+  \end{align*}
+  A więc $\cl{k}$ zapisuje się jako złożenie homeomorfizmów:
+  \[\cl{k} = \cl{g} \circ v \circ (\cl{h} \times id_X) \circ v^{-1}\]
+  gdzie $v: X \times [0,1] \times X \ni (x, t, x') \rightarrow (x, x', t) \in X \times X \times [0,1]$.
 \end{ex}
 
 \begin{ex} \label{rip-product}
@@ -67,16 +186,54 @@
   \begin{proof}
     Niech $g_t^{(i)}: X_i \times X_i \rightarrow X_i \times X_i$ jest izotopią odbijającą.
     Wówczas:
-    \[g_t((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) := ((p_1 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_t^{(i)}(x_i, x_i'))_{i=1}^\infty)\]
-    gdzie $p_1, p_2: X \times X \rightarrow X$ są odpowiednio projekcjami na pierwszą i drugą współrzędną, jest izotopią odbijającą, ponieważ
-    \[((p_1 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_0^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i, x_i'))_{i=1}^\infty, (p_2 (x_i, x_i'))_{i=1}^\infty) = ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)\]
-    oraz 
-    \[((p_1 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty, (p_2 g_1^{(i)}(x_i, x_i'))_{i=1}^\infty) = ((p_1 (x_i', x_i))_{i=1}^\infty, (p_2 (x_i', x_i))_{i=1}^\infty) = ((x_i')_{i=1}^\infty, (x_i)_{i=1}^\infty)\]
+    \begin{equation} \label{rip-product-def}
+      g_t((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) :=
+      v^{-1}((g_t^{(i)}(x_i, x_i'))_{i=1}^\infty) =
+      v^{-1}\left(\left(\prod_{i=1}^\infty g_t^{(i)}\right)(v((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)\right)
+    \end{equation}
+    gdzie $v: X \times X \ni ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) \rightarrow (x_1, x_1', x_2, x_2', \ldots) \in \prod_{i=1}^\infty (X_i \times X_i)$. Oczywiście $v$ jest homeomorfizmem, więc $(g_t)_{0 \leq t \leq 1}$ jest homotopią.
+    
+    Co więcej:
+    \[
+      g_0((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) =
+      v^{-1}((g_0^{(i)}(x_i, x_i'))_{i=1}^\infty) =
+      v^{-1}((x_i, x_i')_{i=1}^\infty) = ((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty)
+    \]
+    
+    oraz:
+    \[
+      g_1((x_i)_{i=1}^\infty, (x_i')_{i=1}^\infty) =
+      v^{-1}((g_1^{(i)}(x_i, x_i'))_{i=1}^\infty) =
+      v^{-1}((x_i', x_i)_{i=1}^\infty) = ((x_i')_{i=1}^\infty, (x_i)_{i=1}^\infty)
+    \]
+    
+    Zatem $(g_t)_{0 \leq t \leq 1}$ spełnia warunek odbijania. Sprawdźmy jeszcze, że $(g_t)_{0 \leq t \leq 1}$ jest izotopią.
+    
+    Ze względu na homeomorficzność $v$ wystarczy sprawdzić, że odwzorowanie:
+    \[h: ((x_i, x_i')_{i=1}^\infty, t) \rightarrow ((g_t^{(i)}(x_i, x_i'))_{i=1}^\infty, t)\]
+    
+    jest homeomorfizmem. Widzimy natychmiast, że $h$ jest funkcją ciągłą.
+    
+    Z wniosku \ref{cor:isotopy-inverse} wiemy, że $(y_i, y_i', t) \rightarrow (g_t^{(i)})^{-1}(y_i, y_i')$ jest funkcją ciągłą, więc:
+    
+    \[
+      k: ((y_i, y_i')_{i=1}^\infty, t) \rightarrow ((g_t^{(i)})^{-1}(y_i, y_i'))_{i=1}^\infty, t)
+    \]
+    
+    jest także funkcją ciągłą. Sprawdzimy, że $k$ jest funkcją odwrotną do $h$. Istotnie:
+    \begin{align*}
+      hk((y_i, y_i')_{i=1}^\infty, t) &= h(((g_t^{(i)})^{-1}(y_i, y_i'))_{i=1}^\infty, t) \\
+      &= (((g_t^{(i)})(g_t^{(i)})^{-1}(y_i, y_i'))_{i=1}^\infty, t) \\
+      &= ((y_i, y_i')_{i=1}^\infty, t)
+    \end{align*}
+    
+    Równość $kh = id_{X \times X \times [0,1]}$ otrzymuje się tak samo jak powyższą.
+
   \end{proof}
 \end{ex}
 
 \begin{ex}
-  W szczególności z poprzednich przykładów wynika, że każda przestrzeń liniowo-topologiczna $Y = \prod_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\prod_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mających - na mocy \ref{rip-space} - własność izotopii odbijającej.
+  W szczególności z poprzednich przykładów wynika, że dla przestrzeni liniowo-topologicznej $X$ przestrzeń liniowo-topologiczna $Y = \prod_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\prod_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mających - na mocy \ref{rip-space} - własność izotopii odbijającej.
 \end{ex}
 
 

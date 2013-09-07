@@ -1,6 +1,6 @@
 \section{Homotopia spychająca}
 \begin{df}
-  Homotopię $f: Y \times X \times [1,\infty] \rightarrow Y$ nazwiemy spychającą jeśli spełnione są następujące warunki:
+  Niech $X$ będzie przestrzenią topologiczną, $Y := \prod_{i=1}^\infty X$. Homotopię $f: Y \times X \times [1,\infty] \rightarrow Y$ nazwiemy spychającą jeśli spełnione są następujące warunki:
   \begin{enumerate}
     \item \label{displacement-proj} $s_n f_t(y,x) = s_n(y)$, dla $n \leq t$
     \item \label{displacement-infty} $f_\infty(y,x) = y$, dla $(y,x) \in Y \times X$
@@ -8,6 +8,19 @@
   \end{enumerate}
 \end{df}
 
+\begin{lem}
+  Niech $(f_t)_{0 \leq t \leq 1}$ będzie homotopią spychającą. Wówczas odwzorowanie:
+  \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in (Y \times X)\]
+  jest poprawnie określone i ciągłe.
+  
+  \begin{proof}
+    Z warunku \ref{displacement-homeo} wynika, że możemy zastosować warunek $(i)$ lematu \ref{lem:inverse}, kładąc: $X := Y \times X$, $T := [1, \infty)$ oraz $Y := Y$. Wówczas warunek $(ii)$ lematu mówi nam, że:
+    
+    \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in (Y \times X)\]
+    
+    Co chcieliśmy pokazać.
+  \end{proof}
+\end{lem}
 
 \begin{thm}[O istnieniu homotopii spychającej]
   \label{thm:displacement-homotopy}
@@ -31,16 +44,44 @@
     
     Co daje ciągłość funkcji $f$.
     
-    Spełniony jest również warunek \ref{displacement-homeo}. Istotnie, łatwo sprawdzić, że funkcja:
-    \[(z, n+t) \rightarrow ((z_1, \ldots, z_n, p_2 \circ \cl{g}^{-1} ((z_{n+1}, z_{n+2}), t), z_{n+2}, \ldots), p_1 \circ \cl{g}^{-1}((z_{n+1}, z_{n+2}), t), n+t)\]
-    gdzie $p_1, p_2:  X \times X \rightarrow X$ są projekcjami na odpowiednio pierwszą i drugą współrzędną, jest ciągłą funkcją odwrotną do $F$.
+    Spełniony jest również warunek \ref{displacement-homeo}. Istotnie, wyznaczmy funkcję odwrotną:
+    \[f_{n+t}(y,x) = (y_1, \ldots, y_n, g_t(x, y_{n+1}), y_{n+2}, \ldots) = z\]
+    
+    Wówczas:
+    \begin{align*}
+      y_1 &:= z_1 \\
+      & \vdots \\
+      y_n &:= z_n \\
+      (x, y_{n+1}) &:= g_t^{-1}(z_{n+1}, z_{n+2}) \\
+      y_{n+2} &:= z_{n+3} \\
+      y_{n+3} &:= z_{n+4} \\
+      & \vdots
+    \end{align*}
+
+    Zatem funkcję odwrotną należy określić jak następuje:
+    \[h_{n+t}(z) := ((z_1, \ldots, z_n, p_2 g_t^{-1}(z_{n+1}, z_{n+2}), z_{n+3}, \ldots), p_1 g_t^{-1}(z_{n+1}, z_{n+2}))\]
+    
+    gdzie $p_1, p_2:  X \times X \rightarrow X$ są projekcjami na odpowiednio pierwszą i drugą współrzędną, $t \in [0,1]$, $n \in \mathbb{N}_1$. Aby upewnić się, że funkcja $h$ jest ciągła należy jeszcze zauważyć, podobnie jak dla $f$, że poniższe wzory dają w istocie ten sam wynik:
+    
+    \begin{align*}
+    h_{(n+0)+1}(z) &= ((z_1, \ldots, z_n, p_2 g_1^{-1}(z_{n+1}, z_{n+2}), z_{n+3}, \ldots), p_1 g_1^{-1}(z_{n+1}, z_{n+2})) \\
+    &= ((z_1, \ldots, z_n, z_{n+1}, z_{n+3}, \ldots), z_{n+2})
+    \end{align*}
+    
+    oraz
+    
+    \begin{align*}
+    h_{(n+1)+0}(z) &= ((z_1, \ldots, z_n, z_{n+1}, p_2 g_0^{-1}(z_{n+2}, z_{n+3}), z_{n+4}, \ldots), p_1 g_0^{-1}(z_{n+2}, z_{n+3})) \\
+    &= ((z_1, \ldots, z_n, z_{n+1}, z_{n+3}, z_{n+4}, \ldots), z_{n+2})
+    \end{align*}
+
   \end{proof}
 \end{thm}
 
 
 \begin{prop}
   Homotopia spychająca spełnia następujący warunek:
-  \[\mbox{Jeśli }	(z_n, t_n) \rightarrow (z, \infty), \mbox{ to } p_Y f_{t_n}^{-1}(z_n) \rightarrow z\]
+  \[\mbox{Jeśli } (z_n, t_n) \rightarrow (z, \infty), \mbox{ to } p_Y f_{t_n}^{-1}(z_n) \rightarrow z\]
   \begin{proof}
     Niech $z_n \rightarrow z$ i $t_n \rightarrow \infty$. Oznaczmy:
     \[(y_n, x_n) := f_{t_n}^{-1}(z_n)\]

@@ -15,7 +15,7 @@
   Topologię na zbiorze $(M \times N)_A$ określamy poprzez bazę złożoną ze zbiorów dwu rodzajów:
   \begin{enumerate}
    \item $U \times V$, gdzie $U \subset M \setminus A$, $U$ otwarty w $M$, $V$ otwarty w $N$
-   \item $m^{-1}(U)$, gdzie $U$ jest otwarty w $M$
+   \item $p^{-1}(U)$, gdzie $U$ jest otwarty w $M$
   \end{enumerate}
 \end{df}
 
@@ -36,7 +36,12 @@
     
     Wówczas z definicji topologii na $(M \times N)_A$ zachodzi $p(m_i, n_i) \rightarrow a$, ponieważ otoczenia $a$ są postaci $p^{-1}(U)$ dla $U$ otoczenie $a$. A więc wobec ciągłości $f_0$ otrzymujemy: $f(m_i, n_i) = f_0 p(m_i, n_i) \rightarrow f_0(a) = f(a, x_1)$.
     
-    Z drugiej strony, wykażemy ciągłość $f_0$. Wystarczy sprawdzić przypadek ciągu $p(m_i, n_i) \rightarrow a \in A$. Ale wówczas z definicji topologii zredukowanego produktu $m_i \rightarrow a \in A$, co z założenia daje $f_0 p(m_i, n_i) = f(m_i, n_i) \rightarrow f(a, x_1) = f_0(a)$, czyli ciągłość $f_0$.
+    Z drugiej strony, wykażemy ciągłość $f_0$. Funkcja $f_0$ wyraźnie dzieli się na dwa wzory:
+    \begin{enumerate}
+     \item $f_0|_A(a) = f(a, n_0)$, który to wzór definiuje funkcję ciągłą określoną na domkniętym zbiorze $A$
+     \item $f_0|_{(M \setminus A) \times N}(y) = f(y)$, który również ze względu na topologię $(M \times N)_A$ jest wzorem ciągłym, jednak zbiór $(M \setminus A) \times N$ nie musi być domknięty
+    \end{enumerate}
+    Wystarczy więc sprawdzić przypadek ciągu $p(m_i, n_i) \rightarrow a \in A$, który wykaże, że $f_0|_{\cl{(M \setminus A) \times N}}$ jest funkcją ciągłą, gdyż $\partial((M \setminus A) \times N) = \partial A \subset A$. Ale wówczas z definicji topologii zredukowanego produktu $m_i \rightarrow a \in A$, co z założenia daje $f_0 p(m_i, n_i) = f(m_i, n_i) \rightarrow f(a, x_1) = f_0(a)$, czyli ciągłość $f_0$.
   \end{proof}
 \end{prop}
 
