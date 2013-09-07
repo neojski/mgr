@@ -10,21 +10,131 @@
   \begin{proof}
     Niech
     \[L := \{y \in Y\ |\ d(y, Y \setminus V) \leq d(y, B)\}\]
-    Określamy funkcję sterującą $\lambda$ w ten sposób, że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in (Y \setminus V) \cup A \cup B$.
-    Definiujemy również funkcję sterującą $\rho$ jako funkcję sterującą $\lambda$ poprawioną na zbiorze $A \cup L$. Dzięki temu $\rho(y) = \infty$ wtedy i tylko wtedy, gdy $y \in Y \setminus (A \cup L)$ i $\lambda(y) = \infty$, czyli $(A \cup L) \cap ((Y \setminus V) \cup A \cup B) = (Y \setminus V) \cup A$.
     
-    Podsumowując, określiliśmy funkcje sterujące o następujących własnościach:
-    \[\lambda(y) \Leftrightarrow y \in (Y \setminus V) \cup A \cup B\]
-    \[\rho(y) = \infty \Leftrightarrow (Y \setminus V) \cup A\]
-    \[\rho(y) = \lambda(y), \mbox{ dla } y \in A \cup B\]
+    Do dowodu będziemy potrzebować funkcji sterujących $\lambda$ i $\rho$ o następujących własnościach:
+    \begin{gather}
+      \label{lambda-infty} \lambda(y) = \infty \Leftrightarrow y \in (Y \setminus V) \cup A \cup B \\
+      \label{rho-infty} \rho(y) = \infty \Leftrightarrow y \in (Y \setminus V) \cup A \\
+      \label{rho-eq-lambda} \rho(y) = \lambda(y), \mbox{ dla } y \in A \cup L \\
+      \label{rho-dist} 2^{-\rho(y)} \leq \frac{1}{4} d(y, Y \setminus V)
+    \end{gather}
     
-    Z wniosku pierwszego twierdzenie o spłaszczaniu istnieje homeomorfizm $f: (Y \times X)_{(Y \setminus V) \cup A \cup B} \rightarrow Y$ generowany przez funkcję sterującą $\lambda$ oraz $g: (Y \times X)_{(Y \setminus V) \cup A} \rightarrow Y$ generowany przez funkcję sterującą $\rho$. Oba te homeomorfizmy nad $Y \setminus V$ są identycznościowe, więc $f|(V \times X)_{A \cup B}$ jest homeomorfizmem $(V \times X)_{A \cup B}$ na $V$, a $g|(V \times X)_{A}$ jest homeomorfizmem $(V \setminus X)_{A}$ na $V$. Oznaczmy te zawężenia odpowiednio przez $f$ i $g$.
+    Konstrukcja:
+    Zauważmy, że $(Y \setminus V) \cup A = (Y \setminus V) \cup (\cl{A} \cap V) = (Y \setminus V) \cup \cl{A}$, więc $(Y \setminus V) \cup A$ jest zbiorem domkniętym. Podobnie $A \cup L$ jest zbiorem domkniętym, gdyż $Y \setminus V \subset L$.
+    
+    Niech $\lambda_0$ będzie funkcją sterującą z wniosku \ref{cor:steering-finite} dla zbioru domkniętego $(Y \setminus V) \cup A \cup B$. Przez $\rho_0$ oznaczmy funkcję sterującą $\lambda_0$ poprawioną (twierdzenie \ref{thm:steering-function}) na zbiorze domkniętym $A \cup L$.
+    
+    Skoro $\rho_0(y)$ poza $A \cup L$ jest skończone a na $A \cup L$ jest równe $\lambda_0$, to $\rho_0(y) = \infty$ wtedy i tylko wtedy gdy $y \in (A \cup L) \cap ((Y \setminus V) \cup A \cup B) = (Y \setminus V) \cup A$
+    
+    Otrzymaliśmy więc funkcje następujące:
+    \begin{gather}
+      \lambda_0(y) = \infty \Leftrightarrow y \in (Y \setminus V) \cup A \cup B \\
+      \rho_0(y) = \infty \Leftrightarrow y \in (Y \setminus V) \cup A \\
+      \label{rho0-eq-lambda0} \rho_0(y) = \lambda_0(y) \mbox{ dla } y \in A \cup L
+    \end{gather}
+    
+    Dalej weźmy funkcję sterującą $\mu$ z wniosku \ref{cor:steering-dist} dla zbioru domkniętego $Y \setminus V$. Mamy więc:
+    \begin{gather}
+      \mu(y) = \infty \Leftrightarrow y \in Y \setminus V \\
+      2^{-\mu(y)} \leq \frac{1}{4} d(y, Y \setminus V)
+    \end{gather}
+    
+    Po tych przygotowaniach połóżmy:
+    \begin{gather*}
+      \lambda := \max(\lambda_0, \mu) \\
+      \rho := \max(\rho_0, \mu)
+    \end{gather*}
+    Z własości funkcji sterujących wiemy, że $\lambda$ i $\rho$ są również funkcjami sterującymi.
+    
+    Wykażemy, że spełnione są postulowane warunki:
+    \begin{align*}
+     \lambda(y) = \infty & \Leftrightarrow \max(\lambda_0, \mu)(y) = \infty \\
+     & \Leftrightarrow \lambda_0(y) = \infty \vee \mu(y) = \infty \\
+     & \Leftrightarrow y \in ((Y \setminus V) \cup A \cup B) \cup (Y \setminus V) \\
+     & \Leftrightarrow y \in (Y \setminus V) \cup A \cup B
+    \end{align*}
+    a więc zachodzi warunek \eqref{lambda-infty}.
+    
+    Dalej:
+    \begin{align*}
+      \rho(y) = \infty & \Leftrightarrow \max(\rho_0, \mu)(y) = \infty \\
+      & \Leftrightarrow \rho_0(y) = \infty \vee \mu(y) = \infty \\
+      & \Leftrightarrow y \in ((Y \setminus V) \cup A) \cup (Y \setminus V) \\
+      & \Leftrightarrow y \in (Y \setminus V) \cup A
+    \end{align*}
+    więc spełniony jest warunek \eqref{rho-infty}
+    
+    Skoro z \eqref{rho0-eq-lambda0} wynika, że funkcje $\lambda_0$ i $\rho_0$ na $A \cup L$ są sobie równe, to po wzięciu maksimum z $\mu$ warunek ten zostanie zachowany, co daje nam \eqref{rho-eq-lambda}.
+    
+    Pozostaje jeszcze \eqref{rho-dist}, które wynika z nierówności:
+    \[2^{-\rho(y)} \leq 2^{-\mu(y)} \leq \frac{1}{4} d(y, Y \setminus V)\]
+    
+    Z twierdzenia o istnieniu homotopii spychającej \ref{thm:displacement-homotopy} możemy wziąć $(f_t)_{0 \leq t \leq 1}$ homotopię spychającą.
+    Z wniosku pierwszego twierdzenia o spłaszczaniu istnieje homeomorfizm:
+    
+    \[g: (Y \times X)_{(Y \setminus V) \cup A \cup B} \rightarrow Y\]
+    
+    generowany przez funkcję sterującą $\lambda$ i homotopię $(f_t)_{0 \leq t \leq 1}$, identycznościowy nad $(Y \setminus V) \cup A \cup B$ oraz:
+    
+    \[f: (Y \times X)_{(Y \setminus V) \cup A} \rightarrow Y\]
+    
+    generowany przez funkcję sterującą $\rho$ i homotopię $(f_t)_{0 \leq t \leq 1}$, identycznościowy nad $(Y \setminus V) \cup A$. Oba te homeomorfizmy są więc w szczególności identycznościowe nad $Y \setminus V$, skąd otrzymujemy:
+    
+    \begin{itemize}
+     \item $g|(V \times X)_{A \cup B}$ jest homeomorfizmem $(V \times X)_{A \cup B}$ na $V$
+     \item $f|(V \times X)_{A}$ jest homeomorfizmem $(V \times X)_{A}$ na $V$
+    \end{itemize}
+
+    Oznaczmy te zawężenia odpowiednio przez $g$ i $f$.
     
     Definiujemy żądany homeomorfizm jako:
-    \[h := f^{-1} g: (Y \times X)_{A} \rightarrow (Y \times X)_{A \cup B}\]
+    \[h := g^{-1} f: (Y \times X)_{A} \rightarrow (Y \times X)_{A \cup B}\]
     
-    Należy jeszcze wykazać, że zachodzi warunek \eqref{eq:as-lem-1}. Istotnie, niech
+    Należy jeszcze znaleźć $C$, dla którego zachodzi warunek \eqref{eq:as-lem-1}. Zdefiniujmy:
     \[C := \{y \in Y\ |\ d(y,B) \leq 4 d(y, Y \setminus V)\}\]
+    
+    Jeśli $p(z) \in A$, to $p(z) = z$ oraz $f(z) = z$ i $g(z) = z$, więc $h(z) = g^{-1}(f(z)) = g^{-1}(z) = z$. Niech teraz $p(z) \in V \setminus C$. Wówczas z definicji zbioru $C$ mamy:
+    
+    \begin{equation}
+      \label{dist-pz-YV} d(pz, Y \setminus V) \leq \frac{1}{4} d(pz, B)
+    \end{equation}
+    
+    Wykażemy teraz, że:
+    \begin{equation}
+      \label{dist-fz-pz-0}d(fz, pz) \leq 2^{-\rho(pz)} \cdot 2
+    \end{equation}
+    
+    Jeśli $pz \in A$, to $\rho(pz) = \infty$, więc $fz = f_{\rho(pz)}(z) = pz$. A zatem $d(fz, pz) = 0$.
+    
+    W przeciwnym razie $fz = f_{\rho(pz)}(z)$, a więc z własności homotopii spychającej dla $k \leq \rho(pz)$ mamy:
+    
+    \[s_k fz = s_k pz\]
+    
+    Zatem $d(fz, pz) \leq 2^{-\rho(pz)} \cdot 2$.
+    
+    Z nierówności \eqref{dist-fz-pz-0} i \eqref{rho-dist} otrzymujemy:
+    \begin{equation}
+      \label{dist-fz-pz} d(fz, pz) \leq \frac{1}{2} d(pz, Y \setminus V)
+    \end{equation}
+    
+    Mamy także:
+    \begin{equation}
+      \label{dist-pz-fz-B} d(pz, fz) \overset{\eqref{dist-fz-pz}}{\leq} \frac{1}{2} d(pz, Y \setminus V) \overset{\eqref{dist-pz-YV}}{\leq} \frac{1}{8} d(pz, B)
+    \end{equation}
+
+
+    Następnie przyjrzyjmy się nierównościom:
+    \begin{align*}
+      d(fz, Y \setminus V) & \leq d(fz, pz) + d(pz, Y \setminus V) \\
+      & \leq \frac{1}{2} d(pz, Y \setminus V) + d(pz, Y \setminus V) = \frac{3}{2} d(pz, Y \setminus V) & \mbox{z \eqref{dist-fz-pz}} \\
+      & \leq \frac{3}{2} \cdot \frac{1}{4} d(pz, B) & \mbox{z \eqref{dist-pz-YV}} \\
+      & \leq \frac{7}{8} d(pz, B) = d(pz, B) - \frac{1}{8} d(pz, B) \\
+      & \leq d(pz, B) - d(pz, fz) & \mbox{z \eqref{dist-pz-fz-B}} \\
+      & \leq d(fz, B)
+    \end{align*}
+    
+    Z powyższej nierówności wnioskujemy, że $fz \in L$. Ale wówczas z \eqref{rho-eq-lambda} otrzymujemy $\lambda(fz) = \rho(fz)$. Ale wówczas otrzymujemy:
+    \[hz = g^{-1}fz = f^{-1}_{\lambda(fz)}(fz) = f^{-1}_{\rho(fz)}(f_{\rho(fz)}(z)) = z\]
   \end{proof}
 
 \end{lem}

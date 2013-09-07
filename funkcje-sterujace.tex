@@ -205,21 +205,23 @@ Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty
   \end{proof}
 \end{lem}
 
-\begin{cor}
-  Niech $A$ będzie domkniętym podzbiorem $X$. Wówczas istnieje funkcja sterująca $\mu$ taka że $\rho(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$ oraz:
+\begin{cor} \label{cor:steering-dist}
+  Niech $A$ będzie domkniętym podzbiorem $X$. Wówczas istnieje funkcja sterująca $\rho$ taka że $\rho(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$ oraz:
   
-  \[2^{\rho(y)} \geq \frac{4}{d(y,A)}\ \forall y \in Y \setminus A\]
+  \[2^{-\rho(y)} \leq \frac{1}{4}d(y,A)\ \forall y \in Y \setminus A\]
   
   \begin{proof}
     Niech $\lambda$ będzie funkcją sterującą z wniosku \eqref{cor:steering-finite}. Określamy: $\rho := 8 \cdot \lambda$.
     Niech $y \in Y \setminus A$. Wówczas istnieje $n \in \mathbb{N}_1$ takie, że $y \in U_{n+1} \setminus U_n$. Ale skoro $\mu = \infty$, to $U_n = \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$, więc ze względu na $y \in U_{n+1}$:
     
-    \[d(y, A) \geq d_{n+1}(s_{n+1}(y), s_{n+1} A) > \frac{1}{n+1}\]
+    \[\frac{1}{n+1} < d_{n+1}(s_{n+1}(y), s_{n+1} A)  \leq d(y, A)\]
     
     Z drugiej strony z warunku \eqref{induction-3} otrzymujemy $\lambda(y) \geq n$, czyli $\rho(y) \geq 8n$.
     
     Zatem:
-    \[\frac{4}{d(y,A)} \leq \frac{4}{\frac{1}{n+1}} = 4(n+1) \leq 2^{8n} \leq 2^{8 \rho(n)}\]
+    \[\frac{1}{4}d(y,A) \geq \frac{1}{4(n+1)} \geq 2^{-8n} \geq 2^{\rho(n)}\]
+    
+    \[2^{-\rho(n)} \leq 2^{-8n} \leq \frac{1}{4}\frac{1}{n+1} \leq \frac{1}{4}d(y,A)\]
     
     Co należało pokazać.
   \end{proof}
