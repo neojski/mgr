@@ -20,7 +20,7 @@
 \end{fact}
 
 \begin{note}
-  Jeśli $(Y, d)$ przestrzeń liniowo-metryczna z metryką niezmienniczą. Wówczas metryka $\rho := \min(d, 1)$ jest ograniczoną, niezmienniczą metryką równoważną.
+  Niech $(Y, d)$ przestrzeń liniowo-metryczna z metryką niezmienniczą. Wówczas metryka $\rho := \min(d, 1)$ jest ograniczoną, niezmienniczą metryką równoważną.
   \begin{proof}
     Równoważność wynika z równości małych kul, tzn. $\forall n \in \mathbb{N}_1: B_\rho(0, \frac{1}{n}) = B_d(0, \frac{1}{n})$. Metryka $\rho$ jest oczywiście ograniczona przez 1. Niezmienniczość:
     
@@ -39,22 +39,17 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 \end{df}
 
 \begin{lem}
-  Aby metryka $d$ była słabo rosnąca po promieniach wystarczy aby warunek $d(t_1 x, 0) < d(t_2 x, 0)$ zachodził dla liczb wymiernych $t_1, t_2 \geq 0$.
+  Aby metryka $d$ była rosnąca po promieniach wystarczy aby warunek $d(t_1 x, 0) < d(t_2 x, 0)$ zachodził dla liczb wymiernych $0 \leq t_1 < t_2$ i $x \neq 0$.
   
   \begin{proof}
-    Niech $0 \leq a < b$ będą liczbami rzeczywistymi. Wówczas istnieją ciągi $(a_n)_{n=1}^\infty$ oraz $(b_n)_{n=1}^\infty$ liczb wymiernych  takie, że $a_n \downarrow a$ i $b_n \uparrow b$, takie że:
-    \[\forall n \in \mathbb{N}_1: d(a_n x, 0) < d(b_n x, 0)\]
-    
-    Ale ze wzrostu po promieniach po liczbach wymiernych wnioskujemy:
-    \[d((b_n - a_n) x, 0) \geq d((b_1 - a_1) x, 0) =: \varepsilon > 0\]
-    
-    A więc:
-    \[d(a_n x, 0) + \varepsilon \leq d(b_n x, 0)\]
+    Niech $0 \leq a < b$ będą liczbami rzeczywistymi.
+    Wówczas istnieją silnie monotoniczne ciągi $(a_n)_{n=1}^\infty$ oraz $(b_n)_{n=1}^\infty$ liczb wymiernych takie, że $a_n \downarrow a$ i $b_n \uparrow b$ oraz $a_1 < b_1$. Zatem $\forall n > 1$:
+    \[d(a_n x, 0) < d(a_1 x, 0) < d(b_1 x, 0) < d(b_n x, 0)\]
     
     Co po przejściu granicznym daje:
-    \[d(ax, 0) + \varepsilon \leq d(bx, 0)\]
+    \[d(a x, 0) \leq d(a_1 x, 0) < d(b_1 x, 0) \leq d(b x, 0)\]
     
-    W szczególności $d(ax, 0) < d(bx, 0)$. 
+    Zatem $d(ax, 0) < d(bx, 0)$. 
   \end{proof}
 \end{lem}
 
@@ -62,7 +57,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 \begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur}
   Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje metryką $\rho$ równoważna $d$ rosnąca po promieniach.
   \begin{proof}
-    Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, jest metryką równoważną $d$.
+    Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk ograniczonych przez $1$. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, jest metryką równoważną $d$.
     
     Istotnie:
     \begin{align*}
@@ -72,8 +67,8 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \end{align*}
     gdzie ostatnia implikacja wynika z ciągłości mnożenia (mnożymy przez $w^{-1}$).
     
-    Z drugiej strony, niech $\varepsilon > 0$. Zdefiniujmy odwzorowanie:
-    \[m: [0,w] \times Y \ni (t,x) \to d(tx, 0) \in Y\]
+    Z drugiej strony, niech $d(x_n, x) \to 0$ oraz $\varepsilon > 0$. Zdefiniujmy odwzorowanie:
+    \[m: [0,w] \times Y \ni (t,x) \to d(tx, 0) \in [0,\infty)\]
     
     Z ciągłości wynika $m$ wynika, że dla każdego $t$ istnieje $V_t$ otoczenie $t$ oraz $U_t$ otoczenie $0$ w $Y$ takie, że $m(s, y) < \varepsilon$ o ile tylko $s \in V_t$ i $y \in U_t$.
     
@@ -120,9 +115,17 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
       \cdots
     \end{align*}
     A więc
-    \[d(t_2 x, 0) \leq \sup_{0 \leq t \leq 1} d(t \cdot t_2 x, 0) = \rho_1(t_2 x, 0) = \sup_{0 \leq s \leq t_1^i t_2^{-i}} d(tx, 0)\]
-    Z rozważań nad $m$ wiemy jednak, że wraz z maleniem ciągu $t_1^i t_2^{-i}$ do zera $\sup_{0 \leq s \leq t_1^i t_2^{-i}} d(tx, 0)$ również dąży do zera. Zatem $d(t_2 x, 0) = 0$, co w konsekwencji daje $x = 0$. Zatem jedynym przypadkiem, gdy nie zachodzi wzrost po promieniach jest $x = 0$, zatem $\rho$ jest metryką rosnącą po promieniach.
-
+    \begin{align*}
+      d(t_2 x, 0) \leq \sup_{0 \leq t \leq 1} d(t \cdot t_2 x, 0) &= \rho_1(t_2 x, 0) \\
+      &= \rho_{t_1^i t_2^{-i}}(t_1 x, 0) = \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0)
+    \end{align*}
+    Z równoważności metryki $d$ i $\rho_{t_1}$ wynika, że skoro $t_1^i t_2^{-i} \to 0$ -- a więc i $d(t_1^i t_2^{-i} x, 0) \to 0$ -- to:
+    \[
+      \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0)
+      = \sup_{0 \leq t \leq t_1} d(t \cdot t_1^i t_2^{-i} x, 0)
+      = \rho_{t_1}(t_1^i t_2^{-i} x, 0)
+    \]
+    również dąży do zera. Zatem $d(t_2 x, 0) = 0$, co w konsekwencji daje $x = 0$. Zatem jedynym przypadkiem, gdy nie zachodzi wzrost po promieniach jest $x = 0$, zatem $\rho$ jest metryką rosnącą po promieniach.
   \end{proof}
 \end{thm}
 
