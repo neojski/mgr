@@ -1,0 +1,227 @@
+\section{Wybrane własności przestrzeni liniowo-metrycznych}
+
+\begin{df}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną. Rozmaitością topologiczną modelowaną na $Y$ nazwiemy przestrzeń metryczną $M$ taką, że każdy punkt ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$.
+\end{df}
+
+\begin{df}
+  Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną. Metrykę $d$ nazwiemy niezmienniczą, gdy zachodzi warunek:
+  \[d(x+a, y+a) = d(x,y)\ \forall x, y, a \in Y\] 
+\end{df}
+
+
+\begin{fact}
+  Na dowolnej przestrzeni liniowo-metrycznej $Y$ z metryką $d$ można wprowadzić metrykę niezmienniczą.
+  
+  \begin{proof}(Szkic)
+  
+  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego istnieje więc na niej metryką lewostronnie niezmiennicza.
+  \end{proof}
+\end{fact}
+
+\begin{note}
+  Jeśli $(Y, d)$ przestrzeń liniowo-metryczna z metryką niezmienniczą. Wówczas metryka $\rho := \min(d, 1)$ jest ograniczoną, niezmienniczą metryką równoważną.
+  \begin{proof}
+    Równoważność wynika z równości małych kul, tzn. $\forall n \in \mathbb{N}_1: B_\rho(0, \frac{1}{n}) = B_d(0, \frac{1}{n})$. Metryka $\rho$ jest oczywiście ograniczona przez 1. Niezmienniczość:
+    
+    \[\rho(x+a, y+a) = \min(d(x+a, y+a), 1) = \min(d(x,y), 1) = \rho(x,y)\]
+  \end{proof}
+\end{note}
+
+
+Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozważali tylko ograniczone przez $1$ metryki niezmiennicze.
+
+\begin{df}
+  Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną. Metrykę $d$ nazwiemy rosnącą po promieniach, gdy:
+  \[d(t_1 x, 0) < d(t_2 x, 0)\ \forall 0 \leq t_1 < t_2\ \forall x \neq 0\]
+  
+  Gdy powyższa nierówność jest prawdziwa w wersji słabej ($\leq$) metrykę taką nazwiemy słabo rosnącą po promieniach.
+\end{df}
+
+\begin{lem}
+  Aby metryka $d$ była słabo rosnąca po promieniach wystarczy aby warunek $d(t_1 x, 0) < d(t_2 x, 0)$ zachodził dla liczb wymiernych $t_1, t_2 \geq 0$.
+  
+  \begin{proof}
+    Niech $0 \leq a < b$ będą liczbami rzeczywistymi. Wówczas istnieją ciągi $(a_n)_{n=1}^\infty$ oraz $(b_n)_{n=1}^\infty$ liczb wymiernych  takie, że $a_n \downarrow a$ i $b_n \uparrow b$, takie że:
+    \[\forall n \in \mathbb{N}_1: d(a_n x, 0) < d(b_n x, 0)\]
+    
+    Ale ze wzrostu po promieniach po liczbach wymiernych wnioskujemy:
+    \[d((b_n - a_n) x, 0) \geq d((b_1 - a_1) x, 0) =: \varepsilon > 0\]
+    
+    A więc:
+    \[d(a_n x, 0) + \varepsilon \leq d(b_n x, 0)\]
+    
+    Co po przejściu granicznym daje:
+    \[d(ax, 0) + \varepsilon \leq d(bx, 0)\]
+    
+    W szczególności $d(ax, 0) < d(bx, 0)$. 
+  \end{proof}
+\end{lem}
+
+
+\begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur}
+  Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje metryką $\rho$ równoważna $d$ rosnąca po promieniach.
+  \begin{proof}
+    Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, jest metryką równoważną $d$.
+    
+    Istotnie:
+    \begin{align*}
+      \rho_w(x_n, x) \to 0 &\implies 0 \leq d(w x_n, wx) \leq \rho_w(x_n,x)  \to 0 \\
+      &\implies d(wx_n, wx) \to 0 \\
+      &\implies d(x_n, x) \to 0
+    \end{align*}
+    gdzie ostatnia implikacja wynika z ciągłości mnożenia (mnożymy przez $w^{-1}$).
+    
+    Z drugiej strony, niech $\varepsilon > 0$. Zdefiniujmy odwzorowanie:
+    \[m: [0,w] \times Y \ni (t,x) \to d(tx, 0) \in Y\]
+    
+    Z ciągłości wynika $m$ wynika, że dla każdego $t$ istnieje $V_t$ otoczenie $t$ oraz $U_t$ otoczenie $0$ w $Y$ takie, że $m(s, y) < \varepsilon$ o ile tylko $s \in V_t$ i $y \in U_t$.
+    
+    Ze zwartości odcinka wybieramy z pokrycia $\{V_t\}_{t \in [0,w]}$ skończone podpokrycie $(V_{t_i})_{i=1}^{k}$
+    
+    Biorąc $U := \bigcap_{i=1}^k U_{t_i}$ otrzymujemy otwarte otoczenie $0$ o własności:
+    \[t \in [0,w], x \in U,\mbox{ to } m(t,x) = d(tx, 0) < \varepsilon\]
+    
+    Ustalmy $n_0$ tak, aby dla każdego $n \geq n_0$ było $x_n - x \in U$. Ale wtedy:
+    \[\rho_w(x_n, x) = \rho_w(x_n - x, 0) = \sup_{0 \leq t \leq w} d(t(x_n - x), 0) < \varepsilon\]
+    
+    A więc $\rho_w(x_n, x) \to 0$, co dowodzi równoważności $\rho_w$ i $d$.
+    
+    Zauważmy jeszcze, że $\rho_w$ jest metryką słabo rosnącą po promieniach. Rzeczywiście, niech $0 \leq t_1 < t_2$, $x \in Y$. Mamy:
+    \[\rho_w(t_1 x, 0) = \sup_{0 \leq t \leq w} d(t \cdot t_1 x, 0) \leq \sup_{0 \leq t \leq w} d(t \cdot t_2 x, 0) = \rho_w(t_2 x, 0)\]
+    
+    Ułóżmy wszystkie liczby wymierne dodatnie w ciąg $(w_i)_{i=1}^\infty$. Definiujemy wynikową metrykę jako:
+    \[\rho(x, y) := \sum_{i=1}^\infty \frac{1}{2^i} \rho_{w_i}(x, y)\]
+    
+    Zbieżność powyższego szeregu wynika z ograniczoności metryk $\rho_w$ przez $1$. Ponadto metryka $\rho$ jest równoważna metryce $d$.
+    
+    Istotnie, metryka $\rho$ jest większa niż $\frac{1}{2} \rho_{w_1}$, która jest równoważna metryce $d$, a więc $\rho(x_n, x) \to 0$ pociąga $d(x_n, x) \to 0$.
+    
+    Z drugiej strony, niech $d(x_n, x) \to 0$ i $\varepsilon > 0$. Z równoważności $d$ i $\rho_w$ mamy $\rho_w(x_n, x) \to 0$.
+    
+    Ustalmy $k \in \mathbb{N}_1$ takie, że $\sum_{i=k+1}^\infty \frac{1}{2^i} < \frac{\varepsilon}{2}$.
+    Ustalmy teraz $n_0 \in \mathbb{N}_1$ takie, że:
+    \[\forall i \in [1,k]\ \forall n > n_0: \frac{1}{2^i} \rho_{w_i}(x_n, x) \leq \frac{\varepsilon}{2k}\]
+    
+    Wówczas $\forall n > n_0$:
+    \[\rho(x_n, x) \leq \sum_{i=i}^k \frac{1}{2^i} \rho_{w_i}(x_n, x) + \sum_{i=k+1}^\infty \frac{1}{2^i} \leq k \cdot \frac{\varepsilon}{2k} + \frac{\varepsilon}{2} = \varepsilon\]
+    a więc $\rho(x_n, x) \to 0$
+    
+    Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
+    \begin{align*}
+      \rho_{t_1^i t_2^{-i}}(t_1 x, 0) = \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0) =
+      \sup_{0 \leq t \leq t_1^{i+1} t_2^{-(i+1)}} d(t \cdot t_2 x, 0) = \rho_{t_1^{i+1} t_2^{-(i+1)}}(t_2 x, 0)
+    \end{align*}
+    Skąd otrzymujemy ciąg równości:
+    \begin{align*}
+      \rho_1(t_2 x, 0) &= \rho_1(t_1 x, 0) = \\
+      \rho_{t_1 t_2^{-1}}(t_2 x, 0) &= \rho_{t_1 t_2^{-1}}(t_1 x, 0) = \\
+      \rho_{t_1^2 t_2^{-2}}(t_2 x, 0) &= \rho_{t_1^2 t_2^{-2}}(t_1 x, 0) = \\
+      \cdots
+    \end{align*}
+    A więc
+    \[d(t_2 x, 0) \leq \sup_{0 \leq t \leq 1} d(t \cdot t_2 x, 0) = \rho_1(t_2 x, 0) = \sup_{0 \leq s \leq t_1^i t_2^{-i}} d(tx, 0)\]
+    Z rozważań nad $m$ wiemy jednak, że wraz z maleniem ciągu $t_1^i t_2^{-i}$ do zera $\sup_{0 \leq s \leq t_1^i t_2^{-i}} d(tx, 0)$ również dąży do zera. Zatem $d(t_2 x, 0) = 0$, co w konsekwencji daje $x = 0$. Zatem jedynym przypadkiem, gdy nie zachodzi wzrost po promieniach jest $x = 0$, zatem $\rho$ jest metryką rosnącą po promieniach.
+
+  \end{proof}
+\end{thm}
+
+\begin{lem}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną. Wówczas istnieje na $Y$ metryka $d$ zgodna z topologią taka, że dla każdego $\varepsilon > 0$ kula $U_\varepsilon := B_d(0, \varepsilon)$ jest homeomorficzna z $Y$.
+  
+  \begin{proof}
+    Weźmy metrykę $d$ na $Y$ rosnącą po promieniach z twierdzenia Eidelheita-Mazura. Niech $0 < t_1 < t_2$. Pokażemy, że:
+    \[
+      \cl{t_1 U_\varepsilon} \subset t_2 U_\varepsilon
+    \]
+    
+    Istotnie, niech $y \in \cl{t_1 U_\varepsilon}$. Wówczas istnieje ciąg $(y_n)_{n=1}^\infty \in U_\varepsilon^{\mathbb{N}_1}$ taki, że $t_1 y_n \to y$. Wynika stąd, że $d(y_n, 0) < \varepsilon$ a po przejściu granicznym $d(\frac{y}{t_1}, 0) \leq \varepsilon$. Ale z monotoniczności metryki $d$ mamy: $d(\frac{y}{t_2}, 0) < d(\frac{y}{t_1}, 0) \leq \varepsilon$ a więc $y \in t_2 U_\varepsilon$.
+    
+    Definiujemy odwzorowanie:
+    \[
+      \lambda: Y \ni y \to \inf \{t \geq 0\ |\ y \in t U_\varepsilon\} \in [0, \infty)
+    \]
+    
+    Podobnie jak w przypadku funkcjonału Minkowskiego pokażemy, że $\lambda$ spełnia warunek:
+    
+    \[
+      y \in t_0 U_\varepsilon \iff \lambda(y) < t_0
+    \]
+    
+    Istotnie, niech $y \in t_0 U_\varepsilon$
+    Wówczas z otwartości zbioru $U_\varepsilon$ i ciągłości mnożenia istnieje $t_1 < t_0: y \in t_1 U_\varepsilon$.
+    A więc $\lambda(y) \leq t_1 < t_0$.
+    Z drugiej strony, jeśli $\lambda(y) < t_0$, to z definicji infimum istnieje $t_1 < t_0: y \in t_1 U_\varepsilon$, ale $\cl{t_1 U_\varepsilon} \subset t_0 U_\varepsilon$, więc $y \in t_0 U_\varepsilon$.
+
+    Wykażemy ciągłość odwzorowania $\lambda$.
+    Ustalmy $y_0 \in Y$ oraz $\delta > 0$.
+    Niech $U := (\lambda(y_0) + \delta) U_\varepsilon \setminus \cl{(\lambda(y_0)-\delta) U_\varepsilon}$.
+    
+    Po pierwsze zauważmy, że $y_0 \in U$.
+    Istotnie, skoro $\lambda(y_0) < \lambda(y_0) + \delta$, to $y_0 \in (\lambda(y_0) + \delta) U_\varepsilon$.
+    Z drugiej strony, gdyby $y_0 \in \cl{(\lambda(y_0) - \delta) U_\varepsilon} \subset (\lambda(y_0) - \frac{\delta}{2}) U_\varepsilon$. Ale wtedy $\lambda(y_0) < \lambda(y_0) - \frac{\delta}{2}$.
+    Zatem $U$ jest otwartym otoczeniem $y_0$.
+    
+    Następnie zauważmy, że $y \in (\lambda(y_0) + \delta) U_\varepsilon$, to $\lambda(y) < \lambda(y_0) + \delta$ oraz $y \not\in \cl{(\lambda(y_0) - \delta) U_\varepsilon}$, to $\lambda(y) \geq \lambda(y_0) - \delta$, gdyż w przeciwnym razie $\lambda(y) < \lambda(y_0) - \delta$ a więc $y \in (\lambda(y_0) - \delta) U_\varepsilon$.
+    
+    Podsumowując: $y \in U$, to $\lambda(y_0) - \delta < \lambda(y) < \lambda(y_0) + \delta$, a więc z dowolności $\delta$ wykazaliśmy ciągłość $\lambda$.
+    
+    Warto jeszcze zaznaczyć, że $\lambda(sy) = \inf \{t \geq 0\ |\ sy \in t U_\varepsilon\} = s\inf \{t \geq 0\ |\ y \in t U_\varepsilon\} = s \lambda(y)\ \forall s \geq 0, y \in Y$.
+    
+    Definiujemy oczekiwany homeomorfizm jako:
+    \[
+      h: Y \ni y \to \frac{y}{\max\left(1, \lambda(y) + \frac{1}{2}\right)} \in U_\varepsilon
+    \]
+    Bezpośrednio ze wzoru wynika, że $h$ jest funkcją ciągłą. Aby sprawdzić, że jest poprawnie określona należy zbadać, czy $h(y) \in U_\varepsilon$. Sprawdzimy więc:
+    
+    \begin{align*}
+      \lambda\left(\frac{y}{\max\left(1, \lambda(y) + \frac{1}{2}\right)}\right) =
+      \frac{\lambda(y)}{\max\left(1, \lambda(y) + \frac{1}{2}\right)} \leq
+      \frac{\lambda(y)}{\lambda(y) + \frac{1}{2}} < 1
+    \end{align*}
+    A więc $h(y) \in 1 U_\varepsilon = U_\varepsilon$.
+    
+    Aby pokazać, że $h$ jest homeomorfizmem wyliczymy funkcję odwrotną:
+    \[
+      \frac{y}{\max\left(1, \lambda(y) + \frac{1}{2}\right)} = z
+    \]
+    Dla $\lambda(y) \geq \frac{1}{2}$ mamy $y = z$, dla $\lambda(y) \leq \frac{1}{2}$ natomiast 
+    \[
+      \frac{y}{\lambda(y) + \frac{1}{2}} = z
+    \]
+    Skąd:
+    \begin{equation}
+      \label{a1}
+      \lambda(z) = \frac{\lambda(y)}{\lambda(y) + \frac{1}{2}}
+    \end{equation}
+    Po prostych przekształceniach dostajemy:
+    \[
+      \lambda(y) = \frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)}
+    \]
+    Zatem
+    \[
+      y = z\left(\frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)} + \frac{1}{2}\right) = \frac{z}{2(1-\lambda(z))}
+    \]
+    Zauważmy jeszcze, że $\lambda(y) \leq \frac{1}{2} \iff \lambda(z) \leq \frac{1}{2}$. Istotnie, jeśli $\lambda(y) \leq \frac{1}{2}$, to ze wzoru \eqref{a1} natychmiast wynika, że $\lambda(z) < 1$. A dla $\lambda(z) < 1$ mamy:
+    \begin{align*}
+      \lambda(y) &\leq \frac{1}{2} \\
+      1 &\geq \lambda(y) + \frac{1}{2} = \frac{1}{2(1-\lambda(z))} \\
+      2(1-\lambda(z)) &\geq 1 \\
+      \frac{1}{2} &\geq \lambda(z)
+    \end{align*}
+    Mamy więc wzór na funkcję odwrotną do $h$:
+    \[
+      h^{-1}(z) = 
+      \begin{cases}
+        \frac{z}{2(1-\lambda(z))},&\lambda(z) \leq \frac{1}{2} \\
+        z,&\lambda(z) \geq \frac{1}{2}
+      \end{cases}
+    \]
+    Ale wzór ten możemy również zapisać jako:
+    \[
+      z \to \frac{z}{2(1-\min(\lambda(z), \frac{1}{2}))}
+    \]
+    Zatem $h^{-1}$ jest funkcją ciągłą.
+  \end{proof}
+\end{lem}
+
