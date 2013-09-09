@@ -9,14 +9,14 @@
 \end{df}
 
 \begin{lem}
-  Niech $(f_t)_{0 \leq t \leq 1}$ będzie homotopią spychającą. Wówczas odwzorowanie:
-  \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in (Y \times X)\]
+  Niech $(f_t)_{1 \leq t \leq \infty}$ będzie homotopią spychającą. Wówczas odwzorowanie:
+  \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in Y \times X\]
   jest poprawnie określone i ciągłe.
   
   \begin{proof}
     Z warunku \ref{displacement-homeo} wynika, że możemy zastosować warunek $(i)$ lematu \ref{lem:inverse}, kładąc: $X := Y \times X$, $T := [1, \infty)$ oraz $Y := Y$. Wówczas warunek $(ii)$ lematu mówi nam, że:
     
-    \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in (Y \times X)\]
+    \[Y \times [1,\infty) \ni (y, t) \rightarrow f_t^{-1}(y) \in Y \times X\]
     
     Co chcieliśmy pokazać.
   \end{proof}
@@ -24,7 +24,7 @@
 
 \begin{thm}[O istnieniu homotopii spychającej]
   \label{thm:displacement-homotopy}
-  Jeśli $X$ ma RIP, to na $Y$ można skonstruować homotopię spychającą.
+  Jeśli $X$ ma RIP, to na $Y := \prod_{i=1}^\infty X$ można skonstruować homotopię spychającą.
   \begin{proof}
     Niech $(g_t)_{0 \leq t \leq 1}$ będzie izotopią odbijającą na $X$. Dla $n \in \mathbb{N}_1$ i $t \in [0,1]$ definiujemy:
     \[f_{n+t}(y,x) := (y_1, \ldots, y_n, g_t(x, y_{n+1}), y_{n+2}, \ldots)\]
@@ -37,12 +37,12 @@
     \[f_{(n+0) + 1}(y,x) = (y_1, \ldots, y_n, g_1(x, y_{n+1}), y_{n+2}, y_{n+3}, \ldots)\]
     które jednak ze względu na własności izotopii odbijającej:
     \[g_0(x, y_{n+2}) = (x, y_{n+2}) \mbox{ i } g_1(x, y_{n+1}) = (y_{n+1}, x)\]
-    zadają funkcję w ten sam sposób. Z powyższego wzoru widzimy, że warunek \ref{displacement-proj} jest spełniony.
+    zadają funkcję w ten sam sposób. Z powyższego wzoru widzimy ponadto, że warunek \ref{displacement-proj} jest spełniony.
     
     Pozostaje więc zaobserwować ciągłość w punktach $Y \times X \times \{\infty\}$. Istotnie, weźmy $(u_n, (y_n, x_n)) \rightarrow (\infty, (y,x))$, $n \rightarrow \infty$. Niech $m \in \mathbb{N}_1$ oraz $n_0$ takie, że $u_n \geq m$ dla $n \geq n_0$. Wówczas:
     \[s_m f_{u_n}(y_n, x_n) = s_m(y_n) \rightarrow s_m(y) = s_m f_\infty (y,x)\]
     
-    Co daje ciągłość funkcji $f$.
+    Co daje ciągłość homotopii $(f_t)_{1 \leq t \leq \infty}$.
     
     Spełniony jest również warunek \ref{displacement-homeo}. Istotnie, wyznaczmy funkcję odwrotną:
     \[f_{n+t}(y,x) = (y_1, \ldots, y_n, g_t(x, y_{n+1}), y_{n+2}, \ldots) = z\]
@@ -83,14 +83,15 @@
   Homotopia spychająca spełnia następujący warunek:
   \[\mbox{Jeśli } (z_n, t_n) \rightarrow (z, \infty), \mbox{ to } p_Y f_{t_n}^{-1}(z_n) \rightarrow z\]
   \begin{proof}
+    Z lematu \ref{lem:inverse} wynika, że $f_t^{-1}$ istnieje.
     Niech $z_n \rightarrow z$ i $t_n \rightarrow \infty$. Oznaczmy:
     \[(y_n, x_n) := f_{t_n}^{-1}(z_n)\]
     A więc
     \[f_{t_n}(y_n, x_n) = z_n\]
     Ustalmy $k \in \mathbb{N}_1$ oraz $n_0$ tak duże, że dla $n \geq n_0$ zachodzi $t_n \geq k$. Wówczas z własności \ref{displacement-proj} mamy:
-    \[s_k y_n = s_k f_{t_n}(y_n, x_n)\]
+    \[s_k f_{t_n}(y_n, x_n) = s_k y_n\]
     Skąd:
-    \[s_k p_Y f_{t_n}^{-1}(z_n) = s_k y_n = s_k z_n \rightarrow s_k z\]
+    \[s_k p_Y f_{t_n}^{-1}(z_n) = s_k y_n = s_k f_{t_n}(y_n, x_n) = s_k z_n \rightarrow s_k z\]
     Z dowolności $k$ otrzymujemy tezę.
   \end{proof}
 \end{prop}
