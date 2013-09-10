@@ -1,0 +1,65 @@
+\section{Wybrane własności przestrzeni topologicznych i metrycznych}
+
+\begin{df}
+  Wagą przestrzeni topologicznej $M$ nazwiemy najmniejszą liczbę kardynalną $\kappa$ taką, że istnieje baza $M$ mocy $\kappa$. Piszemy wówczas $\wght M = \kappa$.
+\end{df}
+
+\begin{lem}
+  Niech $M$ będzie przestrzenią topologiczną o własności $\wght M \geq \aleph_0$. Niech $\mathcal B$ będzie bazą $M$. Wówczas z $\mathcal B$ można wybrać podzbiór $\mathcal B_0$ o mocy nie większej niż waga przestrzeni, tj.:
+  \[
+    \card \mathcal B_0 \leq \wght M,
+  \]
+  który jest również bazą.
+  \begin{proof}
+    Niech $\mathcal D$ będzie bazą $M$ o mocy równej $\wght B$. Niech $D_0 \in \mathcal D$. Wówczas istnieje $\mathcal B_{D_0} \subset \mathcal B$, który sumuje się do $D_0$, tzn. $\bigcup \mathcal B_{D_0} = D_0$. Niech $B \in \mathcal B_{D_0}$. Ten zbiór, z kolei, sumuje się z pewnej podrodziny $\mathcal D_B$ bazy $\mathcal D$, powiedzmy $\bigcup \mathcal D_B = B$. Ale $\card\mathcal D = \wght M$, więc dla $\mathcal D_0 := \{D\ |\ D \in \mathcal D_B, B \in \mathcal B_D\}$ mamy $\card\mathcal D_0 \leq \wght M$. Dla każdego $D \in \mathcal D_0$ oznaczmy poprzez $B_D$ dowolny nadziór $D$ wpadający w $\mathcal B_{D_0}$. Wówczas $\mathcal G_{D_0} := \{B_D\ |\ D \in \mathcal D_0\}$ jest podzbiorem $\mathcal B$ mocy nie większej niż $\wght M$, z którego można wysumować $D_0$.
+    
+    Niech
+    \[
+      \mathcal B_0 := \bigcup \mathcal G_{D_0}
+    \]
+    Zbiór $\mathcal B_0$ jest oczywiście podzbiorem $\mathcal B$ oraz jego moc jest nie większa niż $\wght M \cdot \wght M = \wght M$. Co więcej, jeśli $U$ jest zbiorem otwartym, to możemy go wysumować ze zbiorów bazy $\mathcal D$. Ale każdy z tych zbiorów, np. $D$, możemy wysumować z rodziny $\mathcal G_D \subset \mathcal B_0$. W konsekwencji zbiór $U$ daje się wysumować ze zbiorów rodziny $\mathcal B_0$.
+  \end{proof}
+\end{lem}
+
+\begin{fact}
+  Powyższy lemat zachodzi również w przypadku $\wght M < \aleph_0$.
+  \begin{proof}(szkic)
+    Jeśli przestrzeń $M$ ma skończoną bazę, to sama topologia jest skończona, ponieważ każdy zbiór sumuje się ze zbiorów z bazy. Będziemy konstruować bazę minimalną $\mathcal D$. Weźmy zbiory minimalne w tej topologii względem relacji porządku. Takie zbiory muszą należeć do każdej bazy. Następnie usuńmy z topologii wszystkie zbiory, które dają się wysumować ze zbiorów minimalnych. Procedurę kontynuujemy, tzn. z pozostałych zbiorów bierzemy zbiory minimalne według relacji inkluzji - one znowuż muszą należeć do każdej bazy, bo nie dają się wysumować jako nic innego. Wszystkie sumy zbiorów minimalnych usuwamy.
+    
+    Powyższa procedura zakończy się w skończenie wielu krokach. Z konstrukcji wynika, że ogół zbiorów minimalnych we wszystkich turach stanowi bazę minimalną oraz, że w dowolnej bazie zawarta jest owa baza minimalna. Dlatego też z $\mathcal B$ można wybrać $\mathcal B_0$ o żądanej własności.
+  \end{proof}
+\end{fact}
+
+\begin{df}
+  Drogą w przestrzeni toplogicznej $M$ nazwiemy odwzorowanie ciągłe $\gamma: [0,1] \to M$.
+\end{df}
+\begin{df}
+  Powiemy, że przestrzeń $M$ jest drogowo spójna, gdy każde dwa punkty tej przestrzeni można połączyć drogą, tzn.:
+  \[
+    \forall x,y \in M\ \exists \gamma: [0,1] \to M: \gamma(0) = x, \gamma(1) = y
+  \]
+  Powiemy, że przestrzeń $M$ jest lokalnie drogowo spójna, jeśli każdy punkt $M$ ma otoczenie, które jest drogowo spójne.
+
+\end{df}
+
+
+\begin{lem}
+  Niech $M$ spójna i lokalnie drogowo spójna. Wówczas $M$ jest drogowo spójna.
+  \begin{proof}
+    Niech $m_0 \in M$. Niech
+    \[
+      A := \{m \in M\ |\ \mbox{istnieje droga od $m$ do $m_0$}\}
+    \]
+    Niech $m \in A$.
+    Wówczas istnieje droga od $m_0$ do $m$.
+    Niech $U$ otoczenie $m$ takie, że każde dwa punkty $U$ można połączyć drogą.
+    Wówczas każdy punkt $m' \in U$ można połączyć drogą z $m_0$, która powstaje jako sklejenie drogi $m' \rightsquigarrow m$ z drogą $m \rightsquigarrow m_0$.
+    Zatem $A$ jest zbiorem otwartym.
+    
+    Jeśli natomiast $m \in M \setminus A$, to biorąc otoczenie $U$ otoczenie $m$ jak poprzednio zauważamy, że żaden punkt $U$ nie należy do $A$. Istotnie, gdyby jakiś punkt $m' \in U$ należał do $A$, to istniałaby droga $m' \rightsquigarrow m_0$.
+    Ale wtedy sklejenie tej drogi z drogą $m' \rightsquigarrow m$ dałoby drogę $m \rightsquigarrow m_0$, która istnieć nie może, bo $m \not\in A$.
+    
+    Zatem $A$ jest niepustym, bo $m_0 \in A$ zbiorem otwarto-domkniętym, zatem ze spójności $M$ mamy $A = M$, a więc $M$ jest drogowo spójne.
+  \end{proof}
+\end{lem}
+

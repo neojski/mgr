@@ -55,7 +55,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 
 
 \begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur}
-  Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje metryką $\rho$ równoważna $d$ rosnąca po promieniach.
+  Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje ograniczona przez $1$, niezmiennicza metryka $\rho$ równoważna $d$ rosnąca po promieniach.
   \begin{proof}
     Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk ograniczonych przez $1$. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, jest metryką równoważną $d$.
     
@@ -88,7 +88,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     Ułóżmy wszystkie liczby wymierne dodatnie w ciąg $(w_i)_{i=1}^\infty$. Definiujemy wynikową metrykę jako:
     \[\rho(x, y) := \sum_{i=1}^\infty \frac{1}{2^i} \rho_{w_i}(x, y)\]
     
-    Zbieżność powyższego szeregu wynika z ograniczoności metryk $\rho_w$ przez $1$. Ponadto metryka $\rho$ jest równoważna metryce $d$.
+    Zbieżność powyższego szeregu wynika z ograniczoności metryk $\rho_w$ przez $1$, co więcej $\rho(x,y) \leq 1$. Z niezmienniczości metryk $\rho_w$ wynika niezmienniczość $\rho$. Ponadto metryka $\rho$ jest równoważna metryce $d$.
     
     Istotnie, metryka $\rho$ jest większa niż $\frac{1}{2} \rho_{w_1}$, która jest równoważna metryce $d$, a więc $\rho(x_n, x) \to 0$ pociąga $d(x_n, x) \to 0$.
     
@@ -225,6 +225,21 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
       z \to \frac{z}{2(1-\min(\lambda(z), \frac{1}{2}))}
     \]
     Zatem $h^{-1}$ jest funkcją ciągłą.
+  \end{proof}
+\end{lem}
+
+W dalszym ciągu 
+
+\begin{lem}
+  Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną z metryką rosnącą po promieniach. Wówczas kula $B_r$ o promieniu $r$ jest drogowo spójna.
+  \begin{proof}
+    Niech $x \in B_r$. Określamy:
+    \[
+      \gamma: [0,1] \ni t \to tx \in B_r
+    \]
+    Należy zwrócić uwagę, że odwzorowanie to jest poprawnie określone, bo metryka $d$ rośnie po promieniach, zatem: $d(0, tx) \leq d(0, x) < 1$ dla $t \in [0,1]$, a więc $tx \in B_r$.
+    
+    Z ciągłości działań w przestrzeni $Y$ wynika ciągłość $\gamma$. Używając odwzorowania $\gamma$ możemy połączyć drogą każdy punkt kuli z $0$, zatem sklejając dwie takie drogi możemy połączyć każde dwa punkty kuli.
   \end{proof}
 \end{lem}
 

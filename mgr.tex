@@ -5,6 +5,7 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{enumerate}
+\usepackage{amssymb}
 \usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=2.5cm]{geometry}
 
 \newtheorem{thm}{Twierdzenie}
@@ -15,8 +16,11 @@
 \newtheorem{cor}[thm]{Wniosek}
 \newtheorem{lem}[thm]{Lemat}
 \newtheorem{fact}[thm]{Fakt}
+
 \newcommand{\cl}[1]{\overline{#1}}
-\newcommand{\id}{\mbox{id}}
+\newcommand{\id}{\operatorname{id}}
+\newcommand{\wght}{\operatorname{wght}}
+\newcommand{\card}{\operatorname{card}}
 
 % set couter like: section.couter
 \numberwithin{thm}{section}
@@ -28,6 +32,7 @@
 
 \begin{document}
   \input{wprowadzenie.tex}
+  \input{wybrane-wlasnosci-top.tex}
   \input{wybrane-wlasnosci-plm.tex}
   \input{topologia-zredukowanego-produktu.tex}
   \input{rip.tex}
