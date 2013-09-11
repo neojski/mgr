@@ -4,7 +4,7 @@
   Wagą przestrzeni topologicznej $M$ nazwiemy najmniejszą liczbę kardynalną $\kappa$ taką, że istnieje baza $M$ mocy $\kappa$. Piszemy wówczas $\wght M = \kappa$.
 \end{df}
 
-\begin{lem}
+\begin{lem} \label{lem:base-small}
   Niech $M$ będzie przestrzenią topologiczną o własności $\wght M \geq \aleph_0$. Niech $\mathcal B$ będzie bazą $M$. Wówczas z $\mathcal B$ można wybrać podzbiór $\mathcal B_0$ o mocy nie większej niż waga przestrzeni, tj.:
   \[
     \card \mathcal B_0 \leq \wght M,
@@ -43,7 +43,7 @@
 \end{df}
 
 
-\begin{lem}
+\begin{lem} \label{lem:local-connectedness}
   Niech $M$ spójna i lokalnie drogowo spójna. Wówczas $M$ jest drogowo spójna.
   \begin{proof}
     Niech $m_0 \in M$. Niech
@@ -63,3 +63,33 @@
   \end{proof}
 \end{lem}
 
+\begin{df}
+  Niech $Y$ będzie przestrzenią toplogiczną. Rozmaitością topologiczną modelowaną na $Y$ nazwiemy przestrzeń topologiczną parazwartą $M$ taką, że każdy punkt ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$.
+\end{df}
+
+\begin{df}
+  Atlasem na rozmaitości $M$ nazwiemy rodzinę homeomorfizmów $\{f_c : M \supset U_c \to V_c \subset Y\}_{c \in C}$ pomiędzy zbiorami otwartymi w $M$ i $Y$ taką, że $\bigcup U_c = M$.
+\end{df}
+
+
+\begin{fact} \label{fact:local-metrizability}
+  Jeśli $Y$ jest przestrzenią metryczną, to rozmaitość topologiczna $M$ jest również przestrzenią metryczną.
+  \begin{proof}(szkic)
+    $M$ jest przestrzenią lokalnie metryzowalną, jako przestrzeń lokalnie homeomorficzna z przestrzenią metryzowalną. Z definicji jest też przestrzenią parazwartą. Metryzowalność wynika z twierdzenia o metryzowalności Smirnova. [patrz \ref{reference-needed}]
+  \end{proof}
+\end{fact}
+
+\begin{thm}(Twierdzenie A. H. Stone'a)
+  \label{thm:stone}
+  Każda przestrzeń metryczna jest parazwarta.
+  \begin{proof}
+    Klasyczny dowód można znaleźć w [\ref{reference-needed}]
+  \end{proof}
+\end{thm}
+
+\begin{cor}
+  Założenie parazwartości rozmaitości $M$ jest równoważne założeniu metryzowalności.
+  \begin{proof}
+    Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \label{thm:stone} wynika, że metryzowalność daje parazwartość.
+  \end{proof}
+\end{cor}
