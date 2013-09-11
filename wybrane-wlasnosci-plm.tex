@@ -287,3 +287,40 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
     Biorąc rzutowanie z rodziny wszystkich struktur na oznaczony zbiór otrzymujemy suriekcję ze zbioru mocy $\wght Y$ na $\mathcal D$, zatem $\mathcal D$ jest bazą $M$ mocy $\wght Y$.
   \end{proof}
 \end{lem}
+
+\begin{df}
+  Niech $r > 0$. Podzbiór $A$ przestrzeni metrycznej $M$ nazwiemy $r$-rozstrzelonym, jeśli:
+  \[
+    \forall x, y \in A: d(x,y) \geq r
+  \]
+  Podzbiór $A$ przestrzeni metrycznej $M$ nazwiemy $r$-siecią, jeśli:
+  \[
+    \forall x \in M\ \exists a \in A: d(x,a) < r
+  \]
+\end{df}
+
+\begin{lem} \label{lem:anti-net}
+  Niech $M$ będzie przestrzenią metryczną, $r > 0$. Wówczas w $M$ istnieje maksymalny zbiór $r$-rozstrzelony. Ponadto, maksymalny zbiór $r$-rozstrzelony jest $r$-siecią.
+  \begin{proof}
+    Zbiór wszystkich zbiorów $r$-rozstrzelonych jest niepusty, ponieważ $\emptyset$ jest zbiorem $r$-rozstrzelonym i częściowo uporządkowany przez inkluzję. Weźmy łańcuch zbiorów $r$-rozstrzelonych. Wówczas suma wszystkich elementów wszystkich zbiorów łańcucha jest również zbiorem $r$-rozstrzelonym. Istotnie, gdyby tak nie było, to istniałyby dwa punkty oddalone od siebie o mniej niż $r$. Ale wówczas istniałby element łańcucha zawierający oba z nich. Sprzeczność. Lemat Kuratowskiego-Zorna kończy dowód dając element maksymalny $A$.
+    
+    Gdyby zbiór ten nie był $r$-siecią istniałby punkt $x$ oddalony od dowolnego punktu zbioru $A$ o co najmniej $r$. Zatem zbiór $A \cup \{x\}$ byłby istotnie większym zbiorem $r$-rozstrzelonym.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{\cl B(y, r_y)\}_{y \in A}$.
+  
+  \begin{proof}
+    Najpierw znajdziemy w $Y$ promień $r > 0$ oraz przeliczalną dyskretną rodzinę kul. Niech $y_0 \in Y\setminus\{0\}$. Kładziemy $r := \frac{1}{4} d(y_0,0)$. Wówczas rodzina kul: $\{B(ny_0, r)\}_{n \in \mathbb{N}_1}$ jest przeliczalna i dyskretna. Istotnie, dobrym otoczeniem punktu $y \in Y$ jest kula $B(y,r)$, ponieważ odległość dwu różnych środków $n_1 y$ i $n_2 y$, dla $n_1 < n_2$ wynosi:
+    \[
+      d(n_2 y_0, n_1 y_0) = d((n_2 - n_1)y_0, 0) \geq d(y_0, 0) = 4r
+    \]
+    Oznaczmy przez $B := B(0,r)$. Weźmy dla $n > 0$ z lematu \ref{lem:anti-net} maksymalny zbiór $\frac{r}{n}$ rozstrzelony w $B$ i oznaczmy go przez $A_n$. Niech $A := \bigcup_{n=1}^\infty A_n$. Zauważmy, że zbiór $\{B(y, \frac{r}{n})\ |\ y \in A_n, n \in \mathbb{N}_1\}$ jest bazą $B$. Istotnie, jeśli $y \in B$ i $\varepsilon > 0$ takie, że $B(y,\varepsilon) \subset B$. Wówczas biorąc $n$ takie, że $2 \cdot \frac{r}{n} < \varepsilon$ znajdujemy z lematu \ref{lem:anti-net} punkt $a$ zbioru $A_n$ oddalony od $y$ o mniej niż $\frac{r}{n}$. Wówczas kula $B(a, \frac{r}{n})$ zawiera $y$ i zawiera się w $B(y,\varepsilon)$.
+    
+    Wynika stąd, że $\card A \geq \wght B = \wght Y$.
+    
+    Wystarczy teraz każdą rodzinę kul związaną ze swoim zbiorem $\frac{r}{n}$-rozstrzelonym w osobnej kuli $B(ny_0, r)$, tzn. szukana rodzina kul wygląda następująco: $\{\cl B(ny_0 + y, \frac{r}{2n})\ |\ n \in \mathbb{N}_0, y \in A_n\}$.
+  \end{proof}
+\end{lem}
+
