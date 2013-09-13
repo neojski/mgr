@@ -4,8 +4,9 @@
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
 \usepackage{amssymb}
+\usepackage{xifthen}
 \usepackage[top=2.5cm, bottom=2.5cm, left=3.5cm, right=2.5cm]{geometry}
 
 \newtheorem{thm}{Twierdzenie}
@@ -17,15 +18,21 @@
 \newtheorem{lem}[thm]{Lemat}
 \newtheorem{fact}[thm]{Fakt}
 
-\newcommand{\cl}[1]{\overline{#1}}
+% \cl[X]{A} or \cl{A}
+\newcommand{\cl}[2][]{%
+\ifthenelse{\isempty{#1}}{\overline{#2}}{\overline{#2}^{#1}}%
+}
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\im}{\operatorname{im}}
 \newcommand{\wght}{\operatorname{wght}}
 \newcommand{\card}{\operatorname{card}}
+\let\emptyset\varnothing % better emptyset character
+\newcommand{\Ni}{\mathbb{N}_1}
 
 % set couter like: section.couter
 \numberwithin{thm}{section}
 \numberwithin{equation}{section}
+
 
 %opening
 \title{}
@@ -35,6 +42,7 @@
   \input{wprowadzenie.tex}
   \input{wybrane-wlasnosci-top.tex}
   \input{wybrane-wlasnosci-plm.tex}
+  \input{wybrane-wlasnosci-rozmaitosci.tex}
   \input{topologia-zredukowanego-produktu.tex}
   \input{rip.tex}
   \input{homotopia-spychajaca.tex}

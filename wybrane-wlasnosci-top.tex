@@ -11,13 +11,13 @@
   \]
   który jest również bazą.
   \begin{proof}
-    Niech $\mathcal D$ będzie bazą $M$ o mocy równej $\wght B$. Niech $D_0 \in \mathcal D$. Wówczas istnieje $\mathcal B_{D_0} \subset \mathcal B$, który sumuje się do $D_0$, tzn. $\bigcup \mathcal B_{D_0} = D_0$. Niech $B \in \mathcal B_{D_0}$. Ten zbiór, z kolei, sumuje się z pewnej podrodziny $\mathcal D_B$ bazy $\mathcal D$, powiedzmy $\bigcup \mathcal D_B = B$. Ale $\card\mathcal D = \wght M$, więc dla $\mathcal D_0 := \{D\ |\ D \in \mathcal D_B, B \in \mathcal B_D\}$ mamy $\card\mathcal D_0 \leq \wght M$. Dla każdego $D \in \mathcal D_0$ oznaczmy poprzez $B_D$ dowolny nadziór $D$ wpadający w $\mathcal B_{D_0}$. Wówczas $\mathcal G_{D_0} := \{B_D\ |\ D \in \mathcal D_0\}$ jest podzbiorem $\mathcal B$ mocy nie większej niż $\wght M$, z którego można wysumować $D_0$.
+    Niech $\mathcal D$ będzie bazą $M$ o mocy równej $\wght M$. Niech $D_0 \in \mathcal D$. Wówczas istnieje $\mathcal B_{D_0} \subset \mathcal B$, który sumuje się do $D_0$, tzn. $\bigcup \mathcal B_{D_0} = D_0$. Niech $B \in \mathcal B_{D_0}$. Ten zbiór, z kolei, sumuje się z pewnej podrodziny $\mathcal D_B$ bazy $\mathcal D$. Ale $\card\mathcal D = \wght M$, więc dla $\mathcal D_0 := \{D\ |\ D \in \mathcal D_B, B \in \mathcal B_{D_0}\}$ mamy $\card\mathcal D_0 \leq \wght M$. Dla każdego $D \in \mathcal D_0$ oznaczmy poprzez $B_D$ dowolny nadziór $D$ wpadający w $\mathcal B_{D_0}$. Wówczas $\mathcal G_{D_0} := \{B_D\ |\ D \in \mathcal D_0\}$ jest podzbiorem $\mathcal B$ mocy nie większej niż $\wght M$, który sumuje się do $D_0$.
     
     Niech
     \[
-      \mathcal B_0 := \bigcup \mathcal G_{D_0}
+      \mathcal B_0 := \bigcup_{D_0 \in \mathcal D} \mathcal G_{D_0}
     \]
-    Zbiór $\mathcal B_0$ jest oczywiście podzbiorem $\mathcal B$ oraz jego moc jest nie większa niż $\wght M \cdot \wght M = \wght M$. Co więcej, jeśli $U$ jest zbiorem otwartym, to możemy go wysumować ze zbiorów bazy $\mathcal D$. Ale każdy z tych zbiorów, np. $D$, możemy wysumować z rodziny $\mathcal G_D \subset \mathcal B_0$. W konsekwencji zbiór $U$ daje się wysumować ze zbiorów rodziny $\mathcal B_0$.
+    Zbiór $\mathcal B_0$ podzbiorem $\mathcal B$ mocy nie większej niż $\wght M \cdot \wght M = \wght M$. Co więcej, jeśli $U$ jest zbiorem otwartym, to możemy go wysumować ze zbiorów bazy $\mathcal D$. Ale każdy ze zbiorów $D \in \mathcal{D}$, możemy wysumować z rodziny $\mathcal G_D \subset \mathcal B_0$. W konsekwencji zbiór $U$ daje się wysumować ze zbiorów rodziny $\mathcal B_0$, a więc $\mathcal B_0$ jest szukaną bazą.
   \end{proof}
 \end{lem}
 
@@ -39,7 +39,6 @@
     \forall x,y \in M\ \exists \gamma: [0,1] \to M: \gamma(0) = x, \gamma(1) = y
   \]
   Powiemy, że przestrzeń $M$ jest lokalnie drogowo spójna, jeśli każdy punkt $M$ ma otoczenie, które jest drogowo spójne.
-
 \end{df}
 
 
@@ -68,7 +67,7 @@
 \end{df}
 
 \begin{df}
-  Atlasem na rozmaitości $M$ nazwiemy rodzinę homeomorfizmów $\{f_c : M \supset U_c \to V_c \subset Y\}_{c \in C}$ pomiędzy zbiorami otwartymi w $M$ i $Y$ taką, że $\bigcup U_c = M$.
+  Atlasem na rozmaitości $M$ nazwiemy rodzinę homeomorfizmów $\{f_c : M \supset U_c \to V_c \subset Y\}_{c \in C}$ pomiędzy zbiorami otwartymi w $M$ i $Y$ -- zwanych również mapami -- taką, że $\bigcup_{c \in C} U_c = M$.
 \end{df}
 
 
@@ -81,7 +80,7 @@
 
 \begin{thm}(Twierdzenie A. H. Stone'a)
   \label{thm:stone}
-  Każda przestrzeń metryczna jest parazwarta.
+  W dowolne pokrycie otwarte przestrzeni metrycznej można wpisać pokrycie jednocześnie lokalnie skończone i $\sigma$-dyskretne.
   \begin{proof}
     Klasyczny dowód można znaleźć w [\ref{reference-needed}]
   \end{proof}
@@ -93,3 +92,36 @@
     Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \label{thm:stone} wynika, że metryzowalność daje parazwartość.
   \end{proof}
 \end{cor}
+
+\begin{lem} \label{lem:cl-locally-finite-sum}
+  Niech $(U_t)_{t \in T}$ będzie rodziną lokalnie skończoną w przestrzeni topologicznej $M$. Wówczas:
+  \[
+    \cl{\bigcup_{t \in T} U_t} = \bigcup_{t \in T} \cl U_t
+  \]
+  \begin{proof}
+    Dowód można znaleźć w [\ref{reference-needed}]
+  \end{proof}
+\end{lem}
+
+\begin{lem} \label{lem:cl-refinement}
+  Niech $M$ będzie parazwartą przestrzenią topologiczną. Wówczas dla każdego pokrycia otwartego $(U_t)_{t \in T}$ przestrzeni $M$ istnieje pokrycie otwarte $(U_t')_{t \in T}$ takie, że $\cl{U_t'}\ \subset U_t\ \forall t \in T$.
+  \begin{proof}
+    Dowód można znaleźć w [\ref{reference-needed}].
+  \end{proof}
+\end{lem}
+
+\begin{df}
+  Pokrycie $(U_t)_{t \in T}$ przestrzeni topologicznej nazwiemy $\star$-skończone, gdy gwiazda każdego elementu tego pokrycia składa się ze skończenie wielu elementów, tj.:
+  \[
+    \forall t_0 \in T: \card\{t \in T\ |\ U_t \cap U_{t_0} \neq \emptyset\} < \aleph_0
+  \]
+
+\end{df}
+
+
+\begin{lem} \label{lem:star-finite}
+  Niech $M$ będzie parazwartą przestrzenią topologiczną. Wówczas dla każdego przeliczalnego pokrycia otwartego $M$ istnieje przeliczalne pokrycie otwarte wpisane, $\star$-skończone.
+  \begin{proof}
+    Dowód można znaleźć w [\ref{reference-needed}].
+  \end{proof}
+\end{lem}

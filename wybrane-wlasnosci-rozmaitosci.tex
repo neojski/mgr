@@ -1,0 +1,120 @@
+\section{Wybrane własności rozmaitości nieskończenie wymiarowych}
+
+\begin{lem}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią parazwartą. Wówczas następujące wartunki są równoważne:
+  \begin{enumerate}
+   \item[(i)] każdy punkt $x \in M$ ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$
+   \item[(ii)] każdy punkt $x \in M$ ma otoczenie homeomorficzne z przestrzenią $Y$
+   \item[(iii)] każdy punkt $x \in M$ ma bazę otoczeń homeomorficznych z $Y$
+  \end{enumerate}
+
+  \begin{proof}
+    Implikacje $(iii) \implies (ii) \implies (i)$ są jasne.
+    
+    Pokażemy, że $(i) \implies (iii)$. Niech $x \in M$ oraz niech $f: M \supset U \to V \subset Y$ będzie mapą w otoczeniu $x$. Niech $\varepsilon_0 > 0$ będzie taki, że $B(f(x), \varepsilon_0) \subset V$. Niech $\varepsilon < \varepsilon_0$. Z lematu \ref{lem:ball-homeomorphism} istnieje homeomorfizm $g: B(f(x), \varepsilon) \to Y$, bo kula $B(0, \varepsilon)$ w przestrzeni liniowo-topologicznej jest homeomorficzna z kulą $B(f(x), \varepsilon)$. Niech $f_0$ będzie homeomorfizmem powstałym z zawężenia $f$ w obrazie do $B(f(x), \varepsilon)$ i dziedzinie do $G_\varepsilon := f^{-1}(B(f(x), \varepsilon))$. Wówczas $f_0 \circ g$ jest homeomorfizmem między $G_\varepsilon$ a $Y$.
+    
+    Skoro $\{B(f(x), \varepsilon)\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $f(x)$, to $\{G_\varepsilon\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punktcie $x$.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną, a $M$ spójną rozmaitością topologiczną modelowaną na $Y$. Wówczas:
+  \[
+    \wght Y = \wght M
+  \]
+  \begin{proof}
+    Niech $\mathcal U_0$ będzie pokryciem $M$ złożonym ze zbiorów homeomorficznych ze zbiorami otwartymi w $Y$. Z parazwartości wpisujemy w $\mathcal U_0$ pokrycie otwarte, lokalnie skończone $\mathcal U$. Dla każdego punktu $x \in M$ weźmy bazę otoczeń $\{U_n^x\}_{n \in \mathbb{N}_1}$ punktu $x$ o tej własności, że dla każdego $n \in \mathbb{N}_1$ mamy $\card\{U \in \mathcal U\ |\ U \cap U_n^x \neq \emptyset\} < \aleph_0$ oraz, że każdy ze zbiorów $U_n^x$ jest homeomorficzny z kulą w $Y$. Każdy punkt ma otoczenie przecinające tylko skończenie wiele zbiorów $\mathcal U$ z lokalnej skończoności, aby uzyskać $U_n^x$ wystarczy więc otoczenie to zmniejszyć aby obraz był kulą o promieniu mniejszym niż $\frac{1}{n}$. Biorąc wówczas $\mathcal B := \{U_n^x\ |\ n \in \mathbb{N}_1, x \in M\}$ dostajemy bazę $M$.
+    
+    Ustalmy $U \in \mathcal U$. Wtedy $\mathcal B_U := \{U \cap B\ |\ B \in \mathcal B\}$ jest bazą $U$. Z lematu \ref{lem:base-small} wybieramy z $\mathcal B_U$ podzbiór $\mathcal D_U$, który jest bazą przestrzeni $U$ o własności:
+    \[
+      \card \mathcal D_U \leq \wght U
+    \]
+    Ale $U$ jest homeomorficzne ze zbiorem otwartym w $Y$, zatem $\wght U = \wght Y$. Nierówność $\wght U \leq \wght Y$ jest jasna, druga z nich wynika z tego, że obraz $U$ przez homeomorfizm jest zbiorem otwartym, więc zawiera w sobie jakąś kulę. A kula w $Y$ jest homeomorficzna z $Y$. Zatem $\wght Y = \wght U$.
+    
+    Dalej weźmy $\mathcal D := \bigcup_{U \in \mathcal U} \mathcal D_U$.
+    Niech $D \in \mathcal D$. Wówczas istnieje jedynie skończenie wiele $U \in \mathcal U$ przecinających $D$. Ale w każdym z $U$ jest co najwyżej $\wght Y$ zbiorów z $\mathcal D$, mianowice $\mathcal D_U$. Zatem $D$ przecina co najwyżej $\aleph_0 \cdot \wght Y = \wght Y$ innych zbiorów z $\mathcal D$. Nazwijmy to własnością $(\star)$.
+    
+    Ustalamy $x \in M$, oraz $D \in \mathcal D$. Niech $y \in D$. Łączymy $x$ z $y$ drogą $\gamma$. Zwarty obraz $\gamma$ pokrywamy skończoną liczbą zbiorów z $\mathcal D$ przecinających się z $\im\gamma$ oraz zbiorem $D$. Otrzymujemy w ten sposób skończoną liczbę zbiorów spójnych (jako przeciwobrazy kul, które są spójne) pokrywających $\im\gamma$, których suma jest również zbiorem spójnym. Zauważmy, że takich struktur jest tylko $\wght Y$. 
+    
+    Istotnie, prześledźmy jak powstaje dowolny zbiór tej postaci. Weźmy zbiór przykrywający $x$, następnie wszystkie zbiory, które go przecinają. Ze względu na własność $(\star)$ istnieje tylko $\wght Y$ kandydatów na te zbiory odległe o $1$. Postępując idukcyjnie, tzn. mając zbiory odległe o $n$ - kandydatów na zbiory odległe o $n+1$, czyli przecinające się ze zbiorami odległymi o $n$ jest również, ze względu na $(\star)$ tylko $\wght Y$. Zatem istnieje tylko $\wght Y$ takich struktur. Nie zwiększymi również liczby tych struktur jeśli jeden ze zbiorów będzie oznaczony.
+    
+    Biorąc rzutowanie z rodziny wszystkich struktur na oznaczony zbiór otrzymujemy suriekcję ze zbioru mocy $\wght Y$ na $\mathcal D$, zatem $\mathcal D$ jest bazą $M$ mocy $\wght Y$.
+  \end{proof}
+\end{lem}
+
+\begin{df}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną a $M$ $Y$-rozmaitością. Atlasem regularnym na $M$ nazwiemy atlas $\mathcal F := \{f_c: M \supset U_c \to V_c \in Y\}_{c \in C}$ taki, że każde $f: U \to V \in \mathcal F$ jest mapą regularną, tzn.:
+  \begin{enumerate}[(1)]
+    \item $f$ jest homeomorfizmem pomiędzy zbiorami otwartymi $U$ i $V$
+    \item $f$ przedłuża się do homeomorfizmu $\cl{f}$ pomiędzy zbiorami domkniętymi $\cl U \to \cl V$
+  \end{enumerate}
+  Zatem $f$ jest włożeniem otwartym, a $\cl f \supset f$ jest włożeniem domkniętym.
+\end{df}
+
+\begin{lem} \label{lem:map-restriction}
+  Niech $f: U \to V$ będzie mapą regularną na rozmaitości $M$ modelowanej na przestrzeni liniowo-metrycznej $Y$, niech $U_1 \subset U$ będzie zbiorem otwartym. Wówczas kładąc $V_1 := f(U_1) \subset V$ otrzymujemy $g: U_1 \to V_1 \subset f$ mapę regularną.
+  \begin{proof}
+    $g$ jest homeomorfizmem jako zawężenie homeomorfizmu w dziedzinie i odpowiadającym mu obrazie. Skoro $U_1$ jest zbiorem otwartym (zarówno w $U$ jak i w $M$, ponieważ $U$ jest otwarty), to $V_1$ jest zbiorem otwartym w $V$, jako obraz zbioru otwartego przez homeomorfizm, a więc i otwartym w $Y$.
+    
+    Co więcej:
+    \[
+      \cl{f}(\cl{U_1}) = \cl{f}(\cl{U_1} \cap \cl{U}) = \cl{f}(\cl[\cl{U}]{U_1}) = \cl[\cl{V}]{\cl{f}(U_1)} = \cl{\cl{f}(U_1)} \cap \cl{V} = \cl{V_1} \cap \cl{V} = \cl{V_1}
+    \]
+    zatem $\cl{g}$ zdefiniowane jako zawężenie $\cl{f}$ do $\cl{U_1}$ w dziedzinie i $\cl{V_1}$ w obrazie jest homeomorfizmem pomiędzy zbiorami domkniętymi, a więc $g: U_1 \to V_1$ jest mapą regularną.
+  \end{proof}
+\end{lem}
+
+\begin{lem} \label{lem:map-regular}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Dla dowolnej mapy $f: U \to V$ istnieje przeliczalna rodzina $f_n: U_n \to V_n$ map regularnych taka, że $\cl{f_n} \subset f$ oraz $\bigcup_{n=1}^\infty U_n = U$.
+  \begin{proof}
+    Weźmy z własności $T_6$ przestrzeni metrycznej $Y$ rodzinę zbiorów otwartych $(V_n)_{n=1}^\infty$ taką, że $\cl{V_n} \subset V_{n+1}$ i $\bigcup_{n=1}^\infty V_n = V$. Kładziemy $U_n := f^{-1}(V_n)$. Wówczas $\bigcup_{n=1}^\infty U_n = U$ oraz $\cl{U_n} = \cl{f^{-1}(V_n)} \subset f^{-1}(\cl{V_{n}}) \subset f^{-1}(V_{n+1}) = U_{n+1}$. A więc definiujemy:
+    \[
+      \cl{f_n}: \cl{U_n} \to \cl{V_n},\qquad \cl{f_n}(x) := f(x)
+    \]
+    Zauważmy, że:
+    \[
+      \cl{f_n}(\cl{U_n}) = f(\cl{U_n}) = f(\cl{U_n} \cap U) = f(\cl[U]{U_n}) =\cl[V]{f(U_n)} = \cl[V]{V_n} = \cl{V_n} \cap V = \cl{V_n}
+    \]
+    A więc $f_n$ jest homeomorfizmem pomiędzy zbiorami otwartymi $U_n$ i $V_n$, a $\cl{f_n} \supset f_n$ jest homeomorfizmem pomiędzy zbiorami domkniętymi $\cl{U_n}$ i $\cl{V_n}$. Zatem $(f_n)_{n \in \mathbb{N}_1}$ jest szukaną rodziną map regularnych.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Niech $(f_n)_{n \in \mathbb{N}_1}$ będzie przeliczalnym atlasem dla rozmaitości $M$ modelowanej na przestrzeni liniowo-metrycznej $Y$. Wówczas na $M$ można wprowadzić przeliczalny atlas regularny.
+  \begin{proof}
+    Każdą mapę $f_n$ zamieniamy z lematu \ref{lem:map-regular} przez przeliczalną rodzinę map regularnych $(f_n^k)_{k \in \mathbb{N}_1}$, których dziedziny w sumie pokrywają dziedzinę $f_n$. Rodzina $(f_n^k)_{n,k \in \mathbb{N}_1}$ jest więc szukanym atlasem regularnym.
+  \end{proof}
+\end{lem}
+
+\begin{lem}
+  Niech $(f_n: U_n \to V_n)_{n \in \Ni}$ będzie atlasem regularnym $Y$-rozmaitości $M$, gdzie $Y$ jest przestrzenią liniowo-metryczną. Wówczas na $M$ istnieje przeliczalny atlas regularny $\star$-skończony.
+  \begin{proof}
+    Niech $(U_n')_{n \in \Ni}$ będzie z lematu \ref{lem:star-finite} pokryciem otwartym wpisanym w $(U_n)_{n \in \Ni}$ oraz $\star$-skończonym. Wystarczy dla każdego $U_n'$ znaleźć odpowiadający mu nadzbiór $U_{\delta(n)}$ oraz z lematu \ref{lem:map-restriction} zawęzić mapę regularną $f_{\delta(n)}$ do zbioru $U_n'$.
+  \end{proof}
+\end{lem}
+
+
+
+\begin{thm}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas istnieje przeliczalny, gwiazda skończony atlas regularny dla $M$.
+  \begin{proof}
+    Weźmy z lematu \ref{lem:balls-many} rodzinę kul w $Y$ taką, że rodzina $\mathcal B := (B(y,r_y))_{y\in A}$ jest dyskretna a $\card A = \wght Y$.
+    Niech $\{g_t: V_t \to Y\}_{t \in T}$ będzie atlasem dla $M$.
+    Z lematu \ref{lem:cl-refinement} istnieje $(V_t')_{t \in T}$ pokrycie otwarte $M$ wpisane z domknięciami w pokrycie $(V_t)_{t \in T}$.
+    Z twierdzenia \ref{thm:stone} weźmy pokrycie $(W_{c,n})_{c \in C_n, n \in \Ni}$ przestrzeni $M$ wpisane w $(V_t')_{t \in T}$ takie, że dla dowolnego $n \in \Ni$ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna.
+    
+    Skoro $(W_{c,n})_{c \in C_n}$ jest pokryciem dyskretnym, to $\card C_n \leq \wght M = \wght Y = \card A$.
+    Zatem możemy pewien pozbiór rodziny $\mathcal B$ ponumerować elementami zbioru $C_n$, mianowicie $\mathcal B \supset \mathcal B_n := (B_{c,n})_{c \in C_n}$.
+    
+    Określamy $\delta(c,n)$ jako dowolny element $T$ taki, że $W_{c,n} \subset V_{\delta(c,n)}$. Z lematu \ref{lem:ball-homeomorphism} i niezmienniczości metryki weźmy $h_{c,n}: Y \to B_{c,n}$ homeomorfizm. Wówczas $g_{c,n} := h_{c,n} \circ g_{\delta(c,n)}|_{W_{c,n}}$ jest homeomorfizmem na obraz, który jest otwarty w $B_{c,n}$ a więc i w $Y$, zatem $g_{c,n}$ jest mapą.
+    
+    Niech $U_n := \bigcup_{c \in C_n} W_{c,n}$.
+    
+    Na $U_n$ możemy określić odwzorowanie $f_n$ zdefiniowane następująco:
+    \[
+      f_n(x) := g_{c,n}(x),\mbox{ dla }x\in W_{c,n}
+    \]
+    Zauważmy, że $f_n$ jest odwzorowaniem ciągłym, ponieważ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna. Obraz $\im f_n = \bigcup \im g_{c,n}$ jest zbiorem otwartym w $\bigcup \mathcal B_n$, a więc i w $Y$. Ale rodzina $\mathcal B_n$ jest dyskretna w $Y$, więc $f_n^{-1}$ jest także ciągłe.
+    Rodzina $(f_n)_{n \in \Ni}$ jest więc przeliczalnym atlasem dla $M$.
+  \end{proof}
+\end{thm}

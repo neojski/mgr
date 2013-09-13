@@ -227,23 +227,6 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką niezmienniczą, ograniczoną przez $1$ i rosnącą po promieniach.
 
 \begin{lem}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią parazwartą. Wówczas następujące wartunki są równoważne:
-  \begin{enumerate}
-   \item[(i)] każdy punkt $x \in M$ ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$
-   \item[(ii)] każdy punkt $x \in M$ ma otoczenie homeomorficzne z przestrzenią $Y$
-   \item[(iii)] każdy punkt $x \in M$ ma bazę otoczeń homeomorficznych z $Y$
-  \end{enumerate}
-
-  \begin{proof}
-    Implikacje $(iii) \implies (ii) \implies (i)$ są jasne.
-    
-    Pokażemy, że $(i) \implies (iii)$. Niech $x \in M$ oraz niech $f: M \supset U \to V \subset Y$ będzie mapą w otoczeniu $x$. Niech $\varepsilon_0 > 0$ będzie taki, że $B(f(x), \varepsilon_0) \subset V$. Niech $\varepsilon < \varepsilon_0$. Z lematu \ref{lem:ball-homeomorphism} istnieje homeomorfizm $g: B(f(x), \varepsilon) \to Y$, bo kula $B(0, \varepsilon)$ w przestrzeni liniowo-topologicznej jest homeomorficzna z kulą $B(f(x), \varepsilon)$. Niech $f_0$ będzie homeomorfizmem powstałym z zawężenia $f$ w obrazie do $B(f(x), \varepsilon)$ i dziedzinie do $G_\varepsilon := f^{-1}(B(f(x), \varepsilon))$. Wówczas $f_0 \circ g$ jest homeomorfizmem między $G_\varepsilon$ a $Y$.
-    
-    Skoro $\{B(f(x), \varepsilon)\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $f(x)$, to $\{G_\varepsilon\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punktcie $x$.
-  \end{proof}
-\end{lem}
-
-\begin{lem}
   Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną. Wówczas kula $B_r$ o promieniu $r$ jest drogowo spójna.
   \begin{proof}
     Niech $x \in B_r$. Określamy:
@@ -263,30 +246,7 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
   \end{proof}
 \end{lem}
 
-\begin{lem}
-  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną, a $M$ spójną rozmaitością topologiczną modelowaną na $Y$. Wówczas:
-  \[
-    \wght Y = \wght M
-  \]
-  \begin{proof}
-    Niech $\mathcal U_0$ będzie pokryciem $M$ złożonym ze zbiorów homeomorficznych ze zbiorami otwartymi w $Y$. Z parazwartości wpisujemy w $\mathcal U_0$ pokrycie otwarte, lokalnie skończone $\mathcal U$. Dla każdego punktu $x \in M$ weźmy bazę otoczeń $\{U_n^x\}_{n \in \mathbb{N}_1}$ punktu $x$ o tej własności, że dla każdego $n \in \mathbb{N}_1$ mamy $\card\{U \in \mathcal U\ |\ U \cap U_n^x \neq \emptyset\} < \aleph_0$ oraz, że każdy ze zbiorów $U_n^x$ jest homeomorficzny z kulą w $Y$. Każdy punkt ma otoczenie przecinające tylko skończenie wiele zbiorów $\mathcal U$ z lokalnej skończoności, aby uzyskać $U_n^x$ wystarczy więc otoczenie to zmniejszyć aby obraz był kulą o promieniu mniejszym niż $\frac{1}{n}$. Biorąc wówczas $\mathcal B := \{U_n^x\ |\ n \in \mathbb{N}_1, x \in M\}$ dostajemy bazę $M$.
-    
-    Ustalmy $U \in \mathcal U$. Wtedy $\mathcal B_U := \{U \cap B\ |\ B \in \mathcal B\}$ jest bazą $U$. Z lematu \ref{lem:base-small} wybieramy z $\mathcal B_U$ podzbiór $\mathcal D_U$, który jest bazą przestrzeni $U$ o własności:
-    \[
-      \card \mathcal D_U \leq \wght U
-    \]
-    Ale $U$ jest homeomorficzne ze zbiorem otwartym w $Y$, zatem $\wght U = \wght Y$. Nierówność $\wght U \leq \wght Y$ jest jasna, druga z nich wynika z tego, że obraz $U$ przez homeomorfizm jest zbiorem otwartym, więc zawiera w sobie jakąś kulę. A kula w $Y$ jest homeomorficzna z $Y$. Zatem $\wght Y = \wght U$.
-    
-    Dalej weźmy $\mathcal D := \bigcup_{U \in \mathcal U} \mathcal D_U$.
-    Niech $D \in \mathcal D$. Wówczas istnieje jedynie skończenie wiele $U \in \mathcal U$ przecinających $D$. Ale w każdym z $U$ jest co najwyżej $\wght Y$ zbiorów z $\mathcal D$, mianowice $\mathcal D_U$. Zatem $D$ przecina co najwyżej $\aleph_0 \cdot \wght Y = \wght Y$ innych zbiorów z $\mathcal D$. Nazwijmy to własnością $(\star)$.
-    
-    Ustalamy $x \in M$, oraz $D \in \mathcal D$. Niech $y \in D$. Łączymy $x$ z $y$ drogą $\gamma$. Zwarty obraz $\gamma$ pokrywamy skończoną liczbą zbiorów z $\mathcal D$ przecinających się z $\im\gamma$ oraz zbiorem $D$. Otrzymujemy w ten sposób skończoną liczbę zbiorów spójnych (jako przeciwobrazy kul, które są spójne) pokrywających $\im\gamma$, których suma jest również zbiorem spójnym. Zauważmy, że takich struktur jest tylko $\wght Y$. 
-    
-    Istotnie, prześledźmy jak powstaje dowolny zbiór tej postaci. Weźmy zbiór przykrywający $x$, następnie wszystkie zbiory, które go przecinają. Ze względu na własność $(\star)$ istnieje tylko $\wght Y$ kandydatów na te zbiory odległe o $1$. Postępując idukcyjnie, tzn. mając zbiory odległe o $n$ - kandydatów na zbiory odległe o $n+1$, czyli przecinające się ze zbiorami odległymi o $n$ jest również, ze względu na $(\star)$ tylko $\wght Y$. Zatem istnieje tylko $\wght Y$ takich struktur. Nie zwiększymi również liczby tych struktur jeśli jeden ze zbiorów będzie oznaczony.
-    
-    Biorąc rzutowanie z rodziny wszystkich struktur na oznaczony zbiór otrzymujemy suriekcję ze zbioru mocy $\wght Y$ na $\mathcal D$, zatem $\mathcal D$ jest bazą $M$ mocy $\wght Y$.
-  \end{proof}
-\end{lem}
+
 
 \begin{df}
   Niech $r > 0$. Podzbiór $A$ przestrzeni metrycznej $M$ nazwiemy $r$-rozstrzelonym, jeśli:
@@ -308,7 +268,7 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
   \end{proof}
 \end{lem}
 
-\begin{lem}
+\begin{lem} \label{lem:balls-many}
   Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{\cl B(y, r_y)\}_{y \in A}$.
   
   \begin{proof}
