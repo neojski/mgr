@@ -80,14 +80,14 @@
   \end{proof}
 \end{lem}
 
-\begin{lem}
+\begin{lem} \label{lem:atlas-regular}
   Niech $(f_n)_{n \in \mathbb{N}_1}$ będzie przeliczalnym atlasem dla rozmaitości $M$ modelowanej na przestrzeni liniowo-metrycznej $Y$. Wówczas na $M$ można wprowadzić przeliczalny atlas regularny.
   \begin{proof}
     Każdą mapę $f_n$ zamieniamy z lematu \ref{lem:map-regular} przez przeliczalną rodzinę map regularnych $(f_n^k)_{k \in \mathbb{N}_1}$, których dziedziny w sumie pokrywają dziedzinę $f_n$. Rodzina $(f_n^k)_{n,k \in \mathbb{N}_1}$ jest więc szukanym atlasem regularnym.
   \end{proof}
 \end{lem}
 
-\begin{lem}
+\begin{lem} \label{lem:atlas-star}
   Niech $(f_n: U_n \to V_n)_{n \in \Ni}$ będzie atlasem regularnym $Y$-rozmaitości $M$, gdzie $Y$ jest przestrzenią liniowo-metryczną. Wówczas na $M$ istnieje przeliczalny atlas regularny $\star$-skończony.
   \begin{proof}
     Niech $(U_n')_{n \in \Ni}$ będzie z lematu \ref{lem:star-finite} pokryciem otwartym wpisanym w $(U_n)_{n \in \Ni}$ oraz $\star$-skończonym. Wystarczy dla każdego $U_n'$ znaleźć odpowiadający mu nadzbiór $U_{\delta(n)}$ oraz z lematu \ref{lem:map-restriction} zawęzić mapę regularną $f_{\delta(n)}$ do zbioru $U_n'$.
@@ -96,13 +96,12 @@
 
 
 
-\begin{thm}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas istnieje przeliczalny, gwiazda skończony atlas regularny dla $M$.
+\begin{lem} \label{lem:atlas-countable}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas na $M$ istnieje atlas przeliczalny.
   \begin{proof}
-    Weźmy z lematu \ref{lem:balls-many} rodzinę kul w $Y$ taką, że rodzina $\mathcal B := (B(y,r_y))_{y\in A}$ jest dyskretna a $\card A = \wght Y$.
+    Weźmy z lematu \ref{lem:balls-many} rodzinę kul w $Y$ taką, że $\mathcal B := (B(y,r_y))_{y\in A}$ jest dyskretna a $\card A = \wght Y$.
     Niech $\{g_t: V_t \to Y\}_{t \in T}$ będzie atlasem dla $M$.
-    Z lematu \ref{lem:cl-refinement} istnieje $(V_t')_{t \in T}$ pokrycie otwarte $M$ wpisane z domknięciami w pokrycie $(V_t)_{t \in T}$.
-    Z twierdzenia \ref{thm:stone} weźmy pokrycie $(W_{c,n})_{c \in C_n, n \in \Ni}$ przestrzeni $M$ wpisane w $(V_t')_{t \in T}$ takie, że dla dowolnego $n \in \Ni$ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna.
+    Z twierdzenia \ref{thm:stone} weźmy pokrycie $(W_{c,n})_{c \in C_n, n \in \Ni}$ przestrzeni $M$ wpisane w $(V_t)_{t \in T}$ takie, że dla dowolnego $n \in \Ni$ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna.
     
     Skoro $(W_{c,n})_{c \in C_n}$ jest pokryciem dyskretnym, to $\card C_n \leq \wght M = \wght Y = \card A$.
     Zatem możemy pewien pozbiór rodziny $\mathcal B$ ponumerować elementami zbioru $C_n$, mianowicie $\mathcal B \supset \mathcal B_n := (B_{c,n})_{c \in C_n}$.
@@ -117,5 +116,12 @@
     \]
     Zauważmy, że $f_n$ jest odwzorowaniem ciągłym, ponieważ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna. Obraz $\im f_n = \bigcup \im g_{c,n}$ jest zbiorem otwartym w $\bigcup \mathcal B_n$, a więc i w $Y$. Ale rodzina $\mathcal B_n$ jest dyskretna w $Y$, więc $f_n^{-1}$ jest także ciągłe.
     Rodzina $(f_n)_{n \in \Ni}$ jest więc przeliczalnym atlasem dla $M$.
+  \end{proof}
+\end{lem}
+
+\begin{thm}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas istnieje przeliczalny, $\star$-skończony atlas regularny dla $M$.
+  \begin{proof}
+    Z lematu \ref{lem:atlas-countable} na $M$ wprowadzamy atlas przeliczalny, który z lematu \ref{lem:atlas-regular} daje przeliczalny atlas regularny, a następnie z lematu \ref{lem:atlas-star} otrzymujemy atlas przeliczalny, regularny, $\star$-skończony.
   \end{proof}
 \end{thm}
