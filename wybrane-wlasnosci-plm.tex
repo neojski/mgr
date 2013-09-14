@@ -226,28 +226,6 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 
 W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką niezmienniczą, ograniczoną przez $1$ i rosnącą po promieniach.
 
-\begin{lem}
-  Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną. Wówczas kula $B_r$ o promieniu $r$ jest drogowo spójna.
-  \begin{proof}
-    Niech $x \in B_r$. Określamy:
-    \[
-      \gamma: [0,1] \ni t \to tx \in B_r
-    \]
-    Należy zwrócić uwagę, że odwzorowanie to jest poprawnie określone, bo metryka $d$ rośnie po promieniach, zatem: $d(0, tx) \leq d(0, x) < 1$ dla $t \in [0,1]$, a więc $tx \in B_r$.
-    
-    Z ciągłości działań w przestrzeni $Y$ wynika ciągłość $\gamma$. Używając odwzorowania $\gamma$ możemy połączyć drogą każdy punkt kuli z $0$, zatem sklejając dwie takie drogi możemy połączyć każde dwa punkty kuli.
-  \end{proof}
-\end{lem}
-
-\begin{lem} \label{lem:connectedness}
-  Niech $(Y, d)$ będzie przestrzenią liniowo-metryczną. Wówczas $Y$ jest drogowo spójna.
-  \begin{proof}
-    Z poprzedniego lematu i niezmienniczości metryki wnioskujemy, że $Y$ jest lokalnie drogowo spójna. Z lematu \ref{lem:local-connectedness} wynika, że $Y$ jest drogowo spójna.
-  \end{proof}
-\end{lem}
-
-
-
 \begin{df}
   Niech $r > 0$. Podzbiór $A$ przestrzeni metrycznej $M$ nazwiemy $r$-rozstrzelonym, jeśli:
   \[
@@ -269,18 +247,22 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
 \end{lem}
 
 \begin{lem} \label{lem:balls-many}
-  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{\cl B(y, r_y)\}_{y \in A}$.
+  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{B(y, r_y)\}_{y \in A}$.
   
   \begin{proof}
-    Najpierw znajdziemy w $Y$ promień $r > 0$ oraz przeliczalną dyskretną rodzinę kul. Niech $y_0 \in Y\setminus\{0\}$. Kładziemy $r := \frac{1}{4} d(y_0,0)$. Wówczas rodzina kul: $\{B(ny_0, r)\}_{n \in \mathbb{N}_1}$ jest przeliczalna i dyskretna. Istotnie, dobrym otoczeniem punktu $y \in Y$ jest kula $B(y,r)$, ponieważ odległość dwu różnych środków $n_1 y$ i $n_2 y$, dla $n_1 < n_2$ wynosi:
+    Najpierw znajdziemy w $Y$ promień $r > 0$ oraz przeliczalną dyskretną rodzinę kul o promieniu $r$. Niech $y_0 \in Y\setminus\{0\}$. Kładziemy $r := \frac{1}{4} d(y_0,0)$. Wówczas rodzina kul: $\{B(ny_0, r)\}_{n \in \mathbb{N}_1}$ jest przeliczalna i dyskretna. Istotnie, dobrym otoczeniem punktu $y \in Y$ jest kula $B(y,r)$, ponieważ odległość dwu różnych środków $n_1 y$ i $n_2 y$, dla $n_1 < n_2$ wynosi:
     \[
       d(n_2 y_0, n_1 y_0) = d((n_2 - n_1)y_0, 0) \geq d(y_0, 0) = 4r
     \]
-    Oznaczmy przez $B := B(0,r)$. Weźmy dla $n > 0$ z lematu \ref{lem:anti-net} maksymalny zbiór $\frac{r}{n}$ rozstrzelony w $B$ i oznaczmy go przez $A_n$. Niech $A := \bigcup_{n=1}^\infty A_n$. Zauważmy, że zbiór $\{B(y, \frac{r}{n})\ |\ y \in A_n, n \in \mathbb{N}_1\}$ jest bazą $B$. Istotnie, jeśli $y \in B$ i $\varepsilon > 0$ takie, że $B(y,\varepsilon) \subset B$. Wówczas biorąc $n$ takie, że $2 \cdot \frac{r}{n} < \varepsilon$ znajdujemy z lematu \ref{lem:anti-net} punkt $a$ zbioru $A_n$ oddalony od $y$ o mniej niż $\frac{r}{n}$. Wówczas kula $B(a, \frac{r}{n})$ zawiera $y$ i zawiera się w $B(y,\varepsilon)$.
+    Oznaczmy przez $B := B(0,r)$. Weźmy dla $n > 0$ z lematu \ref{lem:anti-net} maksymalny zbiór $\frac{r}{n}$ rozstrzelony w $B$ i oznaczmy go przez $A_n$. Zauważmy, że zbiór $\{B(y, \frac{r}{n})\ |\ y \in A_n, n \in \mathbb{N}_1\}$ jest bazą $B$. Istotnie, niech $y \in B$, weźmy $\varepsilon > 0$ takie, że $B(y,\varepsilon) \subset B$. Wówczas biorąc $n$ takie, że $2 \cdot \frac{r}{n} < \varepsilon$ znajdujemy z lematu \ref{lem:anti-net} punkt $a$ zbioru $A_n$ oddalony od $y$ o mniej niż $\frac{r}{n}$. Wówczas kula $B(a, \frac{r}{n})$ zawiera $y$ i zawiera się w $B(y,\varepsilon)$.
     
-    Wynika stąd, że $\card A \geq \wght B = \wght Y$.
+    Wynika stąd, że $\card \bigcup_{n=1}^\infty A_n \geq \wght B = \wght Y$.
     
-    Wystarczy teraz każdą rodzinę kul związaną ze swoim zbiorem $\frac{r}{n}$-rozstrzelonym w osobnej kuli $B(ny_0, r)$, tzn. szukana rodzina kul wygląda następująco: $\{\cl B(ny_0 + y, \frac{r}{2n})\ |\ n \in \mathbb{N}_0, y \in A_n\}$.
+    Wystarczy teraz każdą rodzinę kul związaną ze swoim zbiorem $\frac{r}{n}$-rozstrzelonym umieścić w osobnej kuli $B(ny_0, r)$, tzn. szukana rodzina kul wygląda następująco:
+    \[
+      \left\{B\left(ny_0 + y, \frac{r}{2n}\right)\ \middle|\ n \in \mathbb{N}_0, y \in A_n\right\}
+    \]
+    Istotnie, niech $y \in Y$. Wówczas kula $B(y,r)$ zahacza o co najwyżej jedną z kul $B(ny_0, r)$. Wystarczy więc pomniejszyć ją do kuli o promieniu mniejszym niż $\frac{r}{2n}$ aby zahaczała o co najwyżej jedną z kul wewnątrz $B(ny_0, r)$.
   \end{proof}
 \end{lem}
 

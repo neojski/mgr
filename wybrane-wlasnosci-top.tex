@@ -31,34 +31,32 @@
 \end{fact}
 
 \begin{df}
-  Drogą w przestrzeni toplogicznej $M$ nazwiemy odwzorowanie ciągłe $\gamma: [0,1] \to M$.
+  Łańcuchem w zbiorze $M$ nazwiemy uporządkowaną rodzinę podzbiorów $(U_0, \ldots, U_n)$ taką, że:
+  \[
+    \forall i \in n: U_i \cap U_{i+1} \neq \emptyset
+  \]
+  Zbiory $U_i$ będziemy nazywać ogniwami.
 \end{df}
 \begin{df}
-  Powiemy, że przestrzeń $M$ jest drogowo spójna, gdy każde dwa punkty tej przestrzeni można połączyć drogą, tzn.:
-  \[
-    \forall x,y \in M\ \exists \gamma: [0,1] \to M: \gamma(0) = x, \gamma(1) = y
-  \]
-  Powiemy, że przestrzeń $M$ jest lokalnie drogowo spójna, jeśli każdy punkt $M$ ma otoczenie, które jest drogowo spójne.
+  Niech $M$ będzie przestrzenią toplogiczną, a $\mathcal B$ ustaloną rodziną podzbiorów $M$. Powiemy, że przestrzeń $M$ jest $\mathcal B$-łańcuchowo spójna, jeśli każde dwa punkty $x,y \in M$ można połączyć łańcuchem $(U_0, \ldots, U_n)$ w $\mathcal B$, tj. $x \in U_0$ i $y \in U_n$, a $U_i \in \mathcal B\ \forall i \in n+1$.
 \end{df}
 
-
-\begin{lem} \label{lem:local-connectedness}
-  Niech $M$ spójna i lokalnie drogowo spójna. Wówczas $M$ jest drogowo spójna.
+\begin{lem} \label{lem:chain-connected}
+  Niech $M$ będzie spójną przestrzenią topologiczną, a $\mathcal B$ bazą $M$. Wówczas $M$ jest $\mathcal B$-łańcuchowo spójna.
   \begin{proof}
+    Dla ułatwienia będziemy mówić łańcuch zamiast $\mathcal B$-łańcuch.
     Niech $m_0 \in M$. Niech
     \[
-      A := \{m \in M\ |\ \mbox{istnieje droga od $m$ do $m_0$}\}
+      A := \{m \in M\ |\ \mbox{istnieje łańcuch od $m_0$ do $m$}\}
     \]
     Niech $m \in A$.
-    Wówczas istnieje droga od $m_0$ do $m$.
-    Niech $U$ otoczenie $m$ takie, że każde dwa punkty $U$ można połączyć drogą.
-    Wówczas każdy punkt $m' \in U$ można połączyć drogą z $m_0$, która powstaje jako sklejenie drogi $m' \rightsquigarrow m$ z drogą $m \rightsquigarrow m_0$.
-    Zatem $A$ jest zbiorem otwartym.
+    Wówczas istnieje łańcuch $(U_0, \ldots, U_n)$ od $m_0$ do $m$.
+    Zatem każdy punkt $m' \in U_n$ jest połączony tym samym łańcuchem $(U_0, \ldots, U_n)$ z $m_0$.
     
-    Jeśli natomiast $m \in M \setminus A$, to biorąc otoczenie $U$ otoczenie $m$ jak poprzednio zauważamy, że żaden punkt $U$ nie należy do $A$. Istotnie, gdyby jakiś punkt $m' \in U$ należał do $A$, to istniałaby droga $m' \rightsquigarrow m_0$.
-    Ale wtedy sklejenie tej drogi z drogą $m' \rightsquigarrow m$ dałoby drogę $m \rightsquigarrow m_0$, która istnieć nie może, bo $m \not\in A$.
+    Niech $m \in M\setminus A$.
+    Weźmy otoczenie $U\in\mathcal B$ punktu $m$. Niech $m'\in U$ i przypuścmy, że $m'\in A$. Zatem istnieje łańcuch $(U_0, \ldots, U_n)$ łączący $m_0$ i $m'$. Ale wtedy $(U_0, \ldots, U_n, U)$ jest łańcuchem łączącym $m_0$ z $m$, czyli $m\in A$, sprzeczność. Zatem $m'\in M\setminus A$.
     
-    Zatem $A$ jest niepustym, bo $m_0 \in A$ zbiorem otwarto-domkniętym, zatem ze spójności $M$ mamy $A = M$, a więc $M$ jest drogowo spójne.
+    $A$ jest więc niepustym, bo $m_0 \in A$, zbiorem otwarto-domkniętym. Ze spójności $M$ mamy $A = M$, a więc $M$ jest łańcuchowo spójne.
   \end{proof}
 \end{lem}
 
@@ -89,7 +87,7 @@
 \begin{cor}
   Założenie parazwartości rozmaitości $M$ jest równoważne założeniu metryzowalności.
   \begin{proof}
-    Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \label{thm:stone} wynika, że metryzowalność daje parazwartość.
+    Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \ref{thm:stone} wynika, że metryzowalność daje parazwartość.
   \end{proof}
 \end{cor}
 

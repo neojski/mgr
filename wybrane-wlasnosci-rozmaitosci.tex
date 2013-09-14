@@ -1,7 +1,7 @@
 \section{Wybrane własności rozmaitości nieskończenie wymiarowych}
 
-\begin{lem}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią parazwartą. Wówczas następujące wartunki są równoważne:
+\begin{lem} \label{lem:basic-atlas}
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią topologiczną. Wówczas następujące wartunki są równoważne:
   \begin{enumerate}
    \item[(i)] każdy punkt $x \in M$ ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$
    \item[(ii)] każdy punkt $x \in M$ ma otoczenie homeomorficzne z przestrzenią $Y$
@@ -23,22 +23,23 @@
     \wght Y = \wght M
   \]
   \begin{proof}
-    Niech $\mathcal U_0$ będzie pokryciem $M$ złożonym ze zbiorów homeomorficznych ze zbiorami otwartymi w $Y$. Z parazwartości wpisujemy w $\mathcal U_0$ pokrycie otwarte, lokalnie skończone $\mathcal U$. Dla każdego punktu $x \in M$ weźmy bazę otoczeń $\{U_n^x\}_{n \in \mathbb{N}_1}$ punktu $x$ o tej własności, że dla każdego $n \in \mathbb{N}_1$ mamy $\card\{U \in \mathcal U\ |\ U \cap U_n^x \neq \emptyset\} < \aleph_0$ oraz, że każdy ze zbiorów $U_n^x$ jest homeomorficzny z kulą w $Y$. Każdy punkt ma otoczenie przecinające tylko skończenie wiele zbiorów $\mathcal U$ z lokalnej skończoności, aby uzyskać $U_n^x$ wystarczy więc otoczenie to zmniejszyć aby obraz był kulą o promieniu mniejszym niż $\frac{1}{n}$. Biorąc wówczas $\mathcal B := \{U_n^x\ |\ n \in \mathbb{N}_1, x \in M\}$ dostajemy bazę $M$.
+    Niech $\mathcal U_0$ będzie pokryciem $M$ złożonym ze zbiorów homeomorficznych ze zbiorami otwartymi w $Y$. Z parazwartości wpisujemy w $\mathcal U_0$ pokrycie otwarte, lokalnie skończone $\mathcal U$.
     
-    Ustalmy $U \in \mathcal U$. Wtedy $\mathcal B_U := \{U \cap B\ |\ B \in \mathcal B\}$ jest bazą $U$. Z lematu \ref{lem:base-small} wybieramy z $\mathcal B_U$ podzbiór $\mathcal D_U$, który jest bazą przestrzeni $U$ o własności:
+    Niech $x \in M$, weźmy otoczenie $U$ punktu $x$, które przecina skończenie wiele elementów $\mathcal U$. Z lematu \ref{lem:basic-atlas} weźmy bazę otoczeń $x$ zawartą w $U$. Otrzymujemy więc rodzinę $\{U_n^x\}_{n \in \mathbb{N}_1}$ punktu $x$ o tej własności, że dla każdego $n \in \mathbb{N}_1$ mamy $\card\{U \in \mathcal U\ |\ U \cap U_n^x \neq \emptyset\} < \aleph_0$ oraz, że każdy ze zbiorów $U_n^x$ jest homeomorficzny z $Y$. Biorąc $\mathcal B := \{U_n^x\ |\ n\in\Ni, x\in M\}$ dostajemy bazę $M$.
+    
+    Ustalmy $U \in \mathcal U$. Wtedy $\mathcal B_U := \{B \in \mathcal B\ |\ B \subset U\}$ jest bazą $U$. Z lematu \ref{lem:base-small} wybieramy z $\mathcal B_U$ podzbiór $\mathcal D_U$, który jest bazą przestrzeni $U$ o własności:
     \[
       \card \mathcal D_U \leq \wght U
     \]
     Ale $U$ jest homeomorficzne ze zbiorem otwartym w $Y$, zatem $\wght U = \wght Y$. Nierówność $\wght U \leq \wght Y$ jest jasna, druga z nich wynika z tego, że obraz $U$ przez homeomorfizm jest zbiorem otwartym, więc zawiera w sobie jakąś kulę. A kula w $Y$ jest homeomorficzna z $Y$. Zatem $\wght Y = \wght U$.
     
-    Dalej weźmy $\mathcal D := \bigcup_{U \in \mathcal U} \mathcal D_U$.
-    Niech $D \in \mathcal D$. Wówczas istnieje jedynie skończenie wiele $U \in \mathcal U$ przecinających $D$. Ale w każdym z $U$ jest co najwyżej $\wght Y$ zbiorów z $\mathcal D$, mianowice $\mathcal D_U$. Zatem $D$ przecina co najwyżej $\aleph_0 \cdot \wght Y = \wght Y$ innych zbiorów z $\mathcal D$. Nazwijmy to własnością $(\star)$.
+    Dalej weźmy bazę $M$ postaci $\mathcal D := \bigcup_{U \in \mathcal U} \mathcal D_U$.
     
-    Ustalamy $x \in M$, oraz $D \in \mathcal D$. Niech $y \in D$. Łączymy $x$ z $y$ drogą $\gamma$. Zwarty obraz $\gamma$ pokrywamy skończoną liczbą zbiorów z $\mathcal D$ przecinających się z $\im\gamma$ oraz zbiorem $D$. Otrzymujemy w ten sposób skończoną liczbę zbiorów spójnych (jako przeciwobrazy kul, które są spójne) pokrywających $\im\gamma$, których suma jest również zbiorem spójnym. Zauważmy, że takich struktur jest tylko $\wght Y$. 
+    Niech $D \in \mathcal D$. Wówczas istnieje jedynie skończenie wiele $U \in \mathcal U$ przecinających $D$, powiedzmy $U_1, \ldots, U_n$, a więc $D$ może przecinać jedynie elementy zbiorów $\mathcal D_{U_i}$, których jest w sumie co najwyżej $\aleph_0 \cdot \wght Y = \wght Y$.
     
-    Istotnie, prześledźmy jak powstaje dowolny zbiór tej postaci. Weźmy zbiór przykrywający $x$, następnie wszystkie zbiory, które go przecinają. Ze względu na własność $(\star)$ istnieje tylko $\wght Y$ kandydatów na te zbiory odległe o $1$. Postępując idukcyjnie, tzn. mając zbiory odległe o $n$ - kandydatów na zbiory odległe o $n+1$, czyli przecinające się ze zbiorami odległymi o $n$ jest również, ze względu na $(\star)$ tylko $\wght Y$. Zatem istnieje tylko $\wght Y$ takich struktur. Nie zwiększymi również liczby tych struktur jeśli jeden ze zbiorów będzie oznaczony.
+    Ustalmy $m_0 \in M$ i weźmy wszystkie $\mathcal D$-łańcuchy zaczynające się w $m_0$. Zauważmy, że wszystkich łańcuchów zaczynających się w $m_0$ jest jedynie $\wght Y$. Istotnie, pierwsze ogniwo trzeba wybrać ze zbioru $\mathcal D_{U_1} \cup \ldots \cup \mathcal D_{U_n}$, gdzie $U_1, \ldots, U_n$ to wszystkie zbiory $\mathcal U$, które zawierają $m_0$, zatem do wyboru mamy $\wght Y$ zbiorów. Każde kolejne ogniwo musi przecinać się z poprzednim i należeć do $\mathcal D$, a takich zbiorów jest, jak już wiemy, $\wght Y$. Zatem w sumie łańcuchów zaczynających się w $m_0$ jest co najwyżej $\aleph_0 \cdot \wght Y = \wght Y$.
     
-    Biorąc rzutowanie z rodziny wszystkich struktur na oznaczony zbiór otrzymujemy suriekcję ze zbioru mocy $\wght Y$ na $\mathcal D$, zatem $\mathcal D$ jest bazą $M$ mocy $\wght Y$.
+    Niech $D \in \mathcal D$, niech $x \in Y$. Z łańcuchowej spójności (\ref{lem:chain-connected}) wiemy, że $m_0$ i $x$ możemy połączyć łańcuchem $(U_1, \ldots, U_n)$. Ciąg $(U_1, \ldots, U_n, D)$ jest również łańcuchem zaczynającym się w $m_0$. Biorąc rzutowanie z rodziny wszystkich łańcuchów na ostatnie ogniwo otrzymujemy suriekcję ze zbioru mocy $\wght Y$ na $\mathcal D$, zatem $\mathcal D$ jest bazą $M$ mocy $\wght Y$.
   \end{proof}
 \end{lem}
 
