@@ -1,25 +1,32 @@
 \section{Funkcje sterujące}
 
-
 \begin{df}
-Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y$, który da się zapisać jako $A = B \times \prod_{i=n+1}^\infty X_i$ dla pewnego $n$ i pewnego $B \subset \prod_{i=1}^n X_i$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
+Niech $X$ będzie dowolnym zbiorem. Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y := \prod_{i=1}^\infty X$, który da się zapisać jako $A = B \times \prod_{i=n+1}^\infty X$ dla pewnego $n$ i pewnego $B \subset \prod_{i=1}^n X$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
 \end{df}
 
-
-\begin{note}[Własności zbiorów bazowych] \mbox{} % break line here
-\begin{itemize}
+\begin{prop}[Własności zbiorów bazowych] \mbox{} % break line here
+\begin{enumerate}
   \item Zbiór $n$-bazowy jest jednocześnie $m$-bazowy dla $n \leq m$
-  \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\partial A = \partial B \times Y$.
-  \begin{proof}
-    \[\partial A = \partial(B \times Y) = \cl{B \times Y} \cap \cl{Y \setminus (B \times Y)} = \cl{B \times Y} \cap \cl{(Y \setminus B) \times Y} = \cl{B} \times Y \cap \cl{Y \setminus B} \times Y = \partial{B} \times Y\]
+  \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\bd A = \bd B \times Y$.
+  \begin{proof} \belowdisplayskip=-12pt % don't show \qed in new line
+    \begin{align*} 
+      \bd A = \bd(B \times Y) = \cl{B \times Y} \cap \cl{Y \setminus (B \times Y)} &= \\
+      \cl{B \times Y} \cap \cl{(Y \setminus B) \times Y} &= \cl{B} \times Y \cap \cl{Y \setminus B} \times Y = \bd{B} \times Y
+    \end{align*}
   \end{proof}
   \item Domknięcie zbioru $n$-bazowego jest zbiorem $n$-bazowym
-\end{itemize}
-\end{note}
-
+  \begin{proof}
+    Niech $A$ będzie zbiorem bazowym o podstawie $B$. Wówczas:
+    \[
+      \cl A = \cl{B \times Y} = \cl B \times Y
+    \]
+    A więc $\cl A$ jest zbiorem bazowym o podstawie $B$.
+  \end{proof}
+\end{enumerate}
+\end{prop}
 
 \begin{df}
-Funkcją sterującą nazwiemy odwzorowanie ciągłe $\lambda: Y \rightarrow [1,\infty]$ takie, że:
+Niech $X$ będzie przestrzenią topologiczną, niech $Y := \prod_{n=1}^\infty X$. Funkcją sterującą nazwiemy odwzorowanie ciągłe $\lambda: Y \rightarrow [1,\infty]$ takie, że:
 \[\lambda(x) < n+1 \mbox{ i } s_n(x) = s_n(y) \Rightarrow \lambda(x) = \lambda(y)\]
 \end{df}
 
@@ -37,148 +44,232 @@ Przykłady funkcji sterujących:
 
 \begin{thm}[O poprawianiu funkcji sterujących]
 \label{thm:steering-function}
-Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
+Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
 
-\begin{gather}
+\begin{gather*}
  \rho|A = \lambda|A \\
  \rho(y) < \infty\ \forall y \in Y \setminus A
-\end{gather}
+\end{gather*}
 
 \begin{proof}
-  
   Na początku zdefiniujmy następujące zbiory:
-  
-  \[U_n := \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\} \cup \{y \in Y\ |\ \lambda(y) < n+1\}\]
-  
+  \[
+    U_n := \left\{y \in Y\ \middle|\ d_n(s_n y, s_n A) > \frac{1}{n}\right\} \cup \{y \in Y\ |\ \lambda(y) < n+1\}
+  \]
   Zauważmy, że $U_n$ są zbiorami $n$-bazowymi. Istotnie, niech $s_n(y) = s_n(x)$:
   \begin{itemize}
     \item jeśli $d_n(s_n y, s_n A) > \frac{1}{n}$, to $d_n(s_n x, s_n A) > \frac{1}{n}$
     \item jeśli $\lambda(y) < n+1$, to z własności sterowania mamy również $\lambda(x) < n+1$
   \end{itemize}
-  Zatem jeśli tylko $y \in U_n$ i $s_n(y) = s_n(x)$ to również $x \in U_n$, co oznacza $n$-bazowość zbioru $U_n$.
-  
-  Zapiszmy więc $U_n$ w postaci: $U_n := V_n \times Y$, gdzie $V_n$ jest $n$-podstawą.
+  Zatem jeśli tylko $y \in U_n$ i $s_n(y) = s_n(x)$ to również $x \in U_n$, co oznacza $n$-bazowość zbioru $U_n$. Zapiszmy więc $U_n$ w postaci: $U_n := V_n \times Y$, gdzie $V_n$ jest $n$-podstawą.
   
   Określamy również zbiory:
-  \[A_n := \cl{s_n({\{y \in A\ |\ \lambda(y) < n+1\}})}\]
-  
-  Zauważmy, że jeśli $x \in A_n$, to $d_n(x, s_n A) = 0$. Istotnie. Niech $x \in A_n$. Wówczas:
-  \[\exists y_k \in A, \lambda(y_k) < n+1:\ s_n y_k \rightarrow x\]
+  \[
+    A_n := \cl{s_n({\{y \in A\ |\ \lambda(y) < n+1\}})}
+  \]
+  Pokażemy dla nich trzy istotnie własności, mianowicie:
+  \begin{enumerate}[(1)]
+    \item \label{A_n-1} jeśli $x \in A_n$, to $d_n(x, s_n A) = 0$
+    \item \label{A_n-2} jeśli $s_n y \in A_n$, to $\lambda y = \lambda(s_n y,\star_{n+1})$
+    \item \label{A_n-3} jeśli $x \in A_n$, to $\lambda(x,\star_{n+1}) \leq n+1$
+  \end{enumerate}
+  Wykażemy \ref{A_n-1}. Niech $x \in A_n$. Wówczas:
+  \[
+    \exists y_k \in A, \lambda(y_k) < n+1: s_n y_k \to x
+  \]
   Skąd:
-  \[d_n(x, s_n y_k) \rightarrow 0\]
+  \[
+    d_n(x, s_n y_k) \to 0
+  \]
   A więc:
-  \[d_n(x, s_n A) = 0\]
+  \[
+    d_n(x, s_n A) = 0
+  \]
+  Wykażemy \ref{A_n-2}. Niech $s_n y \in A_n$. Podobnie:
+  \[
+    \exists z_k \in A, \lambda(z_k) < n+1: s_n z_k \to s_n y
+  \]
+  Wtedy z warunku sterowania:
+  \[
+    \lambda(s_n z_k, y_{n+1}, y_{n+2}, \ldots) = \lambda(s_n z_k,\star_{n+1})
+  \]
+  Przechodząc do granicy otrzymujemy:
+  \[
+    \lambda(y) = \lambda(s_n y,\star_{n+1})
+  \]
+  Wykażemy \ref{A_n-3}. Niech $x \in A_n$. Znowu:
+  \[
+    \exists y_k \in A, \lambda(y_k) < n+1: s_n y_k \to x
+  \]
+  Ze sterowania $\lambda$:
+  \[
+    n+1 > \lambda(y_k) = \lambda(s_n y_k, \star_{n+1})
+  \]
+  Przechodząc do granicy:
+  \[
+    n+1 \geq \lambda(x, \star_{n+1})
+  \]
   
-  Skonstruujemy indukcyjnie rodzinę funkcji:
+  Skonstruujemy teraz indukcyjnie rodzinę funkcji:
   \[\rho_n: \cl{U_n} \rightarrow [1, n+1]\]
   spełniających następujące warunki:
   \begin{enumerate}[(a)]
     \item \label{induction-1} $\rho_n(s_n y, z) = \lambda(y)$ o ile $s_n(y) \in A_n$, $z \in Y$
-    \item \label{induction-2} $\rho_n \supset \rho_{n-1}$
-    \item \label{induction-3} $\rho_n y \geq n$ dla $y \in \cl{U_n \setminus U_{n-1}}$
-    \item \label{induction-4} $\rho_n y = n+1$ dla $y \in \partial U_n$
+    \item \label{induction-2} $\rho_n \supset \rho_{n-1}, \qquad \rho_0 := \emptyset$
+    \item \label{induction-3} $\rho_n y \geq n$ dla $y \in \cl{U_n \setminus U_{n-1}},\qquad U_0 := \emptyset$
+    \item \label{induction-4} $\rho_n y = n+1$ dla $y \in \bd U_n$
   \end{enumerate}
-  
   Skorzystamy także z pomocniczych funkcji
-  \[\sigma_n: \cl{V_n} \rightarrow [1,n+1]\]
-  
+  \[
+    \sigma_n: \cl{V_n} \rightarrow [1,n+1]
+  \]
   Określając później $\rho_n$ jako przedłużenie $\sigma_n$ w sposób produktowy:
-  \[\rho_n(y) := \sigma_n(s_n(y))\]
-
+  \[
+    \rho_n(y) := \sigma_n(s_n(y))
+  \]
+  %
   Konstrukcja:
-  \[\sigma_1: \cl{V_1} \rightarrow [1,2]\]
-  
+  \[
+    \sigma_1: \cl{V_1} \rightarrow [1,2]
+  \]
   Określamy $\sigma_1$ następującymi wzorami:
-  
   \[
   \sigma_1(x) := 
     \begin{cases}
-      2,&\mbox{dla }x \in \partial V_1 \\
+      2,&\mbox{dla }x \in \bd V_1 \\
       \lambda(x, \star_2),& \mbox{dla }x \in A_1 
     \end{cases}
   \]
-  
-  Zauważmy, że obie te definicje są ze sobą zgodne. Istotnie, weźmy $x \in \partial V_1 \cap A_1$. Wówczas $(x, \star_2) \in \partial V_1 \times Y = \partial U_1$. Ale wówczas zachodzi jeden z warunków:
-  
+  Zauważmy, że obie te definicje są ze sobą zgodne. Istotnie, weźmy $x \in \bd V_1 \cap A_1$. Wówczas $(x, \star_2) \in \bd V_1 \times Y = \bd U_1$ i zachodzi jeden z warunków:
   \begin{itemize}
     \item $d_1(s_1 (x, \star_2), s_1 A) = 1$
     \item $\lambda(x, \star_2) = 2$
   \end{itemize}
-
   Warunek pierwszy z pewnością nie zachodzi, gdyż $x \in A_1$ pociąga $d_1(x, s_1 A) = 0$, co wyklucza równość $d_1(x, s_1 A) = 1$.
   Warunek drugi oznacza natomiast zgodność obu wzorów.
   
-  Funkcję $\sigma_1$ określoną na zbiorze domkniętym $\partial V_1 \cup A_1$ przedłużamy z twierdzenia Tietzego na zbiór $\cl{V_1}$ z zachowaniem ciągłości.
+  Funkcję $\sigma_1$ określoną na zbiorze domkniętym $\bd V_1 \cup A_1$ przedłużamy z twierdzenia Tietzego na zbiór $\cl{V_1}$ z zachowaniem ciągłości.
   
   Zgodnie z zapowiedzią definiujemy więc:
-  \[\rho_1(y) := \sigma_1(s_1(y))\ \forall y \in \cl{U_1}\]
-  
-  Funkcja ta w sposób jasny spełnia wszystkie stawiane warunki.
-  
-  Załóżmy teraz, indukcyjnie, że mamy już określoną funkcję $\rho_{n-1}$. Zdefiniujemy:
-  
-  \[\sigma_n: \cl{V_n \setminus (V_{n-1} \times X)} \rightarrow [1,n+1]\]
-  
+  \[
+    \rho_1(y) := \sigma_1(s_1(y))\ \forall y \in \cl{U_1}
+  \]
+  Sprawdźmy, że funkcja $\rho_1$ spełnia warunki \ref{induction-1}--\ref{induction-4}:
+  \begin{enumerate}
+   \item[\ref{induction-1}] Niech $s_1 y \in A_1$. Wówczas z warunku \ref{A_n-2} mamy $\lambda y = \lambda(s_1 y,\star_{2})$. A więc $\rho_1(s_1 y,z) = \sigma_1 s_1 y = \lambda(s_1 y,\star_2) = \lambda(y)$
+   \item[\ref{induction-2}] Warunek jest pustospełniony
+   \item[\ref{induction-3}] $\rho_1 \geq 1$
+   \item[\ref{induction-4}] Jeśli $y\in\bd U_1$, to $s_1 y\in\bd V_1$, $\rho_1(y) = \sigma_1(s_1 y) = 2$
+  \end{enumerate}
+  %
+  Załóżmy teraz, indukcyjnie, że mamy już określoną funkcję $\rho_{n-1}$. Zdefiniujemy:  
+  \[
+    \sigma_n': \cl{V_n \setminus (V_{n-1} \times X)} \rightarrow [n,n+1]
+  \]
   Określając:
   \[
-  \sigma_n(x) := 
+  \sigma_n'(x) := 
     \begin{cases}
-      n,&\mbox{dla }x \in \partial V_{n-1} \times X \\
-      n+1,&\mbox{dla }x \in \partial V_n \\
+      n,&\mbox{dla }x \in \bd V_{n-1} \times X \\
+      n+1,&\mbox{dla }x \in \bd V_n \\
       \lambda(x, \star_{n+1}),&\mbox{dla }x \in A_n
     \end{cases}
   \]
-
-  Sprawdźmy, że funkcja ta jest poprawnie określona, tj. na ewentualnych przecięciach wypisanych zbiorów domkniętych zdefiniowana jest tymi samymi wzorami.
+  %
+  Sprawdźmy, że funkcja ta jest poprawnie określona, tj. na ewentualnych przecięciach wypisanych zbiorów domkniętych zdefiniowana jest tymi samymi wzorami oraz $\sigma_n' \geq n$.
   
   Zauważmy, że:
-  \[\partial V_n\ \cap\ (\partial V_{n-1} \times X) = \emptyset\]
+  \[
+    \bd V_n\ \cap\ (\bd V_{n-1} \times X) = \emptyset
+  \]
   ponieważ:
-  \[(\partial V_n \times Y) \cap (\partial V_{n-1} \times Y) = \partial U_n \cap \partial U_{n-1} = \emptyset\]
+  \[
+    (\bd V_n \times Y) \cap (\bd V_{n-1} \times Y) = \bd U_n \cap \bd U_{n-1} = \emptyset
+  \]
   bo $\cl{U_{n-1}} \subset U_n$.
   
-  Zachodzi również zgodność pozostałych wzorów. Niech $(x, z) \in \partial V_{n-1} \times X$. Wówczas $(x, \star_n) \in \partial U_{n-1}$ a więc, jak poprzednio, $\lambda(x, z, \star_{n+1}) = \lambda(x, \star_n) = n$ - co daje zgodność wzorów lub $d_{n-1}(x, s_{n-1} A) = \frac{1}{n-1}$ - co wyklucza należenie do $A_n$, ponieważ $(x, z) \in A_n$ wymusza $d_{n}((x, z), s_{n} A) = 0$, a więc i $d_{n-1}(x, s_{n-1} A) = 0$.
+  Zachodzi również zgodność pozostałych wzorów. Niech $(x, z) \in \bd V_{n-1} \times X$. Wówczas $(x, \star_n) \in \bd U_{n-1}$ a więc, jak poprzednio, $\lambda(x, z, \star_{n+1}) = \lambda(x, \star_n) = n$ - co daje zgodność wzorów lub $d_{n-1}(x, s_{n-1} A) = \frac{1}{n-1}$ - co z uwagi na \ref{A_n-1} wyklucza należenie do $A_n$, ponieważ $(x, z) \in A_n$ wymusza $d_{n}((x, z), s_{n} A) = 0$, a więc i $d_{n-1}(x, s_{n-1} A) = 0$.
   
-  Podobnie pokazujemy zgodność $\partial V_n$ z $A_n$.
+  Podobnie pokazujemy zgodność $\bd V_n$ z $A_n$. Niech $x \in \bd V_n$, skąd $(x,\star_{n+1})\in\bd U_n$ a więc $d_n(s_n(x,\star_{n+1}), s_n A) = d_n(x,s_n A) = \frac{1}{n}$ lub $\lambda(y) = n+1$. W pierwszym przypadku jednak dostajemy sprzeczność z \ref{A_n-1}. W drugim natomiast wzory są zgodne.
   
-  Ostatecznie do $\sigma_n$ doklejamy wzdłuż $\partial V_{n-1} \times X$ zgodną z nią funkcję $\sigma_{n-1}$ określoną produktowo na zbiorze $\cl{V_{n-1}} \times X$. Z twierdzenia Tietzego znów przedłużamy $\sigma_n$ otrzymując funkcję $\sigma_n$ określoną na $\cl{V_n}$.
+  Należy jeszcze sprawdzić, że zgadza się przeciwdziedzina. Niech więc $x \in A_n \cap \cl{V_n\setminus(V_{n-1}\times X)}$. Z własności \ref{A_n-3} mamy $\lambda(x,\star_{n+1}) \leq n+1$. Gdyby jednak $\lambda(x,\star_{n+1}) < n$, to $(x,\star_{n+1})\in U_{n-1}$, więc $s_{n-1} x\in V_{n-1}$, czyli $x\in V_{n-1}\times X$, sprzeczność.
+  
+  Tak określoną funkcję $\sigma_n'$ przedłużamy z twierdzenia Tietzego na całą postulowaną dziedzinę z zachowaniem przeciwdziedziny $[n,n+1]$.
+  
+  Ostatecznie, aby otrzymać $\sigma_n$ doklejamy do $\sigma_n'$ funkcję następującą:
+  \[
+    \sigma_{n-1}'': \cl{V_{n-1}\times X}\ni x \to \sigma_{n-1}s_{n-1}x \in [1,n],
+  \]
+  która na $\bd{V_{n-1}}\times X$, tj. brzegu dziedziny $\bd({V_{n-1}\times X}) = \bd{V_{n-1}}\times X$, osiąga $n$ (bo $\sigma_{n-1}$ na $\bd{V_{n-1}}$ ma dokładnie $n$) podobnie jak na $\sigma_n$.
   
   Funkcję $\rho_n$ definiujemy jak poprzednio:
+  \[
+    \rho_n y := \sigma_n s_n y
+  \]
   
-  \[\rho_n y := \sigma_n s_n y\]
-  
+  Sprawdzamy warunki \ref{induction-1}--\ref{induction-4}:
+  \begin{enumerate}
+    \item[\ref{induction-1}] Niech $s_n y \in A_n$. Jeśli $s_n y\in V_{n-1}\times X$, to $y\in U_{n-1}$. Ze względu na \ref{A_n-1} mamy więc $\lambda(y) < n$, a zatem $s_{n-1}y \in A_{n-1}$. Wówczas:
+    \[
+      \rho_n(y) = \sigma_n(s_n y) = \sigma_{n-1}''(s_n y) = \sigma_{n-1}(s_{n-1}y) = \rho_{n-1}(y) = \lambda(y)
+    \]
+    Jeśli $s_n y\not\in V_{n-1}\times X$, to zachodzi drugi wzór:
+    \[
+      \rho_n(y) = \sigma_n(s_n y) = \sigma_n'(s_n y) = \lambda(s_n y, \star_{n+1}) = \lambda(y),
+    \]
+    gdzie ostatnia równość wynika z \ref{A_n-2}.
+   \item[\ref{induction-2}] Niech $y\in\cl{U_{n-1}} = \cl{V_{n-1}}\times Y$. Mamy:
+   \[
+     \rho_n(y) = \sigma_n s_n y = \sigma_{n-1}'' s_n y = \sigma_{n-1} s_{n-1} y = \rho_{n-1} y
+   \]
+   \item[\ref{induction-3}] Niech $y \in \cl{U_n \setminus U_{n-1}} = \cl{V_n \setminus (V_{n-1}\times X)}\times Y$, zatem:
+   \[
+     \rho_n(y) = \sigma_n s_n y = \sigma_n' s_n y \geq n,
+   \]
+   ponieważ $\im \sigma_n' \subset [n,n+1]$.
+   \item[\ref{induction-4}] Jeśli $y\in\bd U_n = \bd V_n \times Y$, to:
+   \[
+     \rho_n y = \sigma_n s_n y = \sigma_n' s_n y = n+1
+   \]
+  \end{enumerate}
   To kończy nasze postępowanie indukcyjne.
 
-  Spójrzmy teraz na jakim zbiorze pozostaje nam określić funkcję: $Y \setminus \bigcup_{i=1}^\infty \cl{U_i}$. Oczywiście $\bigcup_{i=1}^\infty \{y\ |\ \lambda(y) < n+1\} = \{y\ |\ \lambda(y) < \infty\}$. Przyjrzyjmy się uważniej drugiej części, tj.: $\bigcup_{i=1}^\infty \{y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$. Twierdzimy, że jest ona równa $Y \setminus A$.
+  Spójrzmy teraz na jakim zbiorze pozostaje nam określić funkcję: $Y \setminus \bigcup_{i=1}^\infty \cl{U_i} = Y \setminus \bigcup_{i=1}^\infty U_i$. Oczywiście $\bigcup_{i=1}^\infty \{y\ |\ \lambda(y) < n+1\} = \{y\ |\ \lambda(y) < \infty\}$. Przyjrzyjmy się uważniej drugiej części, tj.: $\bigcup_{i=1}^\infty \{y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$. Twierdzimy, że jest ona równa $Y \setminus A$.
   
-  Istotnie. Niech $d_n(s_n y, s_n A) \leq \frac{1}{n}\ \forall n$.
-  
-  Istnieje wówczas ciąg $(a_n)_{n=0}^\infty \in A^\mathbb{N}$, taki że:
-  
-  \[d_n(s_n y, s_n a_n) < \frac{2}{n}\ \forall n \in \mathbb{N}_1\]
-  
+  Istotnie. Niech $d_n(s_n y, s_n A) \leq \frac{1}{n}\ \forall n$. Istnieje wówczas ciąg $(a_n)_{n=0}^\infty \in A^\mathbb{N}$, taki że:
+  \[
+    d_n(s_n y, s_n a_n) < \frac{2}{n}\ \forall n \in \mathbb{N}_1
+  \]
   Niech $\varepsilon > 0$, niech $n_0$ będzie tak duże, by $\sum_{i=n_0}^\infty \frac{1}{2^i}< \frac{\varepsilon}{3}$ oraz $\frac{2}{n_0} < \frac{\varepsilon}{3}$. Wówczas dla dowolnego $n \geq n_0$:
-  
-  \[d(y, a_n) \leq d(y, (s_n y, \star_{n+1})) + d((s_n y, \star_{n+1}), (s_n a_n, \star_{n+1})) + d((s_n a_n, \star_{n+1}), a_n) \leq \frac{\varepsilon}{3} + d_n(s_n y, s_n a_n) + \frac{\varepsilon}{3} \leq \varepsilon\]
-  
-  Co oznacza, że $a_n \rightarrow y$ i tym samym $y \in \cl{A} = A$.
-  
-  Zatem jedynym miejscem poza $\bigcup_{i=1}^\infty U_i$ jest $\{y \in A\ |\ \lambda(y) = \infty\}$.
+  \begin{align*}
+    d(y, a_n) \leq
+    d(y, (s_n y, \star_{n+1})) &+ d((s_n y, \star_{n+1}), (s_n a_n, \star_{n+1})) \\
+    &+ d((s_n a_n, \star_{n+1}), a_n) \leq \frac{\varepsilon}{3} + d_n(s_n y, s_n a_n) + \frac{\varepsilon}{3} \leq \varepsilon
+  \end{align*}
+  Co oznacza, że $a_n \rightarrow y$ i tym samym $y \in \cl{A} = A$. Zatem jedynym miejscem poza $\bigcup_{i=1}^\infty U_i$ jest $\{y \in A\ |\ \lambda(y) = \infty\}$.
   
   Określamy więc pożądaną funkcję sterującą $\rho$ jako:
-  
   \[\rho(x) := 
     \begin{cases}
       \rho_n(x),&\mbox{dla } x \in U_n \\
       \infty,&\mbox{ w przeciwnym razie}
     \end{cases}
   \]
+  %
+  Wykażemy teraz, że funkcja $\rho$ ma postulowane własności:
+  \begin{enumerate}
+   \item funkcja $\rho$ jest poprawnie określona, co wynika bezpośrednio z \ref{induction-2}
+   \item ciągłość $\rho$ na $U_i$ wynika z ciągłości $\rho_i$. Jeśli natomiast $x\in Y\setminus\bigcup_{i=1}^\infty U_i$, to na $Y\setminus\cl{U_{n-1}}$ otoczeniu $x$ mamy: $\exists k\geq n: y\in U_{k} \setminus \cl{U_{k-1}}$. Zatem z \ref{induction-3}: $\rho(y) = \rho_k(y) \geq k \geq n$.
+   \item $x\not\in A$, to $\exists n\in\Ni: x\in U_n$, więc $\rho(x) = \rho_n(x) < \infty$
+   \item zgodność z $\lambda$ na $A$. Niech $x\in A$:
+   \begin{enumerate}[1$^\circ$]
+    \item $\lambda(x) = \infty$, to $x\not\in U_n$, więc $\rho(x) = \infty$
+    \item $\lambda(x) < \infty$, to $\exists n\in\Ni: \lambda(x) < n+1$, zatem $x \in U_n$ oraz $s_n x\in A_n$, co daje z warunku~\ref{induction-1}: $\rho(x) = \rho_n(x) = \lambda(x)$
+   \end{enumerate}
+   \item $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) < n+1$ i $s_n(y) = s_n(x)$. Wówczas z warunku~\ref{induction-3}: $y \in U_n$. Ale $\rho(y) = \rho_n(y) = \sigma_n(s_n y) = \sigma_n(s_n x) = \rho_n(x) = \rho(x)$
+  \end{enumerate}
   
-  Wykażemy teraz, że funkcja $\rho$ ma postulowane własności.
-  
-  Poprawna określoność wynika z własności \ref{induction-2} a ciągłość bezpośrednio z własności \ref{induction-3}. Widzimy również, że funkcja $\rho$ poza $A$ jest wszędzie skończona. Z własności \ref{induction-1} wynika natomiast zgodność z $\lambda$ na $A$.
-  
-  Pozostaje sprawdzić, że $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) < n+1$ i $s_n(y) = s_n(x)$. Wówczas $y \in U_n$. Ale $\rho(y) = \rho_n(y) = \sigma_n(s_n y) = \sigma_n(s_n x) = \rho_n(x) = \rho(x)$
+  Ostatecznie skonstruowaliśmy więc funkcję sterującą $\rho$ o żądanych własnościach.
 \end{proof}
 \end{thm}
 
