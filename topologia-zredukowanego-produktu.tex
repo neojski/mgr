@@ -20,7 +20,7 @@
 \end{df}
 
 
-\begin{prop}
+\begin{lem} \label{lem:reduced-product-continuous}
   Niech $M$, $N$ i $Y$ będą przestrzeniami topologicznymi, $A$ domknięty podzbiór $M$, $n_0 \in N$. Wówczas funkcję $f_0: (M \times N)_A \rightarrow Y$ możemy zareprezentować przez funkcję $f: M \times N \rightarrow Y$ stałą nad $A$, tzn. $N \ni n \rightarrow f(a, n) \in Y$ jest stała przy każdym ustalonym $a \in A$. Funkcje te można wzajemnie odtwarzać wzorami:
   \begin{enumerate}
    \item $f_0(m,n) := f(m,n)$, gdy $(m,n) \in (M \setminus A) \times N$, $f_0(a) := f(a, n_0)$, gdy $a \in A$
@@ -43,5 +43,32 @@
     \end{enumerate}
     Wystarczy więc sprawdzić przypadek ciągu $p(m_i, n_i) \rightarrow a \in A$, który wykaże, że $f_0|_{\cl{(M \setminus A) \times N}}$ jest funkcją ciągłą, gdyż $\bd((M \setminus A) \times N) = \bd A \subset A$. Ale wówczas z definicji topologii zredukowanego produktu $m_i \rightarrow a \in A$, co z założenia daje $f_0 p(m_i, n_i) = f(m_i, n_i) \rightarrow f(a, x_1) = f_0(a)$, czyli ciągłość $f_0$.
   \end{proof}
-\end{prop}
+\end{lem}
 
+\begin{lem}
+  Niech $U$, $V$ i $Y$ będą przestrzeniami topologicznymi, $A = \cl A \subset U$, niech  $f: U \to V$, homeomorfizm. Wówczas funkcja:
+  \[
+    h_0: (U \times Y)_A \to (V \times Y)_{f(A)}
+  \]
+  określona wzorem:
+  \[
+    \begin{cases}
+      h_0(a) := f(a)& a\in A \\
+      h_0(u,y) := (f(u), y)& m\not\in A
+    \end{cases}
+  \]
+  jest również homeomorfizmem.
+  \begin{proof}
+    Zauważmy, że wystarczy sprawdzić ciągłość $h$. Istotnie, jeśli $h$ będzie ciągłe, to odwrotną do niego funkcję otrzymujemy dokładnie tym samym wzorem z postawieniem $f^{-1}$ za $f$.
+
+    Niech $q: V\times Y \to (V\times Y)_{f(A)}$. Wówczas funkcja $h$ z lematu \ref{lem:reduced-product-continuous} wygląda następująco:
+    \[
+      h(u,y) = q(f(u),y)
+    \]
+    Sprawdzamy więc wymagany w \ref{lem:reduced-product-continuous} warunek. Bierzemy ciąg $(u_i, y_i) \in (U\times Y)^\Ni$. Niech $u_i \to a \in A$. Wówczas mamy:
+    \[
+      h(u_i,y_i) = q(f(u_i), n_i) \to f(a) = q(f(a),y_1) = h(a,y_1)
+    \]
+    Zatem $h_0$ jest homeomorfizmem między $(U \times Y)_A$ a $(V \times Y)_{f(A)}$.
+  \end{proof}
+\end{lem}
