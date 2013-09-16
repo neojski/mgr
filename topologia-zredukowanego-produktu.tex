@@ -3,20 +3,28 @@
   Niech $M$, $N$ będą przestrzeniami topologicznymi, niech $A$ będzie podzbiorem domkniętym przestrzeni $M$. Definiujemy przestrzeń $(M \times N)_A := (M \setminus A) \times N \cup A$ iloczynu przestrzeni $M$ i $N$ zredukowanego nad $A$ z następującą topologią.
   
   Niech
-  
-  \[p: (M \times N)_A \rightarrow M\]
-  
+  \[
+    p: (M \times N)_A \rightarrow M
+  \]
   będzie odwzorowaniem określonym następująco:
   \begin{enumerate}
-   \item $p(m, n) := m$, dla $m \in M \setminus A$
-   \item $p(a) := a$, dla $a \in A$
+    \item $p(m, n) := m$, dla $m \in M \setminus A$
+    \item $p(a) := a$, dla $a \in A$
   \end{enumerate}
   
   Topologię na zbiorze $(M \times N)_A$ określamy poprzez bazę złożoną ze zbiorów dwu rodzajów:
   \begin{enumerate}
-   \item $U \times V$, gdzie $U \subset M \setminus A$, $U$ otwarty w $M$, $V$ otwarty w $N$
-   \item $p^{-1}(U)$, gdzie $U$ jest otwarty w $M$
+    \item $U \times V$, gdzie $U \subset M \setminus A$, $U$ otwarty w $M$, $V$ otwarty w $N$
+    \item $p^{-1}(U)$, gdzie $U$ jest otwarty w $M$
   \end{enumerate}
+  
+  Zdefiniujemy również naturalne odwzorowanie $p: M\times N \to (M\times N)_A$, które będziemy nazywać projekcją, następującym wzorem:
+  \[
+    p(m,n) := \begin{cases}
+      m,& m\in A \\
+      (m,n),& m\not\in A
+    \end{cases}
+  \]
 \end{df}
 
 
@@ -24,8 +32,9 @@
   Niech $M$, $N$ i $Y$ będą przestrzeniami topologicznymi, $A$ domknięty podzbiór $M$, $n_0 \in N$. Wówczas funkcję $f_0: (M \times N)_A \rightarrow Y$ możemy zareprezentować przez funkcję $f: M \times N \rightarrow Y$ stałą nad $A$, tzn. $N \ni n \rightarrow f(a, n) \in Y$ jest stała przy każdym ustalonym $a \in A$. Funkcje te można wzajemnie odtwarzać wzorami:
   \begin{enumerate}
    \item $f_0(m,n) := f(m,n)$, gdy $(m,n) \in (M \setminus A) \times N$, $f_0(a) := f(a, n_0)$, gdy $a \in A$
-   \item $f(m,n) := f_0(p(m,n))$, gdy $(m,n) \in M \times N$
+   \item $f(m,n) := f_0(p(m,n))$, gdy $(m,n) \in M \times N$,
   \end{enumerate}
+  gdzie $p: M\times N \to (M\times N)_A$ jest projekcją.
 
   
   Co więcej, $f$ reprezentuje funkcję ciągłą $f_0$ wtedy i tylko wtedy gdy $\forall (m_i, n_i)_{i=1}^\infty \in (M \times N)^{\mathbb{N}_1}:$
@@ -34,7 +43,7 @@
   \begin{proof}
     Niech $(m_i, n_i)_{i=1}^\infty \in (M \times N)^{\mathbb{N}_1}$ i $m_i \rightarrow a \in A$.
     
-    Wówczas z definicji topologii na $(M \times N)_A$ zachodzi $p(m_i, n_i) \rightarrow a$, ponieważ otoczenia $a$ są postaci $p^{-1}(U)$ dla $U$ otoczenie $a$. A więc wobec ciągłości $f_0$ otrzymujemy: $f(m_i, n_i) = f_0 p(m_i, n_i) \rightarrow f_0(a) = f(a, x_1)$.
+    Wówczas z definicji topologii na $(M \times N)_A$ zachodzi $p(m_i, n_i) \rightarrow a$. A więc wobec ciągłości $f_0$ otrzymujemy: $f(m_i, n_i) = f_0 p(m_i, n_i) \rightarrow f_0(a) = f(a, x_1)$.
     
     Z drugiej strony, wykażemy ciągłość $f_0$. Funkcja $f_0$ wyraźnie dzieli się na dwa wzory:
     \begin{enumerate}
@@ -61,7 +70,7 @@
   \begin{proof}
     Zauważmy, że wystarczy sprawdzić ciągłość $h$. Istotnie, jeśli $h$ będzie ciągłe, to odwrotną do niego funkcję otrzymujemy dokładnie tym samym wzorem z postawieniem $f^{-1}$ za $f$.
 
-    Niech $q: V\times Y \to (V\times Y)_{f(A)}$. Wówczas funkcja $h$ z lematu \ref{lem:reduced-product-continuous} wygląda następująco:
+    Niech $q: V\times Y \to (V\times Y)_{f(A)}$ będzie projekcją. Wówczas funkcja $h: U\times Y \to (V\times Y)_{f(A)}$ wygląda następująco:
     \[
       h(u,y) = q(f(u),y)
     \]
