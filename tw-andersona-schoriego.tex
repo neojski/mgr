@@ -1,6 +1,6 @@
 \section{Twierdzenie Andersona-Schoriego o spłaszczaniu rozmaitości}
 
-\begin{lem}
+\begin{lem} \label{lem:flat}
   Niech $X$ będzie przestrzenią metryczną z RIP, a $Y = X^{\mathbb{N}_1}$. Niech $V$ będzie zbiorem otwartym w $Y$ i $A, B \subset V$ takie, że $B = \cl{B}$ oraz $A = \cl{A} \cap V$. Oznaczmy przez $p$ projekcję z definicji zredukowanego produktu $(V \times X)_A$. Wówczas istnieje zbiór $C$: $B \subset C = \cl{C} \subset V$ i homeomorfizm $h$ zbioru $(V \times X)_A$ na $(V \times X)_{A \cup B}$ o następującej własności:
   
   \begin{equation} \label{eq:as-lem-1}
@@ -137,4 +137,41 @@
     \[hz = g^{-1}fz = f^{-1}_{\lambda(fz)}(fz) = f^{-1}_{\rho(fz)}(f_{\rho(fz)}(z)) = z\]
   \end{proof}
 
+\end{lem}
+
+\begin{lem}
+  Niech $M$ będzie $Y$-rozmaitością, gdzie $Y$ jest przestrzenią liniowo-metryczną taką, że $Y$ jest homeomorficzne z $Y^\Ni$. Niech $f: U \to V$ będzie mapą regularną na $M$. Weźmy $A_1$, $A_2$ domknięte podzbiory $M$, gdzie $A_2 \subset U$. Wówczas istnieje homeomorfizm $g: (M\times Y)_{A_1} \to (M\times Y)_{A_1 \cup A_2}$ taki, że $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$.
+  
+  \begin{proof}
+    Niech $A := \cl{f}(A_1 \cap U)$, $B := \cl{f}(A_2)$, $X := Y$. Skoro $A_2$ domknięty w $M$, to jest też domknięty w $\cl U$, skąd $B$ domknięty w $\cl{f}(\cl U)$, a więc z regularności mapy $f$ i w $Y$. Skoro $A_1 \cap U$ domknięty w $U$, to $\cl{f}(A_1 \cap U) = f(A_1 \cap U) = A$ domknięty w $V$. Co więcej, $X$ jako produkt przestrzeni $Y$ jest homeomorficzny z $X^2$ (oraz z $X^\Ni$) więc z wniosku \ref{cor:rip-space} $X$ jest przestrzenią z RIP. Na mocy lematu \ref{lem:flat} otrzymujemy homeomorfizm
+    \[
+      h: (V\times Y)_{A} \to (U\times Y)_{A\cup B},
+    \]
+    który nad $(V\setminus C)\cup A$ jest identycznościowy, gdzie $C$ jest pewnym otoczeniem $B$. Niech $C' := f^{-1}(C)$.
+    Weźmy homeomorfizmy:
+    \[
+      F_1: (U\times Y)_{A_1 \cap U} \to (V\times Y)_A
+    \]
+    oraz
+    \[
+      F_2: (U\times Y)_{(A_1 \cap U)\cup A_2} \to (V\times Y)_{A\cup B}
+    \]
+    wygenerowane z lematu \ref{lem:reduced-product-homeo} przez homeomorfizm $f: U\to V$.
+
+    Otrzymujemy homeomorfizm:
+    \[
+      g' := F_2^{-1} \circ h \circ F_1: (U\times Y)_{A_1 \cap U} \to (U\times Y)_{(A_1\cap U) \cup A_2}
+    \]
+    Weźmy odwzorowanie identycznościowe:
+    \[
+      g'' := \id: ((M\setminus \cl{C'})\times Y)_{A_1} \to ((M\setminus \cl{C'})\times Y)_{A_1 \cup A_2}.
+    \]
+    Jest ono homeomorfizmem, mamy przecież $((M\setminus C')\times Y)_{A_1 \cup A_2} = ((M\setminus C')\times Y)_{A_1}$ jako zbiory oraz jako przestrzenie, bo $A_2 \cap (M\setminus C') = \emptyset$. Co więcej, jest to homeomorfizm między zbiorami otwartymi.
+    
+    Zauważmy, że $g'$ i $g''$ można skleić do homeomorfizmu, ponieważ na zbiorze otwartym $((U\setminus \cl{C'})\times Y)_{A_1 \cap U}$ odwzorowanie $g'$ jest idetycznościowe. Istotnie, niech $z \in ((U\setminus \cl{C'})\times Y)_{A_1 \cap U}$. Wówczas $F_1(z) \in ((V\setminus \cl{C}) \times Y)_{A}$, a więc $h$ działa na ten punkt identycznościowo. Ale skoro $A_2 \subset C$, to $F_2^{-1}(F_1(z)) = z$.
+    
+    Zatem funkcje $g'$ i $g''$ kleją się do żądanego homeomorfizmu $g$.
+    
+    Żądaną właśność $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$ należy jeszcze sprawdzić nad $A_1\cap U$. Ale $A_1\cap U$ zostaje przekształcone przez $F_1$ nad $A$, na którym znowu identycznościowo działa $h$. $F_2$ działa nad $A_1 \cap U$ tak samo jak $F_1$, więc $h(z) = F_2^{-1}hF_1(z) = z$ także nad $A_1$.
+  \end{proof}
 \end{lem}
