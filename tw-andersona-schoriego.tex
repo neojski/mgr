@@ -139,7 +139,7 @@
 
 \end{lem}
 
-\begin{lem}
+\begin{lem} \label{lem:manifold-homeo}
   Niech $M$ będzie $Y$-rozmaitością, gdzie $Y$ jest przestrzenią liniowo-metryczną taką, że $Y$ jest homeomorficzne z $Y^\Ni$. Niech $f: U \to V$ będzie mapą regularną na $M$. Weźmy $A_1$, $A_2$ domknięte podzbiory $M$, gdzie $A_2 \subset U$. Wówczas istnieje homeomorfizm $g: (M\times Y)_{A_1} \to (M\times Y)_{A_1 \cup A_2}$ taki, że $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$.
   
   \begin{proof}
@@ -175,3 +175,32 @@
     Żądaną właśność $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$ należy jeszcze sprawdzić nad $A_1\cap U$. Ale $A_1\cap U$ zostaje przekształcone przez $F_1$ nad $A$, na którym znowu identycznościowo działa $h$. $F_2$ działa nad $A_1 \cap U$ tak samo jak $F_1$, więc $h(z) = F_2^{-1}hF_1(z) = z$ także nad $A_1$.
   \end{proof}
 \end{lem}
+
+\begin{thm}[Anderson-Schori]
+  Niech $M$ będzie rozmaitością modelowaną na przestrzeni liniowo-metrycznej $Y$ homeomorficznej ze swym przeliczalnym produktem. Wówczas $M$ jest homoemorficzne z $M\times Y$.
+  
+  \begin{proof}
+    Weźmy przeliczalny, $\star$-skończony atlas regularny na $M$ z twierdzenia \ref{thm:super-atlas}. Na mocy lematu \ref{lem:chain-finite-order} uporządkujmy go w sposób łańcuchowo skończony i oznaczmy $(f_n: U_n \to V_n)_{n\in\Ni}$. W pokrycie $(U_n)_{n\in\Ni}$ wpiszmy z domknięciami pokrycie $(W_n)_{n\in\Ni}$ na mocy lematu \ref{lem:cl-refinement}. Bez straty ogólności możemy założyć, że $U_1 = W_1 = \emptyset$.
+    
+    Kładąc w lemacie \ref{lem:manifold-homeo} $A_1 := \cl W_1 \cup\ldots\cup \cl W_{n-1}$, $A_2 := \cl W_{n}$, $U := U_n$ otrzymujemy rodzinę homeomorfizmów:
+    \[
+      \begin{cases}
+        g_n: (M\times Y)_{\cl W_1 \cup\ldots\cup \cl W_{n-1}} \to (M\times Y)_{\cl W_1 \cup\ldots\cup \cl W_n}& \\
+        g_n(z) = z\mbox{ dla }pz\in (M\setminus U_n)\cup \cl W_1 \cup\ldots\cup \cl W_{n-1},
+      \end{cases}
+    \]
+    gdzie $g_1 = \id$. Widzimy natychmiast, że $p(g_n(U_n)) \subset U_n$.
+    
+    Niech teraz $h_n := g_n \ldots g_2 g_1$, definiujemy $h(z) := \lim h_n(z)$. Wykażemy, że funkcja $h$ jest żądanym homeomorfizmem.
+    
+    Niech $z \in U_k$. Zauważmy, że do tego aby $g_n(z) \neq z$ potrzeba aby $pz \in U_n$. Przypuśćmy, że istnieje nieskończenie wiele $g_n$ ruszających kolejne obrazy $z$, tzn. ciąg $h_n(z)$ jest niestały. Oznaczmy wszystkie funkcje powodujące zmiany przez $g_{i_1}, g_{i_2}, \dots$. Wówczas jednak $pz \in U_{i_1}$, a więc i $p g_{i_1}(z) \in U_{i_1}$. Dalej $p g_{i_1}(z) \in U_{i_2}$, więc $p g_{i_2}(g_{i_1}(z)) \in U_{i_2}$. Proces ten kontynuujemy otrzymując łańcuch $U_{i_1}, U_{i_2}, \dots$, co jest sprzeczne z porządkiem łańcuchowo skończonym.
+    
+    Otrzymujemy więc poprawną określoność $h$. Wykażemy teraz iniektywność $h$. Niech $x, y \in M$. Skoro jednak $h := \lim h_n$ się stabilizuje to istnieje $n$ takie, że $h(x) = h_n(x) = h_n(y) = h(y)$. Z iniektywności $h_n$ dostajemy $x = y$.
+    
+    Wiemy, że $(W_n)_{n\in\Ni}$ jest pokryciem $M$, a więc $\im h \subset M$. Pokażemy, że $\im h = M$. Niech $y\in M$. Weźmy $n$ takie, że $y\in W_n$. Z homeomorficzności $h_n$ dostajemy pewne $x$ takie, że $h_n(x) = y$. Ale z własności $g_m$ dla każdego $m > n$ mamy $g_m(h_n(x)) = h_n(x)$ a więc i $h(x) = \lim h_m(x) = \lim g_m(g_{m-1}(\dots h_n(x))) = h_n(x) = y$.
+    
+    Przyjrzyjmy się teraz odwzorowaniu odwrotnemu. Z powyższych rozważań widzimy, że $h^{-1}$ na $W_n$ jest równe $h_n^{-1}|_{W_n}$. Zatem $h^{-1}$ jest bijekcją i lokalnie wygląda jak homoemorfizm $h_n^{-1}|_{W_n}$ pomiędzy zbiorami otwartymi a więc i samo jest homeomorfizmem.
+  \end{proof}
+\end{thm}
+
+ 
