@@ -1,18 +1,36 @@
 \section{Funkcje sterujące}
 
 \begin{df}
+  Niech $X$ będzie przestrzenią metryczną. Niech: 
+  \[
+    d_n(x, y) := \sum_{i=1}^n \frac{1}{2^i} d(x_i, y_i)
+  \]
+  Na przestrzeni $X^n := \prod_{i=1}^n X_i$, gdzie $X_i := X$, będziemy zawsze rozważać metrykę $d_n$.
+  
+  Przestrzeń $Y := \prod_{i=1}^\infty X$ będziemy zawsze rozważali z topologią Tichonowa i zgodną z nią metryką $d_\infty$.
+  
+  Ustalamy projekcję na pierwsze $n$ współrzędnych:
+  \[
+    s_n: Y \ni y \rightarrow (y_1, \ldots, y_n) \in X^n
+  \]
+  Ustalamy $x_0 \in X$. Niech $\star_n := (x_0)_{i=n+1}^\infty \in X^n$.
+\end{df}
+
+\begin{df}
 Niech $X$ będzie dowolnym zbiorem. Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawarty w $Y := \prod_{i=1}^\infty X$, który da się zapisać jako $A = B \times \prod_{i=n+1}^\infty X$ dla pewnego $n$ i pewnego $B \subset \prod_{i=1}^n X$. Zbiór $B$ będziemy nazywać ($n$-)podstawą zbioru ($n$-)bazowego.
 \end{df}
 
 \begin{prop}[Własności zbiorów bazowych] \mbox{} % break line here
 \begin{enumerate}
   \item Zbiór $n$-bazowy jest jednocześnie $m$-bazowy dla $n \leq m$
-  \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\bd A = \bd B \times Y$.
-  \begin{proof} \belowdisplayskip=-12pt % don't show \qed in new line
+  \item Dla zbioru bazowego $A$ o podstawie $B$ zachodzi: $\bd A = \bd B \times Y_n$, gdzie $Y_n := \prod_{i=n+1}^\infty X$.
+  \begin{proof}
+    Policzmy:
     \begin{align*} 
-      \bd A = \bd(B \times Y) = \cl{B \times Y} \cap \cl{Y \setminus (B \times Y)} &= \\
-      \cl{B \times Y} \cap \cl{(Y \setminus B) \times Y} &= \cl{B} \times Y \cap \cl{Y \setminus B} \times Y = \bd{B} \times Y
+      \bd A = \bd(B \times Y_n) = \cl{B \times Y_n} \cap \cl{Y \setminus (B \times Y_n)} &= \\
+      \cl{B \times Y_n} \cap \cl{(X^n \setminus B) \times Y_n} &= \cl{B} \times Y_n \cap \cl{X^n \setminus B} \times Y_n = \bd{B} \times Y_n
     \end{align*}
+    Dla uproszczenia zapisu będziemy ze wzlędu na naturalne utożsamienie $Y = X^n \times Y_n = X^n \times Y$ pisać: $\bd A = \bd B \times Y$.
   \end{proof}
   \item Domknięcie zbioru $n$-bazowego jest zbiorem $n$-bazowym
   \begin{proof}
@@ -20,7 +38,7 @@ Niech $X$ będzie dowolnym zbiorem. Zbiorem $n$-bazowym nazwiemy zbiór $A$ zawa
     \[
       \cl A = \cl{B \times Y} = \cl B \times Y
     \]
-    A więc $\cl A$ jest zbiorem bazowym o podstawie $B$.
+    A więc $\cl A$ jest zbiorem bazowym o podstawie $\cl B$.
   \end{proof}
 \end{enumerate}
 \end{prop}
@@ -30,15 +48,18 @@ Niech $X$ będzie przestrzenią topologiczną, niech $Y := \prod_{n=1}^\infty X$
 \[\lambda(x) < n+1 \mbox{ i } s_n(x) = s_n(y) \Rightarrow \lambda(x) = \lambda(y)\]
 \end{df}
 
-\begin{note}
+\begin{note} \label{note:steering-example}
 Przykłady funkcji sterujących:
-  \begin{itemize}
-    \item dowolna funkcja stała, $\lambda(x) := \mbox{const}$
-    \item jeśli $\lambda_1$ i $\lambda_2$ są funkcjami sterującymi, to $\lambda(y) := \max(\lambda_1(y), \lambda_2(y))$ jest też funkcją sterującą
+  \begin{enumerate}
+    \item \label{steering-example-const} funkcja stała, $\lambda(x) := \mbox{const}$
+    \item \label{steering-example-max} jeśli $\lambda_1$ i $\lambda_2$ są funkcjami sterującymi, to $\lambda(y) := \max(\lambda_1(y), \lambda_2(y))$ jest też funkcją sterującą
+    \item \label{steering-example-sum} jeśli $\lambda_1$ i $\lambda_2$ są funkcjami sterującymi, to $\lambda(y) := \lambda_1(y) + \lambda_2(y)$ też jest funkcją sterującą
   \begin{proof}
-    Niech $\lambda(y) < n+1$ i $s_n(x) = s_n(y)$. Wówczas $\lambda_1(y) < n+1$ oraz $\lambda_2(y) < n+1$, więc $\lambda(x) = \max(\lambda_1(x), \lambda_2(x)) = \max(\lambda_1(y), \lambda_2(y)) = \lambda(y)$.
+     Pokażemy \ref{steering-example-max}. Niech $\lambda(y) < n+1$ i $s_n(x) = s_n(y)$. Wówczas $\lambda_1(y) < n+1$ oraz $\lambda_2(y) < n+1$, więc $\lambda(x) = \max(\lambda_1(x), \lambda_2(x)) = \max(\lambda_1(y), \lambda_2(y)) = \lambda(y)$.
+     
+     Aby wykazać \ref{steering-example-sum} niech znowu $\lambda(y) < n+1$ i $s_n(x) = s_n(y)$. Wówczas ze względu na nieujemność funkcji sterujących $\lambda_1(y) < n+1$ i $\lambda_2(y) < n+1$. A więc $\lambda(x) = \lambda_1(x) + \lambda_2(x) = \lambda_1(y) + \lambda_2(y) = \lambda(y)$.
   \end{proof}
-  \end{itemize}
+  \end{enumerate}
 \end{note}
 
 
@@ -188,9 +209,9 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
   \]
   bo $\cl{U_{n-1}} \subset U_n$.
   
-  Zachodzi również zgodność pozostałych wzorów. Niech $(x, z) \in \bd V_{n-1} \times X$. Wówczas $(x, \star_n) \in \bd U_{n-1}$ a więc, jak poprzednio, $\lambda(x, z, \star_{n+1}) = \lambda(x, \star_n) = n$ - co daje zgodność wzorów lub $d_{n-1}(x, s_{n-1} A) = \frac{1}{n-1}$ - co z uwagi na \ref{A_n-1} wyklucza należenie do $A_n$, ponieważ $(x, z) \in A_n$ wymusza $d_{n}((x, z), s_{n} A) = 0$, a więc i $d_{n-1}(x, s_{n-1} A) = 0$.
+  Zachodzi również zgodność pozostałych wzorów. Niech $(x, z) \in (\bd V_{n-1} \times X) \cap A_n$. Wówczas $(x, \star_n) \in \bd U_{n-1}$ a więc, jak poprzednio, $\lambda(x, z, \star_{n+1}) = \lambda(x, \star_n) = n$ - co daje zgodność wzorów lub $d_{n-1}(x, s_{n-1} A) = \frac{1}{n-1}$ - co z uwagi na \ref{A_n-1} wyklucza należenie do $A_n$, ponieważ $(x, z) \in A_n$ wymusza $d_{n}((x, z), s_{n} A) = 0$, a więc i $d_{n-1}(x, s_{n-1} A) = 0$.
   
-  Podobnie pokazujemy zgodność $\bd V_n$ z $A_n$. Niech $x \in \bd V_n$, skąd $(x,\star_{n+1})\in\bd U_n$ a więc $d_n(s_n(x,\star_{n+1}), s_n A) = d_n(x,s_n A) = \frac{1}{n}$ lub $\lambda(y) = n+1$. W pierwszym przypadku jednak dostajemy sprzeczność z \ref{A_n-1}. W drugim natomiast wzory są zgodne.
+  Podobnie pokazujemy zgodność $\bd V_n$ z $A_n$. Niech $x \in \bd V_n$, skąd $(x,\star_{n+1})\in\bd U_n$ a więc $d_n(s_n(x,\star_{n+1}), s_n A) = d_n(x,s_n A) = \frac{1}{n}$ lub $\lambda(x,\star_{n+1}) = n+1$. W pierwszym przypadku jednak dostajemy sprzeczność z \ref{A_n-1}. W drugim natomiast wzory są zgodne.
   
   Należy jeszcze sprawdzić, że zgadza się przeciwdziedzina. Niech więc $x \in A_n \cap \cl{V_n\setminus(V_{n-1}\times X)}$. Z własności \ref{A_n-3} mamy $\lambda(x,\star_{n+1}) \leq n+1$. Gdyby jednak $\lambda(x,\star_{n+1}) < n$, to $(x,\star_{n+1})\in U_{n-1}$, więc $s_{n-1} x\in V_{n-1}$, czyli $x\in V_{n-1}\times X$, sprzeczność.
   
@@ -200,7 +221,7 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
   \[
     \sigma_{n-1}'': \cl{V_{n-1}\times X}\ni x \to \sigma_{n-1}s_{n-1}x \in [1,n],
   \]
-  która na $\bd{V_{n-1}}\times X$, tj. brzegu dziedziny $\bd({V_{n-1}\times X}) = \bd{V_{n-1}}\times X$, osiąga $n$ (bo $\sigma_{n-1}$ na $\bd{V_{n-1}}$ ma dokładnie $n$) podobnie jak na $\sigma_n$.
+  która na przecięciu dziedzin $\dom \sigma_n' \cap \dom \sigma_{n-1}'' = \cl{V_{n-1}\times X} \cap \cl{V_n \setminus (V_{n-1}\times X)} =\bd({V_{n-1}\times X}) = \bd{V_{n-1}}\times X$, osiąga $n$ (bo z poprzedniego kroku indukcji $\sigma_{n-1}$ na $\bd{V_{n-1}}$ ma dokładnie $n$) podobnie jak $\sigma_n$.
   
   Funkcję $\rho_n$ definiujemy jak poprzednio:
   \[
@@ -266,7 +287,7 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
     \item $\lambda(x) = \infty$, to $x\not\in U_n$, więc $\rho(x) = \infty$
     \item $\lambda(x) < \infty$, to $\exists n\in\Ni: \lambda(x) < n+1$, zatem $x \in U_n$ oraz $s_n x\in A_n$, co daje z warunku~\ref{induction-1}: $\rho(x) = \rho_n(x) = \lambda(x)$
    \end{enumerate}
-   \item $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) < n+1$ i $s_n(y) = s_n(x)$. Wówczas z warunku~\ref{induction-3}: $y \in U_n$. Ale $\rho(y) = \rho_n(y) = \sigma_n(s_n y) = \sigma_n(s_n x) = \rho_n(x) = \rho(x)$
+   \item $\rho$ jest funkcją sterującą. Istotnie, niech $\rho(y) < n+1$ i $s_n(y) = s_n(x)$. Wówczas z warunku~\ref{induction-3}: $y \in U_n$ i tym samym $x \in U_n$, bo $U_n$ jest $n$-bazowy. A wtedy $\rho(y) = \rho_n(y) = \sigma_n(s_n y) = \sigma_n(s_n x) = \rho_n(x) = \rho(x)$
   \end{enumerate}
   
   Ostatecznie skonstruowaliśmy więc funkcję sterującą $\rho$ o żądanych własnościach.
@@ -282,7 +303,7 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
   \end{proof}
 \end{cor}
 
-\begin{lem}
+\begin{lem} \label{lem:elementary-inequality}
   Dla każdej liczby naturalnej większej lub równej $1$ zachodzi elementarna nierówność:
   \[4(n+1) \leq 2^{8n}\]
   
@@ -302,20 +323,19 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
   \[2^{-\rho(y)} \leq \frac{1}{4}d(y,A)\ \forall y \in Y \setminus A\]
   
   \begin{proof}
-    Niech $\lambda$ będzie funkcją sterującą z wniosku \eqref{cor:steering-finite}. Określamy: $\rho := 8 \cdot \lambda$.
-    Niech $y \in Y \setminus A$. Wówczas istnieje $n \in \mathbb{N}_1$ takie, że $y \in U_{n+1} \setminus U_n$. Ale skoro $\mu = \infty$, to $U_n = \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$, więc ze względu na $y \in U_{n+1}$:
+    Przyjmijmy oznaczenia dowodu wniosku \ref{cor:steering-finite}, w szczególności niech $\lambda$ będzie skonstruowaną tam funkcją sterującą. Określamy: $\rho := 8 \cdot \lambda$. Z własności funkcji sterujących widzimy, że $\rho$ jest funkcją sterującą jako suma funkcji sterujących.
+    Powtarzając dowód twierdzenia \ref{thm:steering-function} z uwagi na $\mu = \infty$, mamy w tym przypadku $U_n = \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$.
+    
+    Niech $y \in Y \setminus A$, istnieje więc $n$ takie, że $y \in U_{n+1}$. Mamy wtedy:
     
     \[\frac{1}{n+1} < d_{n+1}(s_{n+1}(y), s_{n+1} A)  \leq d(y, A)\]
     
-    Z drugiej strony z warunku \eqref{induction-3} otrzymujemy $\lambda(y) \geq n$, czyli $\rho(y) \geq 8n$.
+    Z drugiej strony z warunku \ref{induction-3} otrzymujemy $\lambda(y) \geq n$, czyli $\rho(y) \geq 8n$.
     
-    Zatem:
-    \[\frac{1}{4}d(y,A) \geq \frac{1}{4(n+1)} \geq 2^{-8n} \geq 2^{\rho(n)}\]
-    
-    \[2^{-\rho(n)} \leq 2^{-8n} \leq \frac{1}{4}\frac{1}{n+1} \leq \frac{1}{4}d(y,A)\]
-    
-    Co należało pokazać.
+    Zatem lemat \ref{lem:elementary-inequality} daje:
+    \[
+      2^{-\rho(n)} \leq 2^{-8n} \leq \frac{1}{4}\frac{1}{n+1} \leq \frac{1}{4}d(y,A),
+    \]
+    co należało pokazać.
   \end{proof}
 \end{cor}
-
-

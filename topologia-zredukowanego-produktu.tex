@@ -27,9 +27,17 @@
   \]
 \end{df}
 
+\begin{prop} \label{prop:reduced-prod-first-countable}
+  Niech $M$, $N$ będą przestrzeniami topologicznymi spełniającymi pierwszy aksjomat przeliczalności, niech $\cl A = A \subset M$. Wówczas $(M\times N)_A$ również spełnia pierwszy aksjomat przeliczalności.
+  \begin{proof}
+    Jeśli $(m,n) \in (M\setminus A) \times N$, to jako bazę otoczeń punktu $(m,n)$ możemy wziąć $U\times V$, gdzie $U$ i $V$ należą do przeliczalnych baz otoczeń punktów $m$ i $n$ odpowiednio. Jeśli natomiast $a \in A$, to przeliczalną bazę otoczeń punktu $a$ otrzymujemy poprzez wzięcie przeciwobrazu przeliczalnej bazy otoczeń $a$ w $M$ poprzez odwzorowanie $p$ zadające topologię.
+  \end{proof}
+\end{prop}
+
+Z uwagi na stwierdzenie \ref{prop:reduced-prod-first-countable} w przestrzeni $(M\times N)_A$, gdzie $M$ i $N$ są przestrzeniami metrycznymi a $A$ domkniętym podzbiorem $M$, możemy do badania ciągłości używać zwykłych ciągów.
 
 \begin{lem} \label{lem:reduced-product-continuous}
-  Niech $M$, $N$ i $Y$ będą przestrzeniami topologicznymi, $A$ domknięty podzbiór $M$, $n_0 \in N$. Wówczas funkcję $f_0: (M \times N)_A \rightarrow Y$ możemy zareprezentować przez funkcję $f: M \times N \rightarrow Y$ stałą nad $A$, tzn. $N \ni n \rightarrow f(a, n) \in Y$ jest stała przy każdym ustalonym $a \in A$. Funkcje te można wzajemnie odtwarzać wzorami:
+  Niech $M$, $N$ i $Y$ będą przestrzeniami metrycznymi, $A$ domknięty podzbiór $M$, $n_0 \in N$. Wówczas funkcję $f_0: (M \times N)_A \rightarrow Y$ możemy zareprezentować przez funkcję $f: M \times N \rightarrow Y$ stałą nad $A$, tzn. $N \ni n \rightarrow f(a, n) \in Y$ jest stała przy każdym ustalonym $a \in A$. Funkcje te można wzajemnie odtwarzać wzorami:
   \begin{enumerate}
    \item $f_0(m,n) := f(m,n)$, gdy $(m,n) \in (M \setminus A) \times N$, $f_0(a) := f(a, n_0)$, gdy $a \in A$
    \item $f(m,n) := f_0(p(m,n))$, gdy $(m,n) \in M \times N$,
@@ -55,7 +63,7 @@
 \end{lem}
 
 \begin{lem} \label{lem:reduced-product-homeo}
-  Niech $U$, $V$ i $Y$ będą przestrzeniami topologicznymi, $A = \cl A \subset U$, niech  $f: U \to V$, homeomorfizm. Wówczas funkcja:
+  Niech $U$, $V$ i $Y$ będą przestrzeniami metrycznymi, $A = \cl A \subset U$, niech  $f: U \to V$, homeomorfizm. Wówczas funkcja:
   \[
     h_0: (U \times Y)_A \to (V \times Y)_{f(A)}
   \]
@@ -68,9 +76,9 @@
   \]
   jest również homeomorfizmem.
   \begin{proof}
-    Zauważmy, że wystarczy sprawdzić ciągłość $h$. Istotnie, jeśli $h$ będzie ciągłe, to odwrotną do niego funkcję otrzymujemy dokładnie tym samym wzorem z postawieniem $f^{-1}$ za $f$.
+    Zauważmy, że wystarczy sprawdzić ciągłość $h_0$. Istotnie, jeśli $h_0$ będzie ciągłe, to odwrotną do niego funkcję otrzymujemy dokładnie tym samym wzorem z postawieniem $f^{-1}$ za $f$.
 
-    Niech $q: V\times Y \to (V\times Y)_{f(A)}$ będzie projekcją. Wówczas funkcja $h: U\times Y \to (V\times Y)_{f(A)}$ wygląda następująco:
+    Niech $q: V\times Y \to (V\times Y)_{f(A)}$ będzie projekcją. Wówczas funkcja $h: U\times Y \to (V\times Y)_{f(A)}$ odpowiadająca $h_0$ wygląda następująco:
     \[
       h(u,y) = q(f(u),y)
     \]

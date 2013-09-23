@@ -45,7 +45,7 @@
   Niech $M$ będzie spójną przestrzenią topologiczną, a $\mathcal B$ bazą $M$. Wówczas $M$ jest $\mathcal B$-łańcuchowo spójna.
   \begin{proof}
     Dla ułatwienia będziemy mówić łańcuch zamiast $\mathcal B$-łańcuch.
-    Niech $m_0 \in M$. Niech
+    Jeśli $M = \emptyset$, to lemat jest prawdziwy. Niech $m_0 \in M$. Niech
     \[
       A := \{m \in M\ |\ \mbox{istnieje łańcuch od $m_0$ do $m$}\}
     \]
@@ -72,7 +72,7 @@
 \begin{fact} \label{fact:local-metrizability}
   Jeśli $Y$ jest przestrzenią metryczną, to rozmaitość topologiczna $M$ jest również przestrzenią metryczną.
   \begin{proof}(szkic)
-    $M$ jest przestrzenią lokalnie metryzowalną, jako przestrzeń lokalnie homeomorficzna z przestrzenią metryzowalną. Z definicji jest też przestrzenią parazwartą. Metryzowalność wynika z twierdzenia o metryzowalności Smirnova. [patrz \ref{reference-needed}]
+    $M$ jest przestrzenią lokalnie metryzowalną, jako przestrzeń lokalnie homeomorficzna z przestrzenią metryzowalną. Z definicji jest też przestrzenią parazwartą. Metryzowalność wynika z twierdzenia o metryzowalności Michaela. [patrz \ref{reference-needed}]
   \end{proof}
 \end{fact}
 
@@ -85,7 +85,7 @@
 \end{thm}
 
 \begin{cor}
-  Założenie parazwartości rozmaitości $M$ jest równoważne założeniu metryzowalności.
+  Niech $Y$ będzie przestrzeią metryczną. Wówczas założenie parazwartości rozmaitości $M$ modelowanej na $Y$ jest równoważne założeniu metryzowalności.
   \begin{proof}
     Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \ref{thm:stone} wynika, że metryzowalność daje parazwartość.
   \end{proof}

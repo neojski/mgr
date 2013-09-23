@@ -11,7 +11,7 @@
   \begin{proof}
     Implikacje $(iii) \implies (ii) \implies (i)$ są jasne.
     
-    Pokażemy, że $(i) \implies (iii)$. Niech $x \in M$ oraz niech $f: M \supset U \to V \subset Y$ będzie mapą w otoczeniu $x$. Niech $\varepsilon_0 > 0$ będzie taki, że $B(f(x), \varepsilon_0) \subset V$. Niech $\varepsilon < \varepsilon_0$. Z lematu \ref{lem:ball-homeomorphism} istnieje homeomorfizm $g: B(f(x), \varepsilon) \to Y$, bo kula $B(0, \varepsilon)$ w przestrzeni liniowo-topologicznej jest homeomorficzna z kulą $B(f(x), \varepsilon)$. Niech $f_0$ będzie homeomorfizmem powstałym z zawężenia $f$ w obrazie do $B(f(x), \varepsilon)$ i dziedzinie do $G_\varepsilon := f^{-1}(B(f(x), \varepsilon))$. Wówczas $f_0 \circ g$ jest homeomorfizmem między $G_\varepsilon$ a $Y$.
+    Pokażemy, że $(i) \implies (iii)$. Niech $x \in M$ oraz niech $f: M \supset U \to V \subset Y$ będzie mapą w otoczeniu $x$. Niech $\varepsilon_0 > 0$ będzie taki, że $B(f(x), \varepsilon_0) \subset V$. Niech $\varepsilon < \varepsilon_0$. Z lematu \ref{lem:ball-homeomorphism} istnieje homeomorfizm $g: B(f(x), \varepsilon) \to Y$, bo kula $B(0, \varepsilon)$ w przestrzeni liniowo-metrycznej jest homeomorficzna z kulą $B(f(x), \varepsilon)$. Niech $f_0$ będzie homeomorfizmem powstałym z zawężenia $f$ w obrazie do $B(f(x), \varepsilon)$ i dziedzinie do $G_\varepsilon := f^{-1}(B(f(x), \varepsilon))$. Wówczas $f_0 \circ g$ jest homeomorfizmem między $G_\varepsilon$ a $Y$.
     
     Skoro $\{B(f(x), \varepsilon)\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $f(x)$, to $\{G_\varepsilon\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punktcie $x$.
   \end{proof}
@@ -68,15 +68,16 @@
 \begin{lem} \label{lem:map-regular}
   Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Dla dowolnej mapy $f: U \to V$ istnieje przeliczalna rodzina $f_n: U_n \to V_n$ map regularnych taka, że $\cl{f_n} \subset f$ oraz $\bigcup_{n=1}^\infty U_n = U$.
   \begin{proof}
-    Weźmy z własności $T_6$ przestrzeni metrycznej $Y$ rodzinę zbiorów otwartych $(V_n)_{n=1}^\infty$ taką, że $\cl{V_n} \subset V_{n+1}$ i $\bigcup_{n=1}^\infty V_n = V$. Kładziemy $U_n := f^{-1}(V_n)$. Wówczas $\bigcup_{n=1}^\infty U_n = U$ oraz $\cl{U_n} = \cl{f^{-1}(V_n)} \subset f^{-1}(\cl{V_{n}}) \subset f^{-1}(V_{n+1}) = U_{n+1}$. A więc definiujemy:
-    \[
-      \cl{f_n}: \cl{U_n} \to \cl{V_n},\qquad \cl{f_n}(x) := f(x)
-    \]
+    Weźmy z własności $T_6$ przestrzeni metrycznej $Y$ rodzinę zbiorów otwartych $(V_n)_{n=1}^\infty$ taką, że $\cl{V_n} \subset V_{n+1}$ i $\bigcup_{n=1}^\infty V_n = V$. Kładziemy $U_n := f^{-1}(V_n)$. Dla każdego $U_n$ weźmy analogiczną rodzinę zbiorów otwartych $(U_n^k)_{k=1}^\infty$ taką, że $\bigcup_{k=1}^\infty U_n^k = U_n$ i $\cl{U_n^k} \subset {U_n^{k+1}}$. Wówczas $V_n^k := f(U_n^k)$ jest zbiorem otwartym. Odnotujmy, że $V_n^k = f(U_n^k) \subset f(U_n) = V_n$, a więc $\cl{V_n^k} \subset \cl{V_n} \subset V_{n+1} \subset V$.
     Zauważmy, że:
     \[
-      \cl{f_n}(\cl{U_n}) = f(\cl{U_n}) = f(\cl{U_n} \cap U) = f(\cl[U]{U_n}) =\cl[V]{f(U_n)} = \cl[V]{V_n} = \cl{V_n} \cap V = \cl{V_n}
+      f(\cl{U_n^k}) = f(\cl{U_n^k} \cap U) = f(\cl[U]{U_n^k}) =\cl[V]{f(U_n^k)} = \cl[V]{V_n^k} = \cl{V_n^k} \cap V = \cl{V_n^k}
     \]
-    A więc $f_n$ jest homeomorfizmem pomiędzy zbiorami otwartymi $U_n$ i $V_n$, a $\cl{f_n} \supset f_n$ jest homeomorfizmem pomiędzy zbiorami domkniętymi $\cl{U_n}$ i $\cl{V_n}$. Zatem $(f_n)_{n \in \mathbb{N}_1}$ jest szukaną rodziną map regularnych.
+    Definiujemy:
+    \[
+      \cl{f_n^k}: \cl{U_n^k} \to \cl{V_n^k},\qquad \cl{f_n}(x) := f(x)
+    \]
+    A więc $f_n^k$ jest homeomorfizmem pomiędzy zbiorami otwartymi $U_n^k$ i $V_n^k$, a $\cl{f_n^k} \supset f_n^k$ jest homeomorfizmem pomiędzy zbiorami domkniętymi $\cl{U_n^k}$ i $\cl{V_n^k}$. Zatem $(f_n^k)_{n,k \in \mathbb{N}_1}$ jest szukaną rodziną map regularnych.
   \end{proof}
 \end{lem}
 
@@ -97,7 +98,7 @@
 
 
 \begin{lem} \label{lem:atlas-countable}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas na $M$ istnieje atlas przeliczalny.
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie spójną $Y$-rozmaitością. Wówczas na $M$ istnieje atlas przeliczalny.
   \begin{proof}
     Weźmy z lematu \ref{lem:balls-many} rodzinę kul w $Y$ taką, że $\mathcal B := (B(y,r_y))_{y\in A}$ jest dyskretna a $\card A = \wght Y$.
     Niech $\{g_t: V_t \to Y\}_{t \in T}$ będzie atlasem dla $M$.

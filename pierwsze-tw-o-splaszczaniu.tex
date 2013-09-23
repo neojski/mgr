@@ -1,10 +1,10 @@
 \section{Pierwsze twierdzenie o spłaszczaniu}
 \begin{thm}
-  Niech $X$ będzie przestrzenią topologiczną z RIP, $Y = X^\mathbb{N}_1$, $\cl A = A \subset Y$. Wówczas istnieje homeomorfizm $h: (Y \times X)_A \rightarrow Y$ taki, że $h(a) = a$ dla $a \in A$.
+  Niech $X$ będzie przestrzenią metryczną z RIP, $Y = X^\Ni$, $\cl A = A \subset Y$. Wówczas istnieje homeomorfizm $h: (Y \times X)_A \rightarrow Y$ taki, że $h(a) = a$ dla $a \in A$.
   
   \begin{proof}
     Niech $\lambda$ będzie funkcją sterującą na $Y$, taką że $\lambda(y) = \infty$ wtedy i tylko wtedy gdy $y \in A$.
-    Niech $(f_t)_{0 \leq t \leq 1}$ będzie homotopią spychającą $Y \times X \rightarrow Y$
+    Niech $(f_t)_{1 \leq t \leq \infty}$ będzie homotopią spychającą $Y \times X \rightarrow Y$
     Definiujemy:
     \[h(y,x) := f_{\lambda(y)}(y,x)\]
     Wówczas dla $a \in A$, $x \in X$ mamy:

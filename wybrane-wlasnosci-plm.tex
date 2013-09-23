@@ -11,7 +11,7 @@
   
   \begin{proof}(Szkic)
   
-  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego istnieje więc na niej metryką lewostronnie niezmiennicza.
+  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego [\ref{reference-needed}] istnieje więc na niej metryką lewostronnie niezmiennicza.
   \end{proof}
 \end{fact}
 
@@ -50,10 +50,10 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 \end{lem}
 
 
-\begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur}
+\begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur} \ref{reference-needed}
   Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje ograniczona przez $1$, niezmiennicza metryka $\rho$ równoważna $d$ rosnąca po promieniach.
   \begin{proof}
-    Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk ograniczonych przez $1$. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, jest metryką równoważną $d$.
+    Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk ograniczonych przez $1$. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, $\rho_w$ jest metryką równoważną $d$.
     
     Istotnie:
     \begin{align*}
@@ -66,7 +66,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     Z drugiej strony, niech $d(x_n, x) \to 0$ oraz $\varepsilon > 0$. Zdefiniujmy odwzorowanie:
     \[m: [0,w] \times Y \ni (t,x) \to d(tx, 0) \in [0,\infty)\]
     
-    Z ciągłości wynika $m$ wynika, że dla każdego $t$ istnieje $V_t$ otoczenie $t$ oraz $U_t$ otoczenie $0$ w $Y$ takie, że $m(s, y) < \varepsilon$ o ile tylko $s \in V_t$ i $y \in U_t$.
+    Z ciągłości $m$ wynika, że dla każdego $t$ istnieje $V_t$ otoczenie $t$ oraz $U_t$ otoczenie $0$ w $Y$ takie, że $m(s, y) < \varepsilon$ o ile tylko $s \in V_t$ i $y \in U_t$.
     
     Ze zwartości odcinka wybieramy z pokrycia $\{V_t\}_{t \in [0,w]}$ skończone podpokrycie $(V_{t_i})_{i=1}^{k}$
     
@@ -74,7 +74,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[t \in [0,w], x \in U,\mbox{ to } m(t,x) = d(tx, 0) < \varepsilon\]
     
     Ustalmy $n_0$ tak, aby dla każdego $n \geq n_0$ było $x_n - x \in U$. Ale wtedy:
-    \[\rho_w(x_n, x) = \rho_w(x_n - x, 0) = \sup_{0 \leq t \leq w} d(t(x_n - x), 0) < \varepsilon\]
+    \[\rho_w(x_n, x) = \rho_w(x_n - x, 0) = \sup_{0 \leq t \leq w} d(t(x_n - x), 0) \leq \varepsilon\]
     
     A więc $\rho_w(x_n, x) \to 0$, co dowodzi równoważności $\rho_w$ i $d$.
     
@@ -98,7 +98,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[\rho(x_n, x) \leq \sum_{i=i}^k \frac{1}{2^i} \rho_{w_i}(x_n, x) + \sum_{i=k+1}^\infty \frac{1}{2^i} \leq k \cdot \frac{\varepsilon}{2k} + \frac{\varepsilon}{2} = \varepsilon\]
     a więc $\rho(x_n, x) \to 0$
     
-    Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
+    Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ (niech $t_1^0 t_2^{-0} := 1$) i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
     \begin{align*}
       \rho_{t_1^i t_2^{-i}}(t_1 x, 0) = \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0) =
       \sup_{0 \leq t \leq t_1^{i+1} t_2^{-(i+1)}} d(t \cdot t_2 x, 0) = \rho_{t_1^{i+1} t_2^{-(i+1)}}(t_2 x, 0)
@@ -153,17 +153,19 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     Z drugiej strony, jeśli $\lambda(y) < t_0$, to z definicji infimum istnieje $t_1 < t_0: y \in t_1 U_\varepsilon$, ale $\cl{t_1 U_\varepsilon} \subset t_0 U_\varepsilon$, więc $y \in t_0 U_\varepsilon$.
 
     Wykażemy ciągłość odwzorowania $\lambda$.
-    Ustalmy $y_0 \in Y$ oraz $\delta > 0$.
+    Ustalmy $y_0 \in Y$ oraz $\lambda(y_0) > \delta > 0$.
     Niech $U := (\lambda(y_0) + \delta) U_\varepsilon \setminus \cl{(\lambda(y_0)-\delta) U_\varepsilon}$.
     
     Po pierwsze zauważmy, że $y_0 \in U$.
     Istotnie, skoro $\lambda(y_0) < \lambda(y_0) + \delta$, to $y_0 \in (\lambda(y_0) + \delta) U_\varepsilon$.
-    Z drugiej strony, gdyby $y_0 \in \cl{(\lambda(y_0) - \delta) U_\varepsilon} \subset (\lambda(y_0) - \frac{\delta}{2}) U_\varepsilon$. Ale wtedy $\lambda(y_0) < \lambda(y_0) - \frac{\delta}{2}$.
+    Z drugiej strony, gdyby $y_0 \in \cl{(\lambda(y_0) - \delta) U_\varepsilon} \subset (\lambda(y_0) - \frac{\delta}{2}) U_\varepsilon$, to $\lambda(y_0) < \lambda(y_0) - \frac{\delta}{2}$.
     Zatem $U$ jest otwartym otoczeniem $y_0$.
     
     Następnie zauważmy, że $y \in (\lambda(y_0) + \delta) U_\varepsilon$, to $\lambda(y) < \lambda(y_0) + \delta$ oraz $y \not\in \cl{(\lambda(y_0) - \delta) U_\varepsilon}$, to $\lambda(y) \geq \lambda(y_0) - \delta$, gdyż w przeciwnym razie $\lambda(y) < \lambda(y_0) - \delta$ a więc $y \in (\lambda(y_0) - \delta) U_\varepsilon$.
     
-    Podsumowując: $y \in U$, to $\lambda(y_0) - \delta < \lambda(y) < \lambda(y_0) + \delta$, a więc z dowolności $\delta$ wykazaliśmy ciągłość $\lambda$.
+    Jeśli natomiast $\lambda(y_0) = 0$, wystarczy wziąć otoczenie $U := (\lambda(y_0) + \delta)U_\varepsilon$. Dla każdego $y \in U$ dostajemy wówczas: $0 \leq \lambda(y) < \lambda(y_0) + \delta$.
+    
+    Podsumowując: $y \in U$, to $\lambda(y_0) - \delta \leq \lambda(y) < \lambda(y_0) + \delta$, a więc z dowolności $\delta$ wykazaliśmy ciągłość $\lambda$.
     
     Warto jeszcze zaznaczyć, że $\lambda(sy) = \inf \{t \geq 0\ |\ sy \in t U_\varepsilon\} = s\inf \{t \geq 0\ |\ y \in t U_\varepsilon\} = s \lambda(y)\ \forall s \geq 0, y \in Y$.
     
@@ -184,15 +186,14 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[
       \frac{y}{\max\left(1, \lambda(y) + \frac{1}{2}\right)} = z
     \]
-    Dla $\lambda(y) \geq \frac{1}{2}$ mamy $y = z$, dla $\lambda(y) \leq \frac{1}{2}$ natomiast 
+    Dla $\lambda(y) \leq \frac{1}{2}$ mamy $y = z$, dla $\lambda(y) \geq \frac{1}{2}$ natomiast 
     \[
       \frac{y}{\lambda(y) + \frac{1}{2}} = z
     \]
     Skąd:
-    \begin{equation}
-      \label{a1}
+    \[
       \lambda(z) = \frac{\lambda(y)}{\lambda(y) + \frac{1}{2}}
-    \end{equation}
+    \]
     Po prostych przekształceniach dostajemy:
     \[
       \lambda(y) = \frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)}
@@ -201,7 +202,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[
       y = z\left(\frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)} + \frac{1}{2}\right) = \frac{z}{2(1-\lambda(z))}
     \]
-    Zauważmy jeszcze, że $\lambda(y) \leq \frac{1}{2} \iff \lambda(z) \leq \frac{1}{2}$. Istotnie, jeśli $\lambda(y) \leq \frac{1}{2}$, to ze wzoru \eqref{a1} natychmiast wynika, że $\lambda(z) < 1$. A dla $\lambda(z) < 1$ mamy:
+    Zauważmy jeszcze, że $\lambda(y) \leq \frac{1}{2} \iff \lambda(z) \leq \frac{1}{2}$. Istotnie, z uwagi na $\lambda(z) < 1$ mamy ciąg równoważnych nierówności:
     \begin{align*}
       \lambda(y) &\leq \frac{1}{2} \\
       1 &\geq \lambda(y) + \frac{1}{2} = \frac{1}{2(1-\lambda(z))} \\
@@ -212,13 +213,13 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[
       h^{-1}(z) = 
       \begin{cases}
-        \frac{z}{2(1-\lambda(z))},&\lambda(z) \leq \frac{1}{2} \\
-        z,&\lambda(z) \geq \frac{1}{2}
+        \frac{z}{2(1-\lambda(z))},&\lambda(z) \geq \frac{1}{2} \\
+        z,&\lambda(z) \leq \frac{1}{2}
       \end{cases}
     \]
     Ale wzór ten możemy również zapisać jako:
     \[
-      z \to \frac{z}{2(1-\min(\lambda(z), \frac{1}{2}))}
+      z \to \frac{z}{2(1-\max(\lambda(z), \frac{1}{2}))}
     \]
     Zatem $h^{-1}$ jest funkcją ciągłą.
   \end{proof}
@@ -240,16 +241,17 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
 \begin{lem} \label{lem:anti-net}
   Niech $M$ będzie przestrzenią metryczną, $r > 0$. Wówczas w $M$ istnieje maksymalny zbiór $r$-rozstrzelony. Ponadto, maksymalny zbiór $r$-rozstrzelony jest $r$-siecią.
   \begin{proof}
-    Zbiór wszystkich zbiorów $r$-rozstrzelonych jest niepusty, ponieważ $\emptyset$ jest zbiorem $r$-rozstrzelonym i częściowo uporządkowany przez inkluzję. Weźmy łańcuch zbiorów $r$-rozstrzelonych. Wówczas suma wszystkich elementów wszystkich zbiorów łańcucha jest również zbiorem $r$-rozstrzelonym. Istotnie, gdyby tak nie było, to istniałyby dwa punkty oddalone od siebie o mniej niż $r$. Ale wówczas istniałby element łańcucha zawierający oba z nich. Sprzeczność. Lemat Kuratowskiego-Zorna kończy dowód dając element maksymalny $A$.
+    Zbiór wszystkich zbiorów $r$-rozstrzelonych jest niepusty, ponieważ $\emptyset$ jest zbiorem $r$-rozstrzelonym, i częściowo uporządkowany przez inkluzję. Weźmy łańcuch zbiorów $r$-rozstrzelonych. Wówczas suma wszystkich elementów wszystkich zbiorów łańcucha jest również zbiorem $r$-rozstrzelonym. Istotnie, gdyby tak nie było, to istniałyby dwa punkty oddalone od siebie o mniej niż $r$. Ale wówczas istniałby element łańcucha zawierający oba z nich. Sprzeczność. Lemat Kuratowskiego-Zorna kończy dowód dając element maksymalny $A$.
     
     Gdyby zbiór ten nie był $r$-siecią istniałby punkt $x$ oddalony od dowolnego punktu zbioru $A$ o co najmniej $r$. Zatem zbiór $A \cup \{x\}$ byłby istotnie większym zbiorem $r$-rozstrzelonym.
   \end{proof}
 \end{lem}
 
 \begin{lem} \label{lem:balls-many}
-  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{B(y, r_y)\}_{y \in A}$.
+  Niech $Y$ będzie przestrzenią liniowo-metryczną. Wówczas istnieje $A \subset Y$ o mocy $\card A \geq \wght Y$ oraz dyskretna rodzina kul $\{B(y, r_y)\}_{y \in A}$.
   
   \begin{proof}
+    Gdy $Y = \{0\}$, to twierdzenie jest prawdziwe. Niech więc $Y$ będzie przestrzenią nietrywialną.
     Najpierw znajdziemy w $Y$ promień $r > 0$ oraz przeliczalną dyskretną rodzinę kul o promieniu $r$. Niech $y_0 \in Y\setminus\{0\}$. Kładziemy $r := \frac{1}{4} d(y_0,0)$. Wówczas rodzina kul: $\{B(ny_0, r)\}_{n \in \mathbb{N}_1}$ jest przeliczalna i dyskretna. Istotnie, dobrym otoczeniem punktu $y \in Y$ jest kula $B(y,r)$, ponieważ odległość dwu różnych środków $n_1 y$ i $n_2 y$, dla $n_1 < n_2$ wynosi:
     \[
       d(n_2 y_0, n_1 y_0) = d((n_2 - n_1)y_0, 0) \geq d(y_0, 0) = 4r
