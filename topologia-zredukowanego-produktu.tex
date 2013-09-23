@@ -89,3 +89,25 @@ Z uwagi na stwierdzenie \ref{prop:reduced-prod-first-countable} w przestrzeni $(
     Zatem $h_0$ jest homeomorfizmem między $(U \times Y)_A$ a $(V \times Y)_{f(A)}$.
   \end{proof}
 \end{lem}
+
+\begin{lem} \label{lem:reduced-product-subspace}
+  Niech $Y$, $X$ będą przestrzeniami topologicznymi. Niech $F$ będzie domkniętym podzbiorem $Y$. Niech $F_0$ będzie podzbiorem $Y$. Wówczas topologia zredukowanego produktu na $L := ((Y\setminus F_0)\times X)_{F\setminus F_0}$ pokrywa się z topologią indukowaną z $P := (Y\times X)_F$ na $L$.
+  
+  \begin{proof}
+    Widzimy, że zbiór $F\setminus F_0$ jest zbiorem domkniętym w $Y\setminus F_0$ jako ślad zbioru domkniętego $F$ na $Y\setminus F_0$.
+    Przypomnijmy, że:
+    \begin{align*}
+    ((Y\setminus F_0)\times X)_{F\setminus F_0} = ((Y\setminus F_0) \setminus (F\setminus F_0)) &\times X \cup (F\setminus F_0) \\
+    = ((Y\setminus F)\setminus F_0) &\times X \cup (F\setminus F_0)
+    \end{align*}
+
+    Niech $x \in ((Y\setminus F) \setminus F_0)\times X$. Wówczas otoczenie $x$ w $L$ jest postaci $U\times V$, gdzie $U$ jest zbiorem otwartym w $(Y\setminus F)\setminus F_0$, a $V$ jest zbiorem otwartym w $X$. Zatem $U$ jest śladem pewnego zbioru $\tilde{U}$ otwartego w $Y\setminus F$, tzn. $U = \tilde{U} \cap ((Y\setminus F)\setminus F_0)$. Ale zbiór $\tilde{U}\times V$ jest otoczeniem $x$ w $P$. Co więcej, jeśli $\tilde{U}\times V$ jest otoczeniem $x$ w $P$, to $U\times V$, gdzie $U := \tilde{U}\cap((Y\setminus F)\setminus F_0)$, jest otoczeniem $x$ w $L$.
+    
+    Niech teraz $x\in F\setminus F_0$. Otoczenia $x$ w $L$ są postaci $(p|_{L})^{-1}(U)$, gdzie $p$ jest odwzorowaniem zadającym topologię na $P$ a zbiór $U$ jest otwarty w $Y\setminus F_0$. Ale wtedy $U$ jest śladem pewnego zbioru $\tilde{U}$ otwartego w $Y$, tzn. $U = \tilde{U}\cap(Y\setminus F_0)$. Ponadto, jeśli $\tilde{U}$ jest otwartym otoczeniem $x$ w $Y$, to $U := \tilde{U}\cap(Y\setminus F_0)$ jest otoczeniem $x$ w $Y\setminus F_0$. Zauważmy, że zachodzi równość:
+    \[
+      (p|_L)^{-1}(U) = p^{-1}(U) \cap L = p^{-1}(\tilde{U}) \cap L
+    \]
+    
+    Z powyższych rozważań wnioskujemy, że topologia zredukowanego produktu na $L$ pokrywa się z topologią zredukowanego produktu na $P$ indukowaną na $L$.
+  \end{proof}
+\end{lem}
