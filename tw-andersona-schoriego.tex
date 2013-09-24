@@ -6,7 +6,6 @@
   \begin{equation} \label{eq:as-lem-1}
   h(z) = z \mbox{ dla } p(z) \in (V \setminus C) \cup A
   \end{equation}
-  
   \begin{proof}
     Niech
     \[L := \{y \in Y\ |\ d(y, Y \setminus V) \leq d(y, B)\}\]
@@ -23,6 +22,12 @@
     Zauważmy, że $(Y \setminus V) \cup A = (Y \setminus V) \cup (\cl{A} \cap V) = (Y \setminus V) \cup \cl{A}$, więc $(Y \setminus V) \cup A$ jest zbiorem domkniętym. Podobnie $A \cup L$ jest zbiorem domkniętym, gdyż $Y \setminus V \subset L$.
     
     Niech $\lambda_0$ będzie funkcją sterującą z wniosku \ref{cor:steering-finite} dla zbioru domkniętego $(Y \setminus V) \cup A \cup B$. Przez $\rho_0$ oznaczmy funkcję sterującą $\lambda_0$ poprawioną (twierdzenie \ref{thm:steering-function}) na zbiorze domkniętym $A \cup L$.
+    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[scale=.5]{img/first-flatten.pdf}
+      \caption{Sytuacja z lematu \ref{lem:flat}}
+    \end{figure}
     
     Skoro $\rho_0(y)$ poza $A \cup L$ jest skończone a na $A \cup L$ jest równe $\lambda_0$, to $\rho_0(y) = \infty$ wtedy i tylko wtedy gdy $y \in (A \cup L) \cap ((Y \setminus V) \cup A \cup B) = (Y \setminus V) \cup A$
     
@@ -142,7 +147,15 @@
   Niech $M$ będzie $Y$-rozmaitością, gdzie $Y$ jest przestrzenią liniowo-metryczną taką, że $Y$ jest homeomorficzne z $Y^\Ni$. Niech $f: U \to V$ będzie mapą regularną na $M$. Weźmy $A_1$, $A_2$ domknięte podzbiory $M$, gdzie $A_2 \subset U$. Wówczas istnieje homeomorfizm $g: (M\times Y)_{A_1} \to (M\times Y)_{A_1 \cup A_2}$ taki, że $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$.
   
   \begin{proof}
-    Niech $A := \cl{f}(A_1 \cap U)$, $B := \cl{f}(A_2)$, $X := Y$. Skoro $A_2$ domknięty w $M$, to jest też domknięty w $\cl U$, skąd $B$ domknięty w $\cl{f}(\cl U)$, a więc z regularności mapy $f$ i w $Y$. Skoro $A_1 \cap U$ domknięty w $U$, to $\cl{f}(A_1 \cap U) = f(A_1 \cap U) = A$ domknięty w $V$. Co więcej, $X$ jako produkt przestrzeni $Y$ jest homeomorficzny z $X^2$ (oraz z $X^\Ni$) więc z wniosku \ref{cor:rip-space} $X$ jest przestrzenią z RIP. Na mocy lematu \ref{lem:flat} otrzymujemy homeomorfizm
+    Niech $A := \cl{f}(A_1 \cap U)$, $B := \cl{f}(A_2)$, $X := Y$. Skoro $A_2$ domknięty w $M$, to jest też domknięty w $\cl U$, skąd $B$ domknięty w $\cl{f}(\cl U)$, a więc z regularności mapy $f$ i w $Y$. Skoro $A_1 \cap U$ domknięty w $U$, to $\cl{f}(A_1 \cap U) = f(A_1 \cap U) = A$ domknięty w $V$.
+    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[scale=.5]{img/and-shori.pdf}
+      \caption{Sytuacja z lematu \ref{lem:manifold-homeo}}
+    \end{figure}
+    
+    Co więcej, $X$ jako produkt przestrzeni $Y$ jest homeomorficzny z $X^2$ (oraz z $X^\Ni$) więc z wniosku \ref{cor:rip-space} $X$ jest przestrzenią z RIP. Na mocy lematu \ref{lem:flat} otrzymujemy homeomorfizm
     \[
       h: (V\times Y)_{A} \to (V\times Y)_{A\cup B},
     \]

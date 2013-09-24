@@ -37,6 +37,7 @@
   \]
   Zbiory $U_i$ będziemy nazywać ogniwami.
 \end{df}
+
 \begin{df}
   Niech $M$ będzie przestrzenią toplogiczną, a $\mathcal B$ ustaloną rodziną podzbiorów $M$. Powiemy, że przestrzeń $M$ jest $\mathcal B$-łańcuchowo spójna, jeśli każde dwa punkty $x,y \in M$ można połączyć łańcuchem $(U_0, \ldots, U_n)$ w $\mathcal B$, tj. $x \in U_0$ i $y \in U_n$, a $U_i \in \mathcal B\ \forall i \in n+1$.
 \end{df}
@@ -52,6 +53,12 @@
     Niech $m \in A$.
     Wówczas istnieje łańcuch $(U_0, \ldots, U_n)$ od $m_0$ do $m$.
     Zatem każdy punkt $m' \in U_n$ jest połączony tym samym łańcuchem $(U_0, \ldots, U_n)$ z $m_0$.
+    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[scale=.5]{img/chain.pdf}
+      \caption{Łańcuch od $m_0$ do $m$}
+    \end{figure}
     
     Niech $m \in M\setminus A$.
     Weźmy otoczenie $U\in\mathcal B$ punktu $m$. Niech $m'\in U$ i przypuścmy, że $m'\in A$. Zatem istnieje łańcuch $(U_0, \ldots, U_n)$ łączący $m_0$ i $m'$. Ale wtedy $(U_0, \ldots, U_n, U)$ jest łańcuchem łączącym $m_0$ z $m$, czyli $m\in A$, sprzeczność. Zatem $m'\in M\setminus A$.
@@ -113,9 +120,7 @@
   \[
     \forall t_0 \in T: \card\{t \in T\ |\ U_t \cap U_{t_0} \neq \emptyset\} < \aleph_0
   \]
-
 \end{df}
-
 
 \begin{lem} \label{lem:star-finite}
   Niech $M$ będzie parazwartą przestrzenią topologiczną. Wówczas dla każdego przeliczalnego pokrycia otwartego $M$ istnieje przeliczalne pokrycie otwarte wpisane, $\star$-skończone.
