@@ -11,7 +11,7 @@
   
   \begin{proof}(Szkic)
   
-  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego [\ref{reference-needed}] istnieje więc na niej metryką lewostronnie niezmiennicza.
+  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego \cite{bir}, \cite{kak} istnieje więc na niej metryką lewostronnie niezmiennicza.
   \end{proof}
 \end{fact}
 
@@ -50,7 +50,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
 \end{lem}
 
 
-\begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur} \ref{reference-needed}
+\begin{thm}[Eidelheit-Mazur] \label{thm:eidelheit-mazur} \cite{em}
   Niech $(Y, d)$ przestrzeń liniowo-metryczna. Wówczas istnieje ograniczona przez $1$, niezmiennicza metryka $\rho$ równoważna $d$ rosnąca po promieniach.
   \begin{proof}
     Określamy dla $w > 0$ metrykę $\rho_w(x, y) := \sup_{0 \leq t \leq w} d(tx, ty)$. $\rho_w$ jest metryką, jako skończone supremum metryk ograniczonych przez $1$. Z niezmienniczości $d$ wynika niezmieniczość $\rho_w$. Co więcej, $\rho_w$ jest metryką równoważną $d$.
@@ -98,7 +98,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[\rho(x_n, x) \leq \sum_{i=i}^k \frac{1}{2^i} \rho_{w_i}(x_n, x) + \sum_{i=k+1}^\infty \frac{1}{2^i} \leq k \cdot \frac{\varepsilon}{2k} + \frac{\varepsilon}{2} = \varepsilon\]
     a więc $\rho(x_n, x) \to 0$
     
-    Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ (niech $t_1^0 t_2^{-0} := 1$) i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
+    Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
     \begin{align*}
       \rho_{t_1^i t_2^{-i}}(t_1 x, 0) = \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0) =
       \sup_{0 \leq t \leq t_1^{i+1} t_2^{-(i+1)}} d(t \cdot t_2 x, 0) = \rho_{t_1^{i+1} t_2^{-(i+1)}}(t_2 x, 0)
@@ -148,9 +148,9 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \]
     
     Istotnie, niech $y \in t_0 U_\varepsilon$
-    Wówczas z otwartości zbioru $U_\varepsilon$ i ciągłości mnożenia istnieje $t_1 < t_0: y \in t_1 U_\varepsilon$.
+    Wówczas z otwartości zbioru $U_\varepsilon$ i ciągłości mnożenia istnieje $t_1 < t_0$ takie, że $y \in t_1 U_\varepsilon$.
     A więc $\lambda(y) \leq t_1 < t_0$.
-    Z drugiej strony, jeśli $\lambda(y) < t_0$, to z definicji infimum istnieje $t_1 < t_0: y \in t_1 U_\varepsilon$, ale $\cl{t_1 U_\varepsilon} \subset t_0 U_\varepsilon$, więc $y \in t_0 U_\varepsilon$.
+    Z drugiej strony, jeśli $\lambda(y) < t_0$, to z definicji infimum istnieje $t_1 < t_0$ takie, że $y \in t_1 U_\varepsilon$, ale $\cl{t_1 U_\varepsilon} \subset t_0 U_\varepsilon$, więc $y \in t_0 U_\varepsilon$.
 
     Wykażemy ciągłość odwzorowania $\lambda$.
     Ustalmy $y_0 \in Y$ oraz $\lambda(y_0) > \delta > 0$.
@@ -182,46 +182,22 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \end{align*}
     A więc $h(y) \in 1 U_\varepsilon = U_\varepsilon$.
     
-    Aby pokazać, że $h$ jest homeomorfizmem wyliczymy funkcję odwrotną:
+    Funkcją odwrotną do $h$ jest następująca funkcja ciągła:
     \[
-      \frac{y}{\max\left(1, \lambda(y) + \frac{1}{2}\right)} = z
+      g: U_\varepsilon \ni z \to \frac{z}{2(1-\max(\lambda(z), \frac{1}{2}))} \in Y
     \]
-    Dla $\lambda(y) \leq \frac{1}{2}$ mamy $y = z$, dla $\lambda(y) \geq \frac{1}{2}$ natomiast 
-    \[
-      \frac{y}{\lambda(y) + \frac{1}{2}} = z
-    \]
-    Skąd:
-    \[
-      \lambda(z) = \frac{\lambda(y)}{\lambda(y) + \frac{1}{2}}
-    \]
-    Po prostych przekształceniach dostajemy:
-    \[
-      \lambda(y) = \frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)}
-    \]
-    Zatem
-    \[
-      y = z\left(\frac{\frac{1}{2} \lambda(z)}{1 - \lambda(z)} + \frac{1}{2}\right) = \frac{z}{2(1-\lambda(z))}
-    \]
-    Zauważmy jeszcze, że $\lambda(y) \leq \frac{1}{2} \iff \lambda(z) \leq \frac{1}{2}$. Istotnie, z uwagi na $\lambda(z) < 1$ mamy ciąg równoważnych nierówności:
+    Istotnie. Funkcja $g$ jest poprawnie określona, bo dla $z\in U_\varepsilon$ mamy $\lambda(y) < 1$. Pokażemy teraz, że $g(h(y)) = y$. Jeśli $\lambda(y) \leq \frac{1}{2}$, to $h(y) = y$ oraz $g(y) = y$. Zatem $g(h(y)) = y$. Jeśli natomiast $\lambda(y) > \frac{1}{2}$, to $h(y) = \frac{y}{\lambda(y)+\frac{1}{2}}$. Wówczas jednak $\lambda(h(y)) = \frac{\lambda(y)}{\lambda(y)+\frac{1}{2}} > \frac{1}{2}$, ponieważ dla $s \geq 0$:
     \begin{align*}
-      \lambda(y) &\leq \frac{1}{2} \\
-      1 &\geq \lambda(y) + \frac{1}{2} = \frac{1}{2(1-\lambda(z))} \\
-      2(1-\lambda(z)) &\geq 1 \\
-      \frac{1}{2} &\geq \lambda(z)
+%      t > \frac{1}{2} \iff 2t > 1 \iff t > 1-t \iff \frac{t}{2(1-t)} > \frac{1}{2}
+      s > \frac{1}{2} \iff s > \frac{1}{2}\left(s + \frac{1}{2}\right) \iff \frac{s}{s+\frac{1}{2}} > \frac{1}{2}
     \end{align*}
-    Mamy więc wzór na funkcję odwrotną do $h$:
-    \[
-      h^{-1}(z) = 
-      \begin{cases}
-        \frac{z}{2(1-\lambda(z))},&\lambda(z) \geq \frac{1}{2} \\
-        z,&\lambda(z) \leq \frac{1}{2}
-      \end{cases}
-    \]
-    Ale wzór ten możemy również zapisać jako:
-    \[
-      z \to \frac{z}{2(1-\max(\lambda(z), \frac{1}{2}))}
-    \]
-    Zatem $h^{-1}$ jest funkcją ciągłą.
+    A więc:
+    \begin{align*}
+      g(h(y)) = g\left(\frac{y}{\lambda(y)+\frac{1}{2}}\right) &= \frac{y}{\lambda(y)+\frac{1}{2}} \cdot \frac{1}{2\left(1-\lambda\left(\frac{y}{\lambda(y)+\frac{1}{2}}\right)\right)} \\
+      &= \frac{y}{\lambda(y)+\frac{1}{2}} \cdot \frac{1}{2\left(1-\frac{\lambda(y)}{\lambda(y)+\frac{1}{2}}\right)} \\
+      &= \frac{y}{\lambda(y)+\frac{1}{2}} \cdot \frac{1}{2\left(\frac{\frac{1}{2}}{\lambda(y)+\frac{1}{2}}\right)} = y
+    \end{align*}
+    Podobnym rachunkiem łatwo sprawdzić, że $h(g(z)) = z$.
   \end{proof}
 \end{lem}
 
@@ -241,7 +217,7 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
 \begin{lem} \label{lem:anti-net}
   Niech $M$ będzie przestrzenią metryczną, $r > 0$. Wówczas w $M$ istnieje maksymalny zbiór $r$-rozstrzelony. Ponadto, maksymalny zbiór $r$-rozstrzelony jest $r$-siecią.
   \begin{proof}
-    Zbiór wszystkich zbiorów $r$-rozstrzelonych jest niepusty, ponieważ $\emptyset$ jest zbiorem $r$-rozstrzelonym, i częściowo uporządkowany przez inkluzję. Weźmy łańcuch zbiorów $r$-rozstrzelonych. Wówczas suma wszystkich elementów wszystkich zbiorów łańcucha jest również zbiorem $r$-rozstrzelonym. Istotnie, gdyby tak nie było, to istniałyby dwa punkty oddalone od siebie o mniej niż $r$. Ale wówczas istniałby element łańcucha zawierający oba z nich. Sprzeczność. Lemat Kuratowskiego-Zorna kończy dowód dając element maksymalny $A$.
+    Zbiór wszystkich zbiorów $r$-rozstrzelonych jest niepusty, ponieważ $\emptyset$ jest zbiorem $r$-roz\-strze\-lo\-nym, i częściowo uporządkowany przez inkluzję. Weźmy łańcuch zbiorów $r$-rozstrzelonych. Wówczas suma wszystkich elementów wszystkich zbiorów łańcucha jest również zbiorem $r$-roz\-strze\-lo\-nym. Istotnie, gdyby tak nie było, to istniałyby dwa punkty oddalone od siebie o mniej niż $r$. Ale wówczas istniałby element łańcucha zawierający oba z nich. Sprzeczność. Lemat Kuratowskiego-Zorna kończy dowód dając element maksymalny $A$.
     
     Gdyby zbiór ten nie był $r$-siecią istniałby punkt $x$ oddalony od dowolnego punktu zbioru $A$ o co najmniej $r$. Zatem zbiór $A \cup \{x\}$ byłby istotnie większym zbiorem $r$-rozstrzelonym.
   \end{proof}

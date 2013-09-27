@@ -75,7 +75,7 @@
     \]
     Definiujemy:
     \[
-      \cl{f_n^k}: \cl{U_n^k} \to \cl{V_n^k},\qquad \cl{f_n}(x) := f(x)
+      \cl{f_n^k}: \cl{U_n^k} \to \cl{V_n^k},\qquad \cl{f_n^k}(x) := f(x)
     \]
     A więc $f_n^k$ jest homeomorfizmem pomiędzy zbiorami otwartymi $U_n^k$ i $V_n^k$, a $\cl{f_n^k} \supset f_n^k$ jest homeomorfizmem pomiędzy zbiorami domkniętymi $\cl{U_n^k}$ i $\cl{V_n^k}$. Zatem $(f_n^k)_{n,k \in \mathbb{N}_1}$ jest szukaną rodziną map regularnych.
   \end{proof}
@@ -98,7 +98,7 @@
 
 
 \begin{lem} \label{lem:atlas-countable}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie spójną $Y$-rozmaitością. Wówczas na $M$ istnieje atlas przeliczalny.
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie spójną rozmaitością modelowaną na $Y$. Wówczas na $M$ istnieje atlas przeliczalny.
   \begin{proof}
     Weźmy z lematu \ref{lem:balls-many} rodzinę kul w $Y$ taką, że $\mathcal B := (B(y,r_y))_{y\in A}$ jest dyskretna a $\card A = \wght Y$.
     Niech $\{g_t: V_t \to Y\}_{t \in T}$ będzie atlasem dla $M$.
@@ -121,7 +121,7 @@
 \end{lem}
 
 \begin{thm} \label{thm:super-atlas}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie $Y$-rozmaitością. Wówczas istnieje przeliczalny, $\star$-skończony atlas regularny dla $M$.
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, niech $M$ będzie spójną rozmaitością modelowaną na $Y$. Wówczas istnieje przeliczalny, $\star$-skończony atlas regularny dla $M$.
   \begin{proof}
     Z lematu \ref{lem:atlas-countable} na $M$ wprowadzamy atlas przeliczalny, który z lematu \ref{lem:atlas-regular} daje przeliczalny atlas regularny, a następnie z lematu \ref{lem:atlas-star} otrzymujemy atlas przeliczalny, regularny, $\star$-skończony.
   \end{proof}

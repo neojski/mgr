@@ -151,7 +151,7 @@
     
     \begin{figure}[h!]
       \centering
-      \includegraphics[scale=.5]{img/and-shori.pdf}
+      \includegraphics[scale=.5]{img/lem-homeo.pdf}
       \caption{Sytuacja z lematu \ref{lem:manifold-homeo}}
     \end{figure}
     
@@ -179,7 +179,7 @@
     \[
       g'' := \id: ((M\setminus C')\times Y)_{A_1\setminus C'} \to ((M\setminus C')\times Y)_{A_1\setminus C'}.
     \]
-    Znowu ze względu na lemat \ref{lem:reduced-product-subspace} przsetrzeń $((M\setminus C')\times Y)_{A_1\setminus C'}$ traktujemy jako otwarty podzbiór w przestrzeni $(M\times Y)_{A_1}$ w dziedzinie oraz jako otwarty podzbiór przestrzeni $(M\times Y)_{A_1\cup A_2}$ w obrazie.
+    Znowu ze względu na lemat \ref{lem:reduced-product-subspace} przsetrzeń $((M\setminus C')\times Y)_{A_1\setminus C'}$ traktujemy jako podzbiór w przestrzeni $(M\times Y)_{A_1}$ w dziedzinie oraz jako podzbiór przestrzeni $(M\times Y)_{A_1\cup A_2}$ w obrazie. Co więcej, jest on podzbiorem otwartym każdej z tych przestrzeni.
     
     Zauważmy, że $g'$ i $g''$ można skleić do homeomorfizmu $g$, ponieważ na zbiorze otwartym $\dom g'\cap \dom g'' = ((U\setminus C')\times Y)_{A_1 \cap (U\setminus C')}$ odwzorowanie $g'$ jest idetycznościowe. Istotnie, weźmy takie $z$. Wówczas $F_1(z) \in ((V\setminus C) \times Y)_{A}$, a więc $h$ działa na ten punkt identycznościowo. Ale $F_1(z) = F_2(z)$, więc $F_2^{-1} h F_1(z) = F_2^{-1}(F_1(z)) = z$. Co więcej, natychmiast widać, że $g$ jest bijekcją.
     
@@ -206,7 +206,13 @@
     
     Niech teraz $h_n := g_n \ldots g_2 g_1$, definiujemy $h(z) := \lim h_n(z)$. Wykażemy, że funkcja $h$ jest żądanym homeomorfizmem.
     
-    Niech $z \in U_k$. Zauważmy, że do tego aby $g_n(z) \neq z$ potrzeba aby $pz \in U_n$. Przypuśćmy, że istnieje nieskończenie wiele $g_n$ ruszających kolejne obrazy $z$, tzn. ciąg $h_n(z)$ jest niestały. Oznaczmy wszystkie funkcje powodujące zmiany przez $g_{i_1}, g_{i_2}, \dots$. Wówczas jednak $pz \in U_{i_1}$, a więc i $p g_{i_1}(z) \in U_{i_1}$. Dalej $p g_{i_1}(z) \in U_{i_2}$, więc $p g_{i_2}(g_{i_1}(z)) \in U_{i_2}$. Proces ten kontynuujemy otrzymując łańcuch $U_{i_1}, U_{i_2}, \dots$, co jest sprzeczne z porządkiem łańcuchowo skończonym.
+    Niech $z \in U_k$. Zauważmy, że do tego aby $g_n(z) \neq z$ potrzeba aby $pz \in U_n$. Przypuśćmy, że istnieje nieskończenie wiele $g_n$ ruszających kolejne obrazy $z$, tzn. ciąg $h_n(z)$ nie jest od pewnego pewnego momentu stały. Oznaczmy wszystkie funkcje powodujące zmiany przez $g_{i_1}, g_{i_2}, \dots$. Wówczas jednak $pz \in U_{i_1}$, a więc i $p g_{i_1}(z) \in U_{i_1}$. Dalej $p g_{i_1}(z) \in U_{i_2}$, więc $p g_{i_2}(g_{i_1}(z)) \in U_{i_2}$. Proces ten kontynuujemy otrzymując łańcuch $U_{i_1}, U_{i_2}, \dots$, co jest sprzeczne z porządkiem łańcuchowo skończonym.
+    
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[scale=.5]{img/and-schori.pdf}
+      \caption{Potencjalna wędrówka punktu $z$ generująca nieskończony łańcuch}
+    \end{figure}
     
     Otrzymujemy więc poprawną określoność $h$. Wykażemy teraz iniektywność $h$. Niech $x, y \in M$. Skoro jednak $h := \lim h_n$ się stabilizuje to istnieje $n$ takie, że $h(x) = h_n(x) = h_n(y) = h(y)$. Z iniektywności $h_n$ dostajemy $x = y$.
     

@@ -2,3 +2,9 @@
 *.aux
 *.pdf
 *.backup
+*.bbl
+*.blg
+*.idx
+*.kilepr
+*.out
+*.toc

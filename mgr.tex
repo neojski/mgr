@@ -1,4 +1,4 @@
-\documentclass[a4paper,10pt]{article}
+\documentclass[a4paper,10pt]{memoir}
 \usepackage[utf8]{inputenc}
 \usepackage{polski}
 \usepackage{amsthm}
@@ -44,15 +44,29 @@
 \title{}
 \author{}
 
+\input{style.tex}
+
 \begin{document}
+  %\pagestyle{headings}
+  \tableofcontents
+
+  \chapter{Wstęp} \label{chap:wstep}
   \input{wprowadzenie.tex}
+  \input{oznaczenia.tex}
+  \chapter{Wybrane własności} \label{chap:wlasnosci}
   \input{wybrane-wlasnosci-top.tex}
   \input{wybrane-wlasnosci-plm.tex}
   \input{wybrane-wlasnosci-rozmaitosci.tex}
+  \chapter{Główne narzędzia} \label{chap:narzedzia}
   \input{topologia-zredukowanego-produktu.tex}
   \input{rip.tex}
   \input{homotopia-spychajaca.tex}
   \input{funkcje-sterujace.tex}
+  \chapter{Twierdzenie Andersona-Schoriego} \label{chap:twierdzenie}
   \input{pierwsze-tw-o-splaszczaniu.tex}
   \input{tw-andersona-schoriego.tex}
+  
+  
+  	\bibliography{mgr}
+	\bibliographystyle{alpha}
 \end{document}
