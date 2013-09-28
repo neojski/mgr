@@ -207,14 +207,15 @@
     gdzie $g_1 = \id$. Widzimy natychmiast, że $p(g_n(U_n)) \subset U_n$.
     
     Niech teraz $h_n := g_n \ldots g_2 g_1$, definiujemy $h(z) := \lim h_n(z)$. Wykażemy, że funkcja $h$ jest żądanym homeomorfizmem.
-    
-    Niech $z \in U_k$. Zauważmy, że do tego aby $g_n(z) \neq z$ potrzeba aby $pz \in U_n$. Przypuśćmy, że istnieje nieskończenie wiele $g_n$ ruszających kolejne obrazy $z$, tzn. ciąg $h_n(z)$ nie jest od pewnego pewnego momentu stały. Oznaczmy wszystkie funkcje powodujące zmiany przez $g_{i_1}, g_{i_2}, \dots$. Wówczas jednak $pz \in U_{i_1}$, a więc i $p g_{i_1}(z) \in U_{i_1}$. Dalej $p g_{i_1}(z) \in U_{i_2}$, więc $p g_{i_2}(g_{i_1}(z)) \in U_{i_2}$. Proces ten kontynuujemy otrzymując łańcuch $U_{i_1}, U_{i_2}, \dots$, co jest sprzeczne z porządkiem łańcuchowo skończonym.
-    
+            
     \begin{figure}[h!]
       \centering
-      \includegraphics[scale=.5]{img/and-schori.pdf}
+      \includegraphics[scale=.5]{img/and-schori-bigger.pdf}
       \caption{Potencjalna wędrówka punktu $z$ generująca nieskończony łańcuch}
     \end{figure}
+    
+    Niech $z \in U_k$. Zauważmy, że do tego aby $g_n(z) \neq z$ potrzeba aby $pz \in U_n$. Przypuśćmy, że istnieje nieskończenie wiele $g_n$ ruszających kolejne obrazy $z$, tzn. ciąg $h_n(z)$ nie jest od pewnego pewnego momentu stały. Oznaczmy wszystkie funkcje powodujące zmiany przez $g_{i_1}, g_{i_2}, \dots$. Wówczas jednak $pz \in U_{i_1}$, a więc i $p g_{i_1}(z) \in U_{i_1}$. Dalej $p g_{i_1}(z) \in U_{i_2}$, więc $p g_{i_2}(g_{i_1}(z)) \in U_{i_2}$. Proces ten kontynuujemy otrzymując łańcuch $U_{i_1}, U_{i_2}, \dots$, co jest sprzeczne z porządkiem łańcuchowo skończonym.
+
     
     Otrzymujemy więc poprawną określoność $h$. Wykażemy teraz iniektywność $h$. Niech $x, y \in M$. Skoro jednak $h := \lim h_n$ się stabilizuje to istnieje $n$ takie, że $h(x) = h_n(x) = h_n(y) = h(y)$. Z iniektywności $h_n$ dostajemy $x = y$.
     
@@ -222,6 +223,4 @@
     
     Przyjrzyjmy się teraz odwzorowaniu odwrotnemu. Z powyższych rozważań widzimy, że $h^{-1}$ na $W_n$ jest równe $h_n^{-1}|_{W_n}$. Zatem $h^{-1}$ jest bijekcją i lokalnie wygląda jak homoemorfizm $h_n^{-1}|_{W_n}$ pomiędzy zbiorami otwartymi a więc i samo jest homeomorfizmem.
   \end{proof}
-\end{thm}
-
- 
+\end{thm} 
