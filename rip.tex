@@ -35,13 +35,11 @@
     
     Z drugiej strony:
     \[
-      g(f_t(x),t) = q(\cl{f}^{-1}(f_t(x),t)) = q(\cl{f}^{-1} \cl{f}^{-1}(x,t)) = q(x,t) = x
+      g(f_t(x),t) = q(\cl{f}^{-1}(f_t(x),t)) = q(\cl{f}^{-1} \cl{f}(x,t)) = q(x,t) = x
     \]
     Zatem $f_t^{-1} = g(\cdot,t)$, więc $(y,t) \to f_t^{-1}(y) = g(y, t)$ jest funkcją ciągłą.
     
-    $(ii) \Rightarrow (i)$:
-    
-    Niech:
+    $(ii) \Rightarrow (i)$: Niech:
     \[
       g: Y \times T \ni (y, t) \rightarrow (f_t^{-1}(y), t) \in X \times T
     \]
@@ -53,7 +51,7 @@
     \[
       \cl{f}g(y,t) = \cl{f}(f_t^{-1}(y), t) = (f_t(f_t^{-1}(y)), t) = (y,t)
     \]
-    Zatem $g$ jest odwrotną funkcją ciągłą do $\cl{f}$ a więc $\cl{f}$ jest homeomorfizmem.
+    Zatem $g$ jest funkcją ciągłą odwrotną do $\cl{f}$, a więc $\cl{f}$ jest homeomorfizmem.
   \end{proof}
 \end{lem}
 
@@ -260,7 +258,5 @@
 \end{ex}
 
 \begin{ex}
-  W szczególności z poprzednich przykładów wynika, że dla przestrzeni liniowo-topologicznej $X$ przestrzeń liniowo-topologiczna $Y = \prod_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\prod_{i=1}^\infty (X \times X)$, więc jest produktem przestrzeni $X \times X$ mających - na mocy \ref{cor:rip-space} - własność izotopii odbijającej.
+  W szczególności z poprzednich przykładów wynika, że dla przestrzeni liniowo-topologicznej $X$ przestrzeń liniowo-topologiczna $Y = \prod_{i=1}^\infty X$ ma własność izotopii odbijającej, ponieważ jest homeomorficzna z przestrzenią $\prod_{i=1}^\infty (X \times X)$, jest więc produktem przestrzeni $X \times X$ mających --- na mocy \ref{cor:rip-space} --- własność izotopii odbijającej.
 \end{ex}
-
-

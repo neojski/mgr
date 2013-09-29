@@ -66,7 +66,6 @@ Przykłady funkcji sterujących:
 \begin{thm}[O poprawianiu funkcji sterujących]
 \label{thm:steering-function}
 Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. Niech $A$ będzie domkniętym podzbiorem $Y$ a $\lambda: Y \rightarrow [1,\infty]$ funkcją sterującą. Wówczas funkcję sterującą $\lambda$ można poprawić do funkcji sterującej $\rho$ tak, aby:
-
 \begin{gather*}
  \rho|A = \lambda|A \\
  \rho(y) < \infty\ \forall y \in Y \setminus A
@@ -280,7 +279,7 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
   Wykażemy teraz, że funkcja $\rho$ ma postulowane własności:
   \begin{enumerate}
    \item funkcja $\rho$ jest poprawnie określona, co wynika bezpośrednio z \ref{induction-2}
-   \item ciągłość $\rho$ na $U_i$ wynika z ciągłości $\rho_i$. Jeśli natomiast $x\in Y\setminus\bigcup_{i=1}^\infty U_i$, to na $Y\setminus\cl{U_{n-1}}$ otoczeniu $x$ mamy: $\exists k\geq n: y\in U_{k} \setminus \cl{U_{k-1}}$. Zatem z \ref{induction-3}: $\rho(y) = \rho_k(y) \geq k \geq n$.
+   \item ciągłość $\rho$ na $U_i$ wynika z ciągłości $\rho_i$. Jeśli natomiast $x\in Y\setminus\bigcup_{i=1}^\infty U_i$, to na $Y\setminus\cl{U_{n-1}}$ otoczeniu $x$ mamy: $\exists k\geq n: y\in \cl{U_{k} \setminus U_{k-1}}$. Zatem z \ref{induction-3}: $\rho(y) = \rho_k(y) \geq k \geq n$.
    \item $x\not\in A$, to $\exists n\in\Ni: x\in U_n$, więc $\rho(x) = \rho_n(x) < \infty$
    \item zgodność z $\lambda$ na $A$. Niech $x\in A$:
    \begin{enumerate}[1$^\circ$]
@@ -305,13 +304,13 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
 
 \begin{lem} \label{lem:elementary-inequality}
   Dla każdej liczby naturalnej większej lub równej $1$ zachodzi elementarna nierówność:
-  \[4(n+1) \leq 2^{8n}\]
+  \[4n \leq 2^{8n}\]
   
   \begin{proof}
-    Dla $n = 1$ nierówność przyjmuje postać: $4(1+1) = 8 \leq 256 = 2^8$.
+    Dla $n = 1$ nierówność przyjmuje postać: $4 \leq 256 = 2^8$.
     Załóżmy, że nierówność jest prawdziwa dla $n \geq 1$. Wówczas:
     
-    \[4(n+2) \leq 4(n+1) + 4 \leq 2^{8n} + 4 \leq 2^{8n} + 2^{8n} = 2^{8n + 1} \leq 2^{8(n+1)}\]
+    \[4(n+1) = 4n + 4 \leq 2^{8n} + 4 \leq 2^{8n} + 2^{8n} = 2^{8n + 1} \leq 2^{8(n+1)}\]
     
     Co kończy dowód indukcyjny.
   \end{proof}
@@ -326,15 +325,16 @@ Niech $X$ będzie przestrzenią metryczną. Niech $Y := \prod_{n=1}^\infty X$. N
     Przyjmijmy oznaczenia dowodu wniosku \ref{cor:steering-finite}, w szczególności niech $\lambda$ będzie skonstruowaną tam funkcją sterującą. Określamy: $\rho := 8 \cdot \lambda$. Z własności funkcji sterujących widzimy, że $\rho$ jest funkcją sterującą jako suma funkcji sterujących.
     Powtarzając dowód twierdzenia \ref{thm:steering-function} z uwagi na $\mu = \infty$, mamy w tym przypadku $U_n = \{y \in Y\ |\ d_n(s_n y, s_n A) > \frac{1}{n}\}$.
     
-    Niech $y \in Y \setminus A$, istnieje więc $n$ takie, że $y \in U_{n+1}$. Mamy wtedy:
-    
-    \[\frac{1}{n+1} < d_{n+1}(s_{n+1}(y), s_{n+1} A)  \leq d(y, A)\]
+    Niech $y \in Y \setminus A$, istnieje więc $n$ takie, że $y \in U_n\setminus U_{n-1}$. Mamy wtedy:
+    \[
+      \frac{1}{n} < d_{n}(s_{n}(y), s_{n} A)  \leq d(y, A)
+    \]
     
     Z drugiej strony z warunku \ref{induction-3} otrzymujemy $\lambda(y) \geq n$, czyli $\rho(y) \geq 8n$.
     
     Zatem lemat \ref{lem:elementary-inequality} daje:
     \[
-      2^{-\rho(n)} \leq 2^{-8n} \leq \frac{1}{4}\frac{1}{n+1} \leq \frac{1}{4}d(y,A),
+      2^{-\rho(y)} \leq 2^{-8n} \leq \frac{1}{4}\frac{1}{n} \leq \frac{1}{4}d(y,A),
     \]
     co należało pokazać.
   \end{proof}

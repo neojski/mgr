@@ -18,11 +18,12 @@
 \end{lem}
 
 \begin{lem}
-  Niech $Y$ będzie nietrywialną przestrzenią liniowo-metryczną, a $M$ spójną rozmaitością topologiczną modelowaną na $Y$. Wówczas:
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, a $M$ spójną rozmaitością topologiczną modelowaną na $Y$. Wówczas:
   \[
     \wght Y = \wght M
   \]
   \begin{proof}
+    Jeśli $Y=\{0\}$, to twierdzenie jest prawdziwe. Niech więc $\wght Y\geq\aleph_0$.
     Niech $\mathcal U_0$ będzie pokryciem $M$ złożonym ze zbiorów homeomorficznych ze zbiorami otwartymi w $Y$. Z parazwartości wpisujemy w $\mathcal U_0$ pokrycie otwarte, lokalnie skończone $\mathcal U$.
     
     Niech $x \in M$, weźmy otoczenie $U$ punktu $x$, które przecina skończenie wiele elementów $\mathcal U$. Z lematu \ref{lem:basic-atlas} weźmy bazę otoczeń $x$ zawartą w $U$. Otrzymujemy więc rodzinę $\{U_n^x\}_{n \in \mathbb{N}_1}$ punktu $x$ o tej własności, że dla każdego $n \in \mathbb{N}_1$ mamy $\card\{U \in \mathcal U\ |\ U \cap U_n^x \neq \emptyset\} < \aleph_0$ oraz, że każdy ze zbiorów $U_n^x$ jest homeomorficzny z $Y$. Biorąc $\mathcal B := \{U_n^x\ |\ n\in\Ni, x\in M\}$ dostajemy bazę $M$.

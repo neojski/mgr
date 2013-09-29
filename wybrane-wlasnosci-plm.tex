@@ -9,18 +9,18 @@
 \begin{fact}
   Na dowolnej przestrzeni liniowo-metrycznej $Y$ z metryką $d$ można wprowadzić metrykę niezmienniczą.
   
-  \begin{proof}(Szkic)
-  
-  Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego \cite{bir}, \cite{kak} istnieje więc na niej metryką lewostronnie niezmiennicza.
+  \begin{proof}(szkic) Przestrzeń liniowo-metryczna z operacją $+$ stanowi grupę topologiczną z topologią zadaną przez metrykę, a więc spełniającą pierwszy aksjomat przeliczalności oraz własność $T_2$. Z twierdzenia Birkhoffa-Kakutaniego \cite{bir}, \cite{kak} istnieje więc na niej metryką lewostronnie niezmiennicza.
   \end{proof}
 \end{fact}
 
 \begin{note}
   Niech $(Y, d)$ przestrzeń liniowo-metryczna z metryką niezmienniczą. Wówczas metryka $\rho := \min(d, 1)$ jest ograniczoną, niezmienniczą metryką równoważną.
   \begin{proof}
-    Równoważność wynika z równości małych kul, tzn. $\forall n \in \mathbb{N}_1: B_\rho(0, \frac{1}{n}) = B_d(0, \frac{1}{n})$. Metryka $\rho$ jest oczywiście ograniczona przez 1. Niezmienniczość:
-    
-    \[\rho(x+a, y+a) = \min(d(x+a, y+a), 1) = \min(d(x,y), 1) = \rho(x,y)\]
+    Równoważność wynika z równości małych kul, tzn. $\forall n \in \mathbb{N}_1: B_\rho(0, \frac{1}{n}) = B_d(0, \frac{1}{n})$. Metryka $\rho$ jest oczywiście ograniczona przez 1. Z równości:
+    \[
+      \rho(x+a, y+a) = \min(d(x+a, y+a), 1) = \min(d(x,y), 1) = \rho(x,y)
+    \]
+    wnioskujemy, że $\rho$ jest metryką niezmienniczą.
   \end{proof}
 \end{note}
 
@@ -68,10 +68,10 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     
     Z ciągłości $m$ wynika, że dla każdego $t$ istnieje $V_t$ otoczenie $t$ oraz $U_t$ otoczenie $0$ w $Y$ takie, że $m(s, y) < \varepsilon$ o ile tylko $s \in V_t$ i $y \in U_t$.
     
-    Ze zwartości odcinka wybieramy z pokrycia $\{V_t\}_{t \in [0,w]}$ skończone podpokrycie $(V_{t_i})_{i=1}^{k}$
+    Ze zwartości odcinka $[0,w]$ wybieramy z jego pokrycia $\{V_t\}_{t \in [0,w]}$ skończone podpokrycie $(V_{t_i})_{i=1}^{k}$.
     
     Biorąc $U := \bigcap_{i=1}^k U_{t_i}$ otrzymujemy otwarte otoczenie $0$ o własności:
-    \[t \in [0,w], x \in U,\mbox{ to } m(t,x) = d(tx, 0) < \varepsilon\]
+    \[\mbox{Jeśli }t \in [0,w]\mbox{ i }x \in U,\mbox{ to } m(t,x) = d(tx, 0) < \varepsilon\]
     
     Ustalmy $n_0$ tak, aby dla każdego $n \geq n_0$ było $x_n - x \in U$. Ale wtedy:
     \[\rho_w(x_n, x) = \rho_w(x_n - x, 0) = \sup_{0 \leq t \leq w} d(t(x_n - x), 0) \leq \varepsilon\]
@@ -95,7 +95,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \[\forall i \in [1,k]\ \forall n > n_0: \frac{1}{2^i} \rho_{w_i}(x_n, x) \leq \frac{\varepsilon}{2k}\]
     
     Wówczas $\forall n > n_0$:
-    \[\rho(x_n, x) \leq \sum_{i=i}^k \frac{1}{2^i} \rho_{w_i}(x_n, x) + \sum_{i=k+1}^\infty \frac{1}{2^i} \leq k \cdot \frac{\varepsilon}{2k} + \frac{\varepsilon}{2} = \varepsilon\]
+    \[\rho(x_n, x) \leq \sum_{i=1}^k \frac{1}{2^i} \rho_{w_i}(x_n, x) + \sum_{i=k+1}^\infty \frac{1}{2^i} \leq k \cdot \frac{\varepsilon}{2k} + \frac{\varepsilon}{2} = \varepsilon\]
     a więc $\rho(x_n, x) \to 0$
     
     Pokażemy teraz, że metryka $\rho$ jest rosnąca po promieniach. Ustalmy $0 \leq t_1 < t_2$ oraz $x \in Y$. Z poprzedniego lematu wiemy, że wytarczy rozważyć jedynie $t_1, t_2 \in \mathbb{Q}$. Ze słabego wzrostu po promieniach metryk $\rho_{w_i}$ wynika słaby wzrost po promieniach metryki $\rho$. Wystarczy więc wykazać, że dla pewnego $i$ zachodzi $\rho_{w_i}(t_1 x, 0) < \rho_{w_i}(t_2 x, 0)$. Przypuścmy dla dowodu niewprost, że $\forall i: \rho_{w_i}(t_1 x, 0) = \rho_{w_i}(t_2 x, 0)$. Weźmy ciąg malejący do zera ciąg liczb wymiernych: $(t_1^i t_2^{-i})_{i=0}^\infty$ i przyjrzyjmy się metrykom $\rho_w$ związanym z kolejnymi wyrazami tego ciągu. Najpierw zanotujmy:
@@ -115,7 +115,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
       d(t_2 x, 0) \leq \sup_{0 \leq t \leq 1} d(t \cdot t_2 x, 0) &= \rho_1(t_2 x, 0) \\
       &= \rho_{t_1^i t_2^{-i}}(t_1 x, 0) = \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0)
     \end{align*}
-    Z równoważności metryki $d$ i $\rho_{t_1}$ wynika, że skoro $t_1^i t_2^{-i} \to 0$ -- a więc i $d(t_1^i t_2^{-i} x, 0) \to 0$ -- to:
+    Z równoważności metryki $d$ i $\rho_{t_1}$ wynika, że skoro $t_1^i t_2^{-i} \to 0$ --- a więc i $d(t_1^i t_2^{-i} x, 0) \to 0$ --- to:
     \[
       \sup_{0 \leq t \leq t_1^i t_2^{-i}} d(t \cdot t_1 x, 0)
       = \sup_{0 \leq t \leq t_1} d(t \cdot t_1^i t_2^{-i} x, 0)
@@ -142,7 +142,6 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     \]
     
     Podobnie jak w przypadku funkcjonału Minkowskiego pokażemy, że $\lambda$ spełnia warunek:
-    
     \[
       y \in t_0 U_\varepsilon \iff \lambda(y) < t_0
     \]
@@ -161,7 +160,7 @@ Z uwagi na powyższy fakt na przestrzeniach liniowo-metrycznych będziemy rozwa�
     Z drugiej strony, gdyby $y_0 \in \cl{(\lambda(y_0) - \delta) U_\varepsilon} \subset (\lambda(y_0) - \frac{\delta}{2}) U_\varepsilon$, to $\lambda(y_0) < \lambda(y_0) - \frac{\delta}{2}$.
     Zatem $U$ jest otwartym otoczeniem $y_0$.
     
-    Następnie zauważmy, że $y \in (\lambda(y_0) + \delta) U_\varepsilon$, to $\lambda(y) < \lambda(y_0) + \delta$ oraz $y \not\in \cl{(\lambda(y_0) - \delta) U_\varepsilon}$, to $\lambda(y) \geq \lambda(y_0) - \delta$, gdyż w przeciwnym razie $\lambda(y) < \lambda(y_0) - \delta$ a więc $y \in (\lambda(y_0) - \delta) U_\varepsilon$.
+    Następnie zauważmy, że jeśli $y \in (\lambda(y_0) + \delta) U_\varepsilon$, to $\lambda(y) < \lambda(y_0) + \delta$ oraz jeśli $y \not\in \cl{(\lambda(y_0) - \delta) U_\varepsilon}$, to $\lambda(y) \geq \lambda(y_0) - \delta$, gdyż w przeciwnym razie $\lambda(y) < \lambda(y_0) - \delta$ a więc $y \in (\lambda(y_0) - \delta) U_\varepsilon$.
     
     Jeśli natomiast $\lambda(y_0) = 0$, wystarczy wziąć otoczenie $U := (\lambda(y_0) + \delta)U_\varepsilon$. Dla każdego $y \in U$ dostajemy wówczas: $0 \leq \lambda(y) < \lambda(y_0) + \delta$.
     
@@ -231,7 +230,7 @@ W dalszym ciągu będziemy rozważali przestrzenie liniowo-metryczne z metryką 
     \[
       d(n_2 y_0, n_1 y_0) = d((n_2 - n_1)y_0, 0) \geq d(y_0, 0) = 4r
     \]
-    Oznaczmy przez $B := B(0,r)$. Weźmy dla $n > 0$ z lematu \ref{lem:anti-net} maksymalny zbiór $\frac{r}{n}$ rozstrzelony w $B$ i oznaczmy go przez $A_n$. Zauważmy, że zbiór $\{B(y, \frac{r}{n})\ |\ y \in A_n, n \in \mathbb{N}_1\}$ jest bazą $B$. Istotnie, niech $y \in B$, weźmy $\varepsilon > 0$ takie, że $B(y,\varepsilon) \subset B$. Wówczas biorąc $n$ takie, że $2 \cdot \frac{r}{n} < \varepsilon$ znajdujemy z lematu \ref{lem:anti-net} punkt $a$ zbioru $A_n$ oddalony od $y$ o mniej niż $\frac{r}{n}$. Wówczas kula $B(a, \frac{r}{n})$ zawiera $y$ i zawiera się w $B(y,\varepsilon)$.
+    Oznaczmy przez $B := B(0,r)$. Weźmy dla $n > 0$ z lematu \ref{lem:anti-net} maksymalny zbiór $\frac{r}{n}$-rozstrzelony w $B$ i oznaczmy go przez $A_n$. Zauważmy, że zbiór $\{B(y, \frac{r}{n})\ |\ y \in A_n, n \in \mathbb{N}_1\}$ jest bazą $B$. Istotnie, niech $y \in B$, weźmy $\varepsilon > 0$ takie, że $B(y,\varepsilon) \subset B$. Wówczas biorąc $n$ takie, że $2 \cdot \frac{r}{n} < \varepsilon$ znajdujemy z lematu \ref{lem:anti-net} punkt $a$ zbioru $A_n$ oddalony od $y$ o mniej niż $\frac{r}{n}$. Wówczas kula $B(a, \frac{r}{n})$ zawiera $y$ i zawiera się w $B(y,\varepsilon)$.
     
     Wynika stąd, że $\card \bigcup_{n=1}^\infty A_n \geq \wght B = \wght Y$.
     
