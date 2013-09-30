@@ -1,7 +1,7 @@
 \section{Wybrane własności rozmaitości nieskończenie wymiarowych}
 
 \begin{lem} \label{lem:basic-atlas}
-  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią topologiczną. Wówczas następujące wartunki są równoważne:
+  Niech $Y$ będzie przestrzenią liniowo-metryczną, $M$ przestrzenią topologiczną. Wówczas następujące warunki są równoważne:
   \begin{enumerate}
    \item[(i)] każdy punkt $x \in M$ ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$
    \item[(ii)] każdy punkt $x \in M$ ma otoczenie homeomorficzne z przestrzenią $Y$
@@ -13,7 +13,7 @@
     
     Pokażemy, że $(i) \implies (iii)$. Niech $x \in M$ oraz niech $f: M \supset U \to V \subset Y$ będzie mapą w otoczeniu $x$. Niech $\varepsilon_0 > 0$ będzie taki, że $B(f(x), \varepsilon_0) \subset V$. Niech $\varepsilon < \varepsilon_0$. Z lematu \ref{lem:ball-homeomorphism} istnieje homeomorfizm $g: B(f(x), \varepsilon) \to Y$, bo kula $B(0, \varepsilon)$ w przestrzeni liniowo-metrycznej jest homeomorficzna z kulą $B(f(x), \varepsilon)$. Niech $f_0$ będzie homeomorfizmem powstałym z zawężenia $f$ w obrazie do $B(f(x), \varepsilon)$ i dziedzinie do $G_\varepsilon := f^{-1}(B(f(x), \varepsilon))$. Wówczas $f_0 \circ g$ jest homeomorfizmem między $G_\varepsilon$ a $Y$.
     
-    Skoro $\{B(f(x), \varepsilon)\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $f(x)$, to $\{G_\varepsilon\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punktcie $x$.
+    Skoro $\{B(f(x), \varepsilon)\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $f(x)$, to $\{G_\varepsilon\}_{0 < \varepsilon < \varepsilon_0}$ jest bazą w punkcie $x$.
   \end{proof}
 \end{lem}
 
@@ -106,7 +106,7 @@
     Z twierdzenia \ref{thm:stone} weźmy pokrycie $(W_{c,n})_{c \in C_n, n \in \Ni}$ przestrzeni $M$ wpisane w $(V_t)_{t \in T}$ takie, że dla dowolnego $n \in \Ni$ rodzina $(W_{c,n})_{c \in C_n}$ jest dyskretna.
     
     Skoro $(W_{c,n})_{c \in C_n}$ jest pokryciem dyskretnym, to $\card C_n \leq \wght M = \wght Y = \card A$.
-    Zatem możemy pewien pozbiór rodziny $\mathcal B$ ponumerować elementami zbioru $C_n$, mianowicie $\mathcal B \supset \mathcal B_n := (B_{c,n})_{c \in C_n}$.
+    Zatem możemy pewien podzbiór rodziny $\mathcal B$ ponumerować elementami zbioru $C_n$, mianowicie $\mathcal B \supset \mathcal B_n := (B_{c,n})_{c \in C_n}$.
     
     Określamy $\delta(c,n)$ jako dowolny element $T$ taki, że $W_{c,n} \subset V_{\delta(c,n)}$. Z lematu \ref{lem:ball-homeomorphism} i niezmienniczości metryki weźmy $h_{c,n}: Y \to B_{c,n}$ homeomorfizm. Wówczas $g_{c,n} := h_{c,n} \circ g_{\delta(c,n)}|_{W_{c,n}}$ jest homeomorfizmem na obraz, który jest otwarty w $B_{c,n}$ a więc i w $Y$, zatem $g_{c,n}$ jest mapą.
     

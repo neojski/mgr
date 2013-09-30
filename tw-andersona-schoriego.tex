@@ -49,7 +49,7 @@
       \lambda := \max(\lambda_0, \mu) \\
       \rho := \max(\rho_0, \mu)
     \end{gather*}
-    Z własości funkcji sterujących wiemy, że $\lambda$ i $\rho$ są również funkcjami sterującymi.
+    Z własności funkcji sterujących wiemy, że $\lambda$ i $\rho$ są również funkcjami sterującymi.
     
     Wykażemy, że spełnione są postulowane warunki:
     \begin{align*}
@@ -137,7 +137,7 @@
       & \leq d(fz, B)
     \end{align*}
     
-    Z powyższej nierówności wnioskujemy, że $fz \in L$. Ale wówczas z \eqref{rho-eq-lambda} otrzymujemy $\lambda(fz) = \rho(fz)$. Ale wówczas otrzymujemy:
+    Z powyższej nierówności wnioskujemy, że $fz \in L$. Ale wówczas z \eqref{rho-eq-lambda} otrzymujemy $\lambda(fz) = \rho(fz)$. Zatem:
     \[hz = g^{-1}fz = f^{-1}_{\lambda(fz)}(fz) = f^{-1}_{\rho(fz)}(f_{\rho(fz)}(z)) = z\]
   \end{proof}
 
@@ -179,13 +179,13 @@
     \[
       g'' := \id: ((M\setminus C')\times Y)_{A_1\setminus C'} \to ((M\setminus C')\times Y)_{A_1\setminus C'}.
     \]
-    Znowu ze względu na lemat \ref{lem:reduced-product-subspace} przsetrzeń $((M\setminus C')\times Y)_{A_1\setminus C'}$ traktujemy jako podzbiór w przestrzeni $(M\times Y)_{A_1}$ w dziedzinie oraz jako podzbiór przestrzeni $(M\times Y)_{A_1\cup A_2}$ w obrazie. Co więcej, jest on podzbiorem otwartym każdej z tych przestrzeni.
+    Znowu ze względu na lemat \ref{lem:reduced-product-subspace} przestrzeń $((M\setminus C')\times Y)_{A_1\setminus C'}$ traktujemy jako podzbiór w przestrzeni $(M\times Y)_{A_1}$ w dziedzinie oraz jako podzbiór przestrzeni $(M\times Y)_{A_1\cup A_2}$ w obrazie. Co więcej, jest on podzbiorem otwartym każdej z tych przestrzeni.
     
     Zauważmy, że $g'$ i $g''$ można skleić do homeomorfizmu $g$, ponieważ na zbiorze otwartym $\dom g'\cap \dom g'' = ((U\setminus C')\times Y)_{A_1 \cap (U\setminus C')}$ odwzorowanie $g'$ jest idetycznościowe. Istotnie, weźmy takie $z$. Wówczas $F_1(z) \in ((V\setminus C) \times Y)_{A}$, a więc $h$ działa na ten punkt identycznościowo. Ale $F_1(z) = F_2(z)$, więc $F_2^{-1} h F_1(z) = F_2^{-1}(F_1(z)) = z$. Co więcej, natychmiast widać, że $g$ jest bijekcją.
     
     Zatem funkcje $g'$ i $g''$ kleją się do homeomorfizmu $g$.
     
-    Żądaną właśność $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$ należy jeszcze sprawdzić nad $A_1\cap U$. Ale $A_1\cap U$ zostaje przekształcone przez $F_1$ nad $A$, na którym znowu identycznościowo działa $h$. $F_2$ działa nad $A_1 \cap U$ tak samo jak $F_1$, więc $h(z) = F_2^{-1}hF_1(z) = z$ także nad $A_1$.
+    Żądaną własność $g(z) = z\ \forall pz \in (M\setminus U) \cup A_1$ należy jeszcze sprawdzić nad $A_1\cap U$. Ale $A_1\cap U$ zostaje przekształcone przez $F_1$ nad $A$, na którym znowu identycznościowo działa $h$. $F_2$ działa nad $A_1 \cap U$ tak samo jak $F_1$, więc $h(z) = F_2^{-1}hF_1(z) = z$ także nad $A_1$.
   \end{proof}
 \end{lem}
 

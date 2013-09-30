@@ -11,7 +11,7 @@
   \]
   który jest również bazą.
   \begin{proof}
-    Niech $\mathcal D$ będzie bazą $M$ o mocy równej $\wght M$. Niech $D_0 \in \mathcal D$. Wówczas istnieje $\mathcal B_{D_0} \subset \mathcal B$, który sumuje się do $D_0$, tzn. $\bigcup \mathcal B_{D_0} = D_0$. Niech $B \in \mathcal B_{D_0}$. Ten zbiór, z kolei, sumuje się z pewnej podrodziny $\mathcal D_B$ bazy $\mathcal D$. Ale $\card\mathcal D = \wght M$, więc dla $\mathcal D_0 := \{D\ |\ D \in \mathcal D_B, B \in \mathcal B_{D_0}\}$ mamy $\card\mathcal D_0 \leq \wght M$. Dla każdego $D \in \mathcal D_0$ oznaczmy poprzez $B_D$ dowolny nadziór $D$ wpadający w $\mathcal B_{D_0}$. Wówczas $\mathcal G_{D_0} := \{B_D\ |\ D \in \mathcal D_0\}$ jest podzbiorem $\mathcal B$ mocy nie większej niż $\wght M$, który sumuje się do $D_0$.
+    Niech $\mathcal D$ będzie bazą $M$ o mocy równej $\wght M$. Niech $D_0 \in \mathcal D$. Wówczas istnieje $\mathcal B_{D_0} \subset \mathcal B$, który sumuje się do $D_0$, tzn. $\bigcup \mathcal B_{D_0} = D_0$. Niech $B \in \mathcal B_{D_0}$. Ten zbiór, z kolei, sumuje się z pewnej podrodziny $\mathcal D_B$ bazy $\mathcal D$. Ale $\card\mathcal D = \wght M$, więc dla $\mathcal D_0 := \{D\ |\ D \in \mathcal D_B, B \in \mathcal B_{D_0}\}$ mamy $\card\mathcal D_0 \leq \wght M$. Dla każdego $D \in \mathcal D_0$ oznaczmy poprzez $B_D$ dowolny nadzbiór $D$ wpadający w $\mathcal B_{D_0}$. Wówczas $\mathcal G_{D_0} := \{B_D\ |\ D \in \mathcal D_0\}$ jest podzbiorem $\mathcal B$ mocy nie większej niż $\wght M$, który sumuje się do $D_0$.
     
     Niech
     \[
@@ -39,7 +39,7 @@
 \end{df}
  
 \begin{df}
-  Niech $M$ będzie przestrzenią toplogiczną, a $\mathcal B$ ustaloną rodziną podzbiorów $M$. Powiemy, że przestrzeń $M$ jest $\mathcal B$-łańcuchowo spójna, jeśli każde dwa punkty $x,y \in M$ można połączyć łańcuchem $(U_0, \ldots, U_n)$ w $\mathcal B$, tj. $x \in U_0$ i $y \in U_n$, a $U_i \in \mathcal B\ \forall i \in n+1$.
+  Niech $M$ będzie przestrzenią topologiczną, a $\mathcal B$ ustaloną rodziną podzbiorów $M$. Powiemy, że przestrzeń $M$ jest $\mathcal B$-łańcuchowo spójna, jeśli każde dwa punkty $x,y \in M$ można połączyć łańcuchem $(U_0, \ldots, U_n)$ w $\mathcal B$, tj. $x \in U_0$ i $y \in U_n$, a $U_i \in \mathcal B\ \forall i \in n+1$.
 \end{df}
  
 \begin{lem} \label{lem:chain-connected}
@@ -61,14 +61,14 @@
     \end{figure}
     
     Niech $m \in M\setminus A$.
-    Weźmy otoczenie $U\in\mathcal B$ punktu $m$. Niech $m'\in U$ i przypuścmy, że $m'\in A$. Zatem istnieje łańcuch $(U_0, \ldots, U_n)$ łączący $m_0$ i $m'$. Ale wtedy $(U_0, \ldots, U_n, U)$ jest łańcuchem łączącym $m_0$ z $m$, czyli $m\in A$, sprzeczność. Zatem $m'\in M\setminus A$.
+    Weźmy otoczenie $U\in\mathcal B$ punktu $m$. Niech $m'\in U$ i przypuśćmy, że $m'\in A$. Zatem istnieje łańcuch $(U_0, \ldots, U_n)$ łączący $m_0$ i $m'$. Ale wtedy $(U_0, \ldots, U_n, U)$ jest łańcuchem łączącym $m_0$ z $m$, czyli $m\in A$, sprzeczność. Zatem $m'\in M\setminus A$.
     
     $A$ jest więc niepustym, bo $m_0 \in A$, zbiorem otwarto-domkniętym. Ze spójności $M$ mamy $A = M$, a więc $M$ jest łańcuchowo spójne.
   \end{proof}
 \end{lem}
  
 \begin{df}
-  Niech $Y$ będzie przestrzenią toplogiczną. Rozmaitością topologiczną modelowaną na $Y$ nazwiemy przestrzeń topologiczną parazwartą $M$ taką, że każdy punkt ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$.
+  Niech $Y$ będzie przestrzenią topologiczną. Rozmaitością topologiczną modelowaną na $Y$ nazwiemy przestrzeń topologiczną parazwartą $M$ taką, że każdy punkt ma otoczenie homeomorficzne ze zbiorem otwartym w $Y$.
 \end{df}
  
 \begin{df}
@@ -91,7 +91,7 @@
 \end{thm}
  
 \begin{cor}
-  Niech $Y$ będzie przestrzeią metryczną. Wówczas założenie parazwartości rozmaitości $M$ modelowanej na $Y$ jest równoważne założeniu metryzowalności.
+  Niech $Y$ będzie przestrzenią metryczną. Wówczas założenie parazwartości rozmaitości $M$ modelowanej na $Y$ jest równoważne założeniu metryzowalności.
   \begin{proof}
     Z faktu \ref{fact:local-metrizability} mamy, że parazwartość rozmaitości daje jej metryzowalność. Z twierdzenia \ref{thm:stone} wynika, że metryzowalność daje parazwartość.
   \end{proof}
@@ -119,7 +119,7 @@
 \end{lem}
  
 \begin{df}
-  Powiemy, że rodzina $(U_n)_{n\in\Ni}$ jest uporządkowana w sposób łancuchowo skończony, jeśli nie istnieje nieskończony łańcuch elementów tej rodziny indeksowany silnie rosnącym ciągiem, tzn. nie istnieje $(i_n)_{n\in\Ni}$:
+  Powiemy, że rodzina $(U_n)_{n\in\Ni}$ jest uporządkowana w sposób łańcuchowo skończony, jeśli nie istnieje nieskończony łańcuch elementów tej rodziny indeksowany silnie rosnącym ciągiem, tzn. nie istnieje $(i_n)_{n\in\Ni}$:
   \[
     i_n < i_{n+1} \wedge U_{i_n} \cap U_{i_{n+1}} \neq \emptyset\ \forall n\in\Ni
   \]
